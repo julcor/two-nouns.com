@@ -1,16 +1,72 @@
-<!DOCTYPE html>
-<html> 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Music for dogs</title>
-    <link rel="icon" type="image/png" href="images/icon.png"/>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <img src="assets/correa_science_exp_photo_1.png">
-  </body>
-</html>
+body {
+  background-image: url("assets/correa_science_exp_photo_16.png");
+  background-size: 80px;
+}
+
+#comp {
+  margin-left: 25vw;
+  width: 50vw;
+/*  margin-bottom: 25vh;*/
+}
+
+#j-face {
+  position: relative;
+  left:  15vw;
+  width: 35vw;
+  bottom:  -10vh;
+}
+
+#j-face-2 {
+  position: relative;
+  width: 20vw;
+  left:  -28vw;
+  bottom:  -20vh;
+}
+
+#kris {
+  width:  20vw;
+  position:  absolute;
+  margin-top: 25vh;
+}
+
+#abuelita {
+  width:  42vw;
+  position:  absolute;
+}
+
+#clos {
+  position: absolute;
+  width:  35vw;
+  margin-left: -15vw;
+  margin-top: -10vh;
+}
+
+#plaid {
+  position: relative;
+  width: 33vw;
+  margin-top: -30vh;
+  margin-left: 75vw;
+}
+
+#hands {
+  position: relative;
+  top: -10vh;
+}
+
+#flowers {
+  width: 35vw;
+  position: absolute;
+  left: 70vw;
+  top: 98vh;
+}
+
+#books {
+  width: 15vw;
+  position: relative;
+  left: -5vw;
+  top: -8vh;
+}
+
 
     
     
