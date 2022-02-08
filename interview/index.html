@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Music for dogs</title>
+    <link rel="icon" type="image/png" href="images/icon.png"/>
+    <style>
+      :root {
+        /* declaring all my variables here */
+        --mfd-blue: #4346FF;
+        --mfd-orange: #FF7757;
+        /*--bg-color: #F3FFA6;*/
+
+      }
+      @font-face {
+        font-family: "Gothball";
+        src: url("fonts/GothBallCrap.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Romana";
+        src: url("fonts/Romana_BT.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Pixel";
+        src: url("fonts/neue-pixel-grotesk-2.ttf") format("truetype");
+      }
+      span#pixel {
+       font-family: "Pixel";
+       font-size: 2.1rem;
+       color: var(--mfd-orange);
+       /*font-style: underline;*/
+        border: 1px dotted blue;
+        padding:  10px;
+
+      }
+      .question {
+        font-size: 2rem;
+        font-family: "Gothball";
+      }
+      .response {
+        color: var(--mfd-blue);
+        font-size:60px; 
+        line-height: 1.05; 
+        font-family:'Romana'; 
+        letter-spacing: -1px;"
+      }
+      body {
+        background-color: var(--bg-color);
+      }
+      audio {
+        width: 100%;
+      }
+      .speedcontrolcontainer input[type=range] {
+        width:  100%
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 100px;
+        box-shadow: 1px 1px 1px #000000;
+        background: var(--mfd-orange);
+      }
+      body {
+        margin:  16px;
+      }
+
+/*      audio::-webkit-media-controls-enclosure {
+        height: 2000000px;
+        color:  purple;
+      }
+
+      audio::-webkit-media-controls-panel {
+        height: 2000px;
+        background-color: purple;
+        color: purple;
+      }*/
+
+
+    </style>
+      
+
+  </head>
+  <body>
+  <!--   <h1>In<span id="pixel">ter</span>view</h1> -->
+  <br>
+   <details open="true">
+          <summary class="question">how did <span id="pixel"><u>music for dogs</u></span> form?</div></summary>
+          <div class="response">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </details>
+    <br>
+    <br>
+    <br>
+   <details open="true">
+          <summary class="question">how do you work on music together while living in different cities?</div></summary>
+          <div class="response">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </details>
+    <br>
+    <br>
+    <br>
+<!--     <details open="true">
+          <summary class="question">a  voice memo that informed or was included in a track on "spoor" or "music for dogs?</div></summary>
+          <div class="response">
+            <audio controls>
+              <source src="assets/man singing on train (A).mp3" type="audio/mpeg">
+            </audio>
+    </details> -->
+    <details open="true">
+          <summary class="question">a  voice memo that informed or was included in a track on "spoor" or "music for dogs?</div></summary>
+          <br>
+    <div class="speedcontrolcontainer">
+      <audio src="assets/man singing on train (A).mp3" controls></audio>
+      <div>
+        <input type="range" id="pbrate" min=.10 max=3 value=1 step=.1>
+        <label for="pbrate">Speed:</label>
+        <span></span>
+      </div>
+    </div>
+  </details>
+
+    <br>
+    <br>
+    <br>
+      <details open="true">
+          <summary class="question">how do you your image and sound making practices relate and inform each other?</div></summary>
+          <div class="response">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </details>
+    <br>
+    <br>
+    <br>
+  </body>
+
+  <script type="text/javascript">
+      // let d = new Date();
+      // alert("Today's date is " + d);
+      const audio = document.querySelector('.speedcontrolcontainer  audio');
+      const playbackrate = document.querySelector('.speedcontrolcontainer input');
+      const display = document.querySelector('.speedcontrolcontainer span');
+      const displayvalue = val => {
+        return parseInt(val * 100, 10) + '%'
+      }
+      if (window.localStorage.pbspeed) {
+        audio.playbackRate = window.localStorage.pbspeed;
+        playbackrate.value = window.localStorage.pbspeed;
+      }
+      display.innerText = displayvalue(audio.playbackRate);
+      playbackrate.addEventListener('change', e => {
+        audio.playbackRate = playbackrate.value;
+        display.innerText = displayvalue(playbackrate.value);
+        window.localStorage.pbspeed = playbackrate.value;
+      });
+      // this code used this as a reference: https://christianheilmann.com/2020/12/28/back-to-basics-adding-a-playback-speed-control-to-an-audio-player/
+    </script>
+</html>
+
+    
+    
+    
+
+
+      
