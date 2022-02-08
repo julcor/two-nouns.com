@@ -51,6 +51,7 @@ body {
 #hands {
   position: relative;
   top: -10vh;
+  max-width: 90vw;
 }
 
 #flowers {
