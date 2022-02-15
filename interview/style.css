@@ -20,6 +20,19 @@
   src: url("fonts/neue-pixel-grotesk-2.ttf") format("truetype");
 }
 
+header {
+  padding-top: 0px;
+  width: 100%;
+}
+
+header #header-left {
+  float: right;
+}
+
+.metadata {
+  font-family: monospace;
+}
+
 body {
   margin:  16px;
 }
@@ -60,17 +73,29 @@ body {
 }
 audio {
   transform: skewX(-45deg);
-  width: 100%;
+  width: 99%;
 }
 
 img {
-  position: absolute;
-  right:  0px;
-  z-index: -1;
+  height: 4.5vh;
+  width:  auto;
+  position: relative;
+  top:  5px;
+  transition-property: width, height;
+  transition-duration: 4s;
+  transition-timing-function: ease-out;
+  /*transition: width 10s;*/
 }
 
 img:hover {
-  z-index: 1;
+  width: 100%;
+  height:  auto;
+/*  z-index: 1;
+*/}
+
+img:active {
+  width: 100%;
+  height:  auto;
 }
 
 /* styling for input range slider from: https://www.cssportal.com/style-input-range/ */
