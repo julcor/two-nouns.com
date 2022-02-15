@@ -1,0 +1,122 @@
+:root {
+  /* declaring all my variables here */
+  --mfd-blue: #4346FF;
+  --mfd-orange: #FF7757;
+  --mfd-white: #FEFEFE;
+  --mfd-black: #000000;
+  /*--bg-color: #F3FFA6;*/
+
+}
+@font-face {
+  font-family: "Gothball";
+  src: url("fonts/GothBallCrap.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Romana";
+  src: url("fonts/Romana_BT.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Pixel";
+  src: url("fonts/neue-pixel-grotesk-2.ttf") format("truetype");
+}
+
+body {
+  margin:  16px;
+}
+
+span#pixel {
+ font-family: "Pixel";
+ font-size: 2.1rem;
+ color: var(--mfd-orange);
+ /*font-style: underline;*/
+  border: 1px dotted blue;
+  padding:  10px;
+}
+
+/* funky italic */
+span.it {
+  display: inline-block;
+  -webkit-transform: skewX(-45deg);
+  transform: skewX(-45deg);
+}
+
+.question {
+  font-size: 2rem;
+  font-family: "Gothball";
+  color: var(--mfd-black);
+}
+
+.response {
+  color: var(--mfd-blue);
+  /*font-size:60px; */
+  font-size: 4.75vh;
+  line-height: 1.05; 
+  font-family:'Romana'; 
+  letter-spacing: -1px;"
+}
+
+body {
+  background-color: var(--bg-color);
+}
+audio {
+  transform: skewX(-45deg);
+  width: 100%;
+}
+
+img {
+  position: absolute;
+  right:  0px;
+  z-index: -1;
+}
+
+img:hover {
+  z-index: 1;
+}
+
+/* styling for input range slider from: https://www.cssportal.com/style-input-range/ */
+input[type=range] {
+  height: 58px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+  transform: skewX(15deg);
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 2px var(--mfd-black);
+  background: var(--mfd-orange);
+  border-radius: 50px;
+  border: 0px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px var(--mfd-black);
+  border: 1px solid var(--mfd-black);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background: var(--mfd-white);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -10.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--mfd-orange);
+}
+/*end of input slider styling*/
+
+/*      audio::-webkit-media-controls-enclosure {
+  height: 2000000px;
+  color:  purple;
+}
+
+audio::-webkit-media-controls-panel {
+  height: 2000px;
+  background-color: purple;
+  color: purple;
+}*/
