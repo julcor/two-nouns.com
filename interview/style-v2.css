@@ -20,12 +20,6 @@
   src: url("fonts/neue-pixel-grotesk-2.ttf") format("truetype");
 }
 
-article {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 2rem;
-}
-
 header {
   padding-top: 0px;
   width: 100%;
@@ -67,36 +61,30 @@ span.it {
   transform: skewX(-45deg);
 }
 
-.last {
-  padding-bottom: 15vh;
-}
-
 .question {
   font-size: 2rem;
   font-family: "Gothball";
   color: var(--mfd-black);
-  grid-column: 2 / 5;
 }
 
 .response {
-  grid-column: 2 / 7;
   color: var(--mfd-blue);
   /*font-size:60px; */
-  font-size: 7vh;
+  font-size: 7.5vh;
   line-height: 1.05; 
   font-family:'Romana'; 
   letter-spacing: -1px;"
 }
 
 .name {
-  grid-column: 1 / 2;
+  position: relative;
+  top:  -15px;
   color: var(--mfd-orange);
   font-family: "Pixel";
-  font-size: 6.5vh;
+  letter-spacing: 2px;
+  font-size: 20px;
   text-transform: uppercase;
-  transform: scale(0.666,1);
-  position: relative;
-  top: 8px;
+  padding-right: 12px;
 }
 
 body {
@@ -111,13 +99,6 @@ br{
   height:  20px;
 }
 
-/*.sticky {
-position: sticky;
-position: -webkit-sticky;
-top: 0px;
-}*/
-
-
 img {
   height: 7.5vh;
   width:  auto;
@@ -127,7 +108,7 @@ img {
   transition-duration: .25s;*/
 /*  transition-timing-function: ease-out; */  
 }
-/*
+
 img:hover {
   height:  70vh;
 /*  z-index: 1;
@@ -136,7 +117,7 @@ img:hover {
 img:active {
   width: 70%;
   height:  auto;
-}*/
+}
 
 /* styling for input range slider from: https://www.cssportal.com/style-input-range/ */
 input[type=range] {
