@@ -49,7 +49,7 @@
             Little voice memo Cashin took from when we were making the first album. This track didn't make the final cut but it fits with the feel of the project. 
             <br><br>
             <div class="speedcontrolcontainer">
-              <audio id="speedVar" src="assets/With_GIANNI_(1).mp3" controls></audio>
+              <audio id="speedVar" src="assets/With_GIANNI_(1).mp3" type="audio/mpeg" controls></audio>
                 <input type="range" id="pbrate" min=.10 max=3 value=1 step=.1><br>
                 <label class="metadata" for="pbrate">SPEED:</label>
                 <span class="metadata"></span>
@@ -73,7 +73,7 @@
             what are some visual things that inspired tracks on on <span class="it">spoor</span> or <span class="it">music for dogs</span>?
           </div>
           <span class="name">G</span> 
-          <div class="response-images" class="last">
+          <div class="response-images last">
             <img class="response-image" src="assets/5-green-dog.JPG">
             <img class="response-image" src="assets/5-dog-drawing.png">
             <img class="response-image" src="assets/5-dog-dancing-happy.gif">
@@ -127,12 +127,16 @@
             <img class="response-image" src="assets/8C-1.jpg">
             <img class="response-image" src="assets/8C-3.png">
             <img class="response-image" src="assets/8C-Screen_Shot_2021-11-09_at_7.32.04_PM.png">
-            <audio id="audio-shower" src="assets/8C-Shower_drone_2_(1).mp3" controls></audio>
+            <audio controls src="assets/8C-Shower_drone_2_(1).mp3" type="audio/mpeg">
+            <!-- <audio controls id="audio-shower">
+              <source src="assets/8C-Shower_drone_2_(1).mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio> -->
             <img class="response-image" src="assets/8C-2.png">
           </div>
           <span class="name">G</span>
           <div class="response-images last">
-            <video class="response-image" controls>
+            <video controls class="response-image">
               <source src="assets/8G-wm-rainyday.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -152,7 +156,7 @@
             <br>
             Images weaved into the text were provided by Music for  Dogs as "textures that they enjoy"<br>
             <br>
-            <span id="credit">Interview and website by <a href="http://www.juliocorrea.com/">Julio Correa Estrada. </a> </span><br>
+            <!-- <span id="credit"> -->Interview and website by <a href="http://www.juliocorrea.com/">Julio Correa Estrada </a> <br><!-- </span> -->
           </footer>
     </article>
   <!--
