@@ -17,7 +17,9 @@ var ovalOsc = context.createOscillator();
 var circleOsc = context.createOscillator();
 var stairsOsc = context.createOscillator();
 
-var biquadFilter = context.createBiquadFilter();
+var ovalBQFil = context.createBiquadFilter();
+var circleBQFil = context.createBiquadFilter();
+var stairsBQFil = context.createBiquadFilter();
 
 
 function startup() {
@@ -43,11 +45,6 @@ function startup() {
   masterVolume.connect(context.destination);
   masterVolume.gain.value = .6;
 
-  ovalOsc.type = 'sine';
-  ovalOsc.frequency.setValueAtTime(220, context.currentTime);
-  ovalOsc.connect(masterVolume);
-
-
   console.log('Initialized.');
 }
 
@@ -62,11 +59,11 @@ function handleStart(evt) {
     ovalOsc.type = 'sine';
     ovalOsc.frequency.setValueAtTime(220, context.currentTime);
 
-    biquadFilter = context.createBiquadFilter();
-    biquadFilter.type = "lowshelf";
+    ovalBQFil = context.createBiquadFilter();
+    ovalBQFil.type = "lowshelf";
 
-    ovalOsc.connect(biquadFilter);
-    biquadFilter.connect(masterVolume);
+    ovalOsc.connect(ovalBQFil);
+    ovalBQFil.connect(masterVolume);
     ovalOsc.start(0);
     break;
   case "circle":
@@ -74,11 +71,11 @@ function handleStart(evt) {
     circleOsc.type = 'sine';
     circleOsc.frequency.setValueAtTime(120, context.currentTime);
 
-    biquadFilter = context.createBiquadFilter();
-    biquadFilter.type = "highpass";
+    circleBQFil = context.createBiquadFilter();
+    circleBQFil.type = "highpass";
 
-    circleOsc.connect(biquadFilter);
-    biquadFilter.connect(masterVolume);
+    circleOsc.connect(circleBQFil);
+    circleBQFil.connect(masterVolume);
 
     circleOsc.connect(masterVolume);
     circleOsc.start(0);
@@ -88,11 +85,11 @@ function handleStart(evt) {
     stairsOsc.type = 'triangle';
     stairsOsc.frequency.setValueAtTime(220, context.currentTime);
 
-    biquadFilter = context.createBiquadFilter();
-    biquadFilter.type = "lowpass";
+    stairsBQFil = context.createBiquadFilter();
+    stairsBQFil.type = "lowpass";
 
-    stairsOsc.connect(biquadFilter);
-    biquadFilter.connect(masterVolume);
+    stairsOsc.connect(stairsBQFil);
+    stairsBQFil.connect(masterVolume);
 
     stairsOsc.connect(masterVolume);
     stairsOsc.start(0);
@@ -107,12 +104,18 @@ function handleEnd(evt) {
   switch(evt.currentTarget.id) {
   case "oval":
     ovalOsc.stop(0);
+    ovalOsc.disconnect(0);
+    ovalBQFil.disconnect(0);
     break;
   case "circle":
     circleOsc.stop(0);
+    circleOsc.disconnect(0);
+    circleBQFil.disconnect(0);
     break;
   case "stairs":
     stairsOsc.stop(0);
+    stairsOsc.disconnect(0);
+    stairsBQFil.disconnect(0);
     break;
   }
   console.log('touchend.');
@@ -153,47 +156,43 @@ function handleCancel(evt) {
   //   ctx.fill();
   // }
 
-
-
-
-function handleCancel(evt) {
-}
-
 function handleMove(evt) {
   const touch = evt.changedTouches[0];
   var xShift = map_range(touch.pageX, 0, 400, 7, -7);
   var yShift = map_range(touch.pageY, 0, 800, 7, -7);
   console.log("x shift: " + xShift + "y shift: " + yShift);
-
   
   switch(evt.currentTarget.id) {
   case "oval":
-    biquadFilter.frequency.setValueAtTime(touch.pageX, context.currentTime);
-    biquadFilter.gain.setValueAtTime(5, context.currentTime);
-    biquadFilter.Q.setValueAtTime(touch.pageY, context.currentTime);
-    var oval = document.getElementById("oval");
-    oval.style.transform = "perspective(100px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
+    if (inShape("oval", touch)) {
+      ovalBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
+      ovalBQFil.gain.setValueAtTime(5, context.currentTime);
+      ovalBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
+      var oval = document.getElementById("oval");
+      oval.style.transform = "perspective(600px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
+    }
     break;
   case "circle":
-    biquadFilter.frequency.setValueAtTime(touch.pageX, context.currentTime);
-    biquadFilter.gain.setValueAtTime(5, context.currentTime);
-    biquadFilter.Q.setValueAtTime(touch.pageY, context.currentTime);
+    circleBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
+    circleBQFil.gain.setValueAtTime(5, context.currentTime);
+    circleBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
     var circle = document.getElementById("circle");
-    circle.style.transform = "perspective(100px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
+    circle.style.transform = "perspective(600px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
     break;
   case "stairs":
-    biquadFilter.frequency.setValueAtTime(touch.pageX, context.currentTime);
-    biquadFilter.gain.setValueAtTime(5, context.currentTime);
-    biquadFilter.Q.setValueAtTime(touch.pageY, context.currentTime);
+    stairsBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
+    stairsBQFil.gain.setValueAtTime(5, context.currentTime);
+    stairsBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
     var stairs = document.getElementById("stairs");
-    stairs.style.transform = "perspective(100px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
+    stairs.style.transform = "perspective(600px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
     break;
   }
   console.log("x: " + touch.pageX);
   console.log("y: " + touch.pageY);
+}
 
-
-
+function inShape (shape, touch) {
+  return true;
 }
 
 
