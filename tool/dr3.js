@@ -89,9 +89,9 @@ function handleMotion(evt) {
 
 function handleOrientation(evt) { 
    // Expose each orientation angle in a more readable way
-  rotation_degrees = evt.alpha;
-  frontToBack_degrees = evt.beta;
-  leftToRight_degrees = evt.gamma;
+  var rotation_degrees = evt.alpha;
+  var frontToBack_degrees = evt.beta;
+  var leftToRight_degrees = evt.gamma;
   
   // Update velocity according to how tilted the phone is
   // Since phones are narrower than they are long, double the increase to the x velocity
@@ -111,7 +111,7 @@ function handleOrientation(evt) {
       vy = 0;
   }
   
-  dot = document.getElementsByClassName("indicator");
+  var dot = document.getElementsByIdName("indicator");
   dot.setAttribute('style', "left:" + (px) + "%;" +
                                 "top:" + (py) + "%;");
 }
