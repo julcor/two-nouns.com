@@ -87,11 +87,11 @@ function handleMotion(evt) {
 
 }
 
-function handleOrientation(event) { 
+function handleOrientation(evt) { 
    // Expose each orientation angle in a more readable way
-  rotation_degrees = event.alpha;
-  frontToBack_degrees = event.beta;
-  leftToRight_degrees = event.gamma;
+  rotation_degrees = evt.alpha;
+  frontToBack_degrees = evt.beta;
+  leftToRight_degrees = evt.gamma;
   
   // Update velocity according to how tilted the phone is
   // Since phones are narrower than they are long, double the increase to the x velocity
