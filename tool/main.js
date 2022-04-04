@@ -1,11 +1,31 @@
-// window.onload = function() {
+const notes = {
+    "C3":  130.81,  
+    "Db3":  138.59,  
+    "D3":  146.83,  
+    "Eb3":  155.56, 
+    "E3":  164.81, 
+    "F3":  174.61,  
+    "Gb3":  185.00,  
+    "G3":  196.00, 
+    "Ab3":  207.65,
+    "A3":  220.00,  
+    "Bb3":  233.08, 
+    "B3":  246.94,
+    "C4": 261.63,
+    "Db4": 277.18,
+    "D4": 293.66,
+    "Eb4": 311.13,
+    "E4": 329.63,
+    "F4": 349.23,
+    "Gb4": 369.99,
+    "G4": 392.00,
+    "Ab4": 415.30,
+    "A4": 440,
+    "Bb4": 466.16,
+    "B4": 493.88,
+    "C5": 523.25
+}
 
-// };
-  // $("#oval").on({ 'touchstart' : function(){
-  //   $("#oval").css("fill", "blue");
-  //   console.log("touched!");
-  //   // if you touch one of the adjective divs then
-  // }});
 
 const ongoingTouches = [];
 var AudioContext = window.AudioContext ||
@@ -25,9 +45,9 @@ var ovalGNode = context.createGain();
 var circleGNode = context.createGain();
 var stairsGNode = context.createGain();
 
-
-
-
+var oval_lfoGain = context.createGain();
+var oval_lfo = context.createOscillator();
+var vibratoSpeed = 0;
 
 function startup() {
   const el = document.getElementById('oval');
@@ -73,13 +93,24 @@ function handleStart(evt) {
     document.getElementById("oval").style.fill = "#FF9C40";
     ovalOsc = context.createOscillator();
     ovalOsc.type = 'sine';
-    ovalOsc.frequency.setValueAtTime(300, context.currentTime);
+    ovalOsc.frequency.setValueAtTime(notes["C4"], context.currentTime);
 
     ovalBQFil = context.createBiquadFilter();
     ovalBQFil.type = "lowshelf";
 
     ovalGNode = context.createGain();
-    ovalGNode.gain.value = .3;
+    ovalGNode.gain.value = .5;
+
+    oval_lfoGain.gain.setValueAtTime(4, 0);
+    oval_lfo = context.createOscillator();
+    oval_lfo.frequency.setValueAtTime(vibratoSpeed, 0);
+    oval_lfo.start(0);  
+    // oval_lfo.stop(context.currentTime + noteLength);
+    oval_lfoGain.connect(ovalOsc.frequency);
+    oval_lfo.connect(oval_lfoGain); 
+
+    // console.log("OVAL START!");
+    // console.log("lfo gain" + oval_lfoGain.gain());
 
     ovalOsc.connect(ovalBQFil);
     ovalBQFil.connect(ovalGNode);
@@ -90,7 +121,7 @@ function handleStart(evt) {
     document.getElementById("circle").style.fill = "white";
     circleOsc = context.createOscillator();
     circleOsc.type = 'sine';
-    circleOsc.frequency.setValueAtTime(120, context.currentTime);
+    circleOsc.frequency.setValueAtTime(notes["D4"], context.currentTime);
 
     circleBQFil = context.createBiquadFilter();
     circleBQFil.type = "highpass";
@@ -107,13 +138,13 @@ function handleStart(evt) {
     document.getElementById("stairs").style.fill = "#0081DF";
     stairsOsc = context.createOscillator();
     stairsOsc.type = 'triangle';
-    stairsOsc.frequency.setValueAtTime(220, context.currentTime);
+    stairsOsc.frequency.setValueAtTime(notes["G4"], context.currentTime);
 
     stairsBQFil = context.createBiquadFilter();
     stairsBQFil.type = "lowpass";
 
     stairsGNode = context.createGain();
-    stairsGNode.gain.value = .05;
+    stairsGNode.gain.value = .3;
 
     stairsOsc.connect(stairsBQFil);
     stairsBQFil.connect(stairsGNode);
@@ -124,95 +155,20 @@ function handleStart(evt) {
   console.log('touch start');
 }
 
-function handleEnd(evt) {
-  // ADD VOLUME RAMP HERE 
-
-  evt.preventDefault();
-  console.log("end" + evt.currentTarget.id);
-  switch(evt.currentTarget.id) {
-  case "oval":
-    ovalGNode.gain.setValueAtTime(ovalGNode.gain.value, context.currentTime); 
-    ovalGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
-  document.getElementById("oval").style.fill = "none";
-    var myTimeout = setTimeout(function() {
-      ovalOsc.stop(0);
-      ovalOsc.disconnect(0);
-      ovalBQFil.disconnect(0);
-    }, 10);
-    break;
-  case "circle":
-    circleGNode.gain.setValueAtTime(circleGNode.gain.value, context.currentTime); 
-    circleGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
-  document.getElementById("circle").style.fill = "none";
-    var myTimeout = setTimeout(function() {
-      circleOsc.stop(0);
-      circleOsc.disconnect(0);
-      circleBQFil.disconnect(0);
-    }, 10);
-    break;
-  case "stairs":
-    stairsGNode.gain.setValueAtTime(stairsGNode.gain.value, context.currentTime); 
-    stairsGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
-  document.getElementById("stairs").style.fill = "none";
-    var myTimeout = setTimeout(function() {
-      stairsOsc.stop(0);
-      stairsOsc.disconnect(0);
-      stairsBQFil.disconnect(0);
-    }, 10);
-    break;
-  }
-  console.log('touch end');
-}
-
-function handleCancel(evt) {
-  evt.preventDefault();
-  console.log("cancel" + evt.currentTarget.id);
-  switch(evt.currentTarget.id) {
-  case "oval":
-    ovalOsc.stop(0);
-    ovalOsc.disconnect(masterVolume);
-    break;
-  case "circle":
-    circleOsc.stop(0);
-    circleOsc.disconnect(masterVolume);
-    break;
-  case "stairs":
-    stairsOsc.stop(0);
-    stairsOsc.disconnect(masterVolume);
-    break;
-  }
-  console.log('touch canceled');
-}
-
-  // const el = document.getElementById('canvas');
-  // const ctx = el.getContext('2d');
-  // const touches = evt.changedTouches;
-
-  // for (let i = 0; i < touches.length; i++) {
-  //   log(`touchstart: ${i}.`);
-  //   ongoingTouches.push(copyTouch(touches[i]));
-  //   const color = colorForTouch(touches[i]);
-  //   log(`color of touch with id ${ touches[i].identifier } = ${ color }`);
-  //   ctx.beginPath();
-  //   ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
-  //   ctx.fillStyle = color;
-  //   ctx.fill();
-  // }
-
 function handleMove(evt) {
   const touch = evt.changedTouches[0];
   //this is meant to be inverted 
   // var xShift = map_range(touch.pageY, 0, 400, 7.5, -7.5);
   // var yShift = map_range(touch.pageX, 0, 700, -7.5, 7.5);
-  // console.log("x shift: " + xShift + "y shift: " + yShift);
- 
-  
+  // console.log("x shift: " + xShift + "y shift: " + yShift);  
   switch(evt.currentTarget.id) {
   case "oval":
     if (inShape("oval", touch)) {
       var xShift = map_range(touch.pageY, 0, 400, 7.5, -7.5);
       var yShift = map_range(touch.pageX, 0, 200, -7.5, 7.5);
-      ovalBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
+      vibratoSpeed = map_range(touch.pageY, 30, 400, 0, 30);
+      oval_lfo.frequency.setValueAtTime(vibratoSpeed, 0);
+      // ovalBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
       ovalBQFil.gain.setValueAtTime(5, context.currentTime);
       ovalBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
       var oval = document.getElementById("oval");
@@ -247,32 +203,67 @@ function inShape (shape, touch) {
   return true;
 }
 
+function handleEnd(evt) {
+  // ADD VOLUME RAMP HERE 
 
-function map_range(value, low1, high1, low2, high2) {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+  evt.preventDefault();
+  console.log("end" + evt.currentTarget.id);
+  switch(evt.currentTarget.id) {
+  case "oval":
+    ovalGNode.gain.setValueAtTime(ovalGNode.gain.value, context.currentTime); 
+    ovalGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+    document.getElementById("oval").style.fill = "none";
+    var myTimeout = setTimeout(function() {
+      ovalOsc.stop(0);
+      oval_lfo.stop(0);  
+      ovalOsc.disconnect(0);
+      ovalBQFil.disconnect(0);
+    }, 30);
+    break;
+  case "circle":
+    circleGNode.gain.setValueAtTime(circleGNode.gain.value, context.currentTime); 
+    circleGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+    document.getElementById("circle").style.fill = "none";
+    var myTimeout = setTimeout(function() {
+      circleOsc.stop(0);
+      circleOsc.disconnect(0);
+      circleBQFil.disconnect(0);
+    }, 30);
+    break;
+  case "stairs":
+    stairsGNode.gain.setValueAtTime(stairsGNode.gain.value, context.currentTime); 
+    stairsGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+    document.getElementById("stairs").style.fill = "none";
+    var myTimeout = setTimeout(function() {
+      stairsOsc.stop(0);
+      stairsOsc.disconnect(0);
+      stairsBQFil.disconnect(0);
+    }, 30);
+    break;
+  }
+  console.log('touch end');
 }
 
+function handleCancel(evt) {
+  evt.preventDefault();
+  console.log("cancel" + evt.currentTarget.id);
+  switch(evt.currentTarget.id) {
+  case "oval":
+    ovalOsc.stop(0);
+    ovalOsc.disconnect(masterVolume);
+    break;
+  case "circle":
+    circleOsc.stop(0);
+    circleOsc.disconnect(masterVolume);
+    break;
+  case "stairs":
+    stairsOsc.stop(0);
+    stairsOsc.disconnect(masterVolume);
+    break;
+  }
+  console.log('touch canceled');
+}
 
-  // function playSound(touchObject, shape) {
-  //   console.log("begin touch!");
-  //   $(shape).css("fill", "#FF9C40");
-  //   return;
-  //  }
-
-  // $("#oval").on({ 'touchstart' : playSound("hi", "#oval") });
-
-
-
-  //  $("#oval").on({'touchend' : function(){
-  //   $("#oval").css("fill", "#FF9C40");
-  //   console.log("end touched!");
-  //   // if you touch one of the adjective divs then
-  // }});
-
-
-
-  ///playSound function -> takes touch object 
-
-    //playSound for shape (break?)
-    //manipulate sound based on position 
-
+function map_range(value, low1, high1, low2, high2) {
+  return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
