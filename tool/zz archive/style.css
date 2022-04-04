@@ -1,0 +1,18 @@
+body {
+  100vw;
+  100vh;
+  overflow-y: hidden;
+  display: flex;
+}
+
+.col {
+  display: flex;
+  width:  33vw;
+  height:  98vh;
+  /*background-color: red;*/
+  flex-wrap: wrap;
+}
+
+.words {
+  width: 30vw;
+}

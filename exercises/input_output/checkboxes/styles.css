@@ -1,0 +1,24 @@
+.circle {
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  display: none;
+}
+
+.red {
+  background-color: red;
+  top: 25vw;
+  left: 25vw;
+}
+
+.green {
+  background-color: lime;
+  right: 12.5vw;
+}
+
+.blue {
+  background-color: blue;
+  left: 12.5vw;
+}

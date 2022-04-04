@@ -1,0 +1,28 @@
+html, body {
+  background-color: black;
+  max-height: 90%;
+  overflow-y: hidden;
+/*  touch-action: none;*/
+}
+
+#oval {
+  fill: #FF9C40;
+  position: absolute;
+  left:  5px;
+  top:  5px;
+  transform: perspective(100px) rotateY(2.8deg) rotateX(0.696196deg);
+}
+
+#circle {
+  fill: white;
+  position: absolute;
+  right:  5px;
+  top:  8px;
+}
+
+#stairs {
+  fill: #0081DF;
+  position: absolute;
+  left: 15px;
+  bottom:  5px;
+}
