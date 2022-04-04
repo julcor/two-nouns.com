@@ -1,0 +1,48 @@
+/*STYLE FOR DRONE 2 AKA HORSE*/
+
+html, body {
+  background-color: black;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+  touch-action: none;
+}
+
+#oval {
+  stroke: #FF9C40;
+  stroke-width: 5px;
+  /*fill: #FF9C40;*/
+  position: absolute;
+  left:  5px;
+  top:  5px;
+  z-index: 2;
+}
+
+#circle {
+  stroke: white;
+  stroke-width: 5px;
+  /*fill: white;*/
+  position: absolute;
+  right:  5px;
+  top:  8px;
+}
+
+#stairs {
+  stroke: #0081DF;
+  stroke-width: 5px;
+  /*fill: #0081DF;*/
+  position: absolute;
+  left: 15px;
+  bottom:  5px;
+  z-index: 0;
+}
+
+.fingerDot {
+  height: 45px;
+  width: 45px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: absolute;
+  z-index:  99;
+}

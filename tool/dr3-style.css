@@ -1,0 +1,30 @@
+/*STYLE FOR DRONE 2 AKA HORSE*/
+
+html, body {
+  background-color: black;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#block {
+  stroke: #37BC4C;
+  stroke-width: 5px;
+  left:  5px;
+  top:  5px;
+  z-index: 2;
+}
+
+#indicator {
+  position: fixed;
+  width: 40px;
+  height: 70px;
+  background-color: green;
+  z-index: 2;
+}
