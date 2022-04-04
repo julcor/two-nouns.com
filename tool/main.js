@@ -70,9 +70,10 @@ function handleStart(evt) {
   //use a key-dictionary thing to get from string to object 
   switch(evt.currentTarget.id) {
   case "oval":
+    document.getElementById("oval").style.fill = "#FF9C40";
     ovalOsc = context.createOscillator();
     ovalOsc.type = 'sine';
-    ovalOsc.frequency.setValueAtTime(220, context.currentTime);
+    ovalOsc.frequency.setValueAtTime(300, context.currentTime);
 
     ovalBQFil = context.createBiquadFilter();
     ovalBQFil.type = "lowshelf";
@@ -86,6 +87,7 @@ function handleStart(evt) {
     ovalOsc.start(0);
     break;
   case "circle":
+    document.getElementById("circle").style.fill = "white";
     circleOsc = context.createOscillator();
     circleOsc.type = 'sine';
     circleOsc.frequency.setValueAtTime(120, context.currentTime);
@@ -102,6 +104,7 @@ function handleStart(evt) {
     circleOsc.start(0);
     break;
   case "stairs":
+    document.getElementById("stairs").style.fill = "#0081DF";
     stairsOsc = context.createOscillator();
     stairsOsc.type = 'triangle';
     stairsOsc.frequency.setValueAtTime(220, context.currentTime);
@@ -110,7 +113,7 @@ function handleStart(evt) {
     stairsBQFil.type = "lowpass";
 
     stairsGNode = context.createGain();
-    stairsGNode.gain.value = .1;
+    stairsGNode.gain.value = .05;
 
     stairsOsc.connect(stairsBQFil);
     stairsBQFil.connect(stairsGNode);
@@ -130,6 +133,7 @@ function handleEnd(evt) {
   case "oval":
     ovalGNode.gain.setValueAtTime(ovalGNode.gain.value, context.currentTime); 
     ovalGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+  document.getElementById("oval").style.fill = "none";
     var myTimeout = setTimeout(function() {
       ovalOsc.stop(0);
       ovalOsc.disconnect(0);
@@ -139,6 +143,7 @@ function handleEnd(evt) {
   case "circle":
     circleGNode.gain.setValueAtTime(circleGNode.gain.value, context.currentTime); 
     circleGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+  document.getElementById("circle").style.fill = "none";
     var myTimeout = setTimeout(function() {
       circleOsc.stop(0);
       circleOsc.disconnect(0);
@@ -148,6 +153,7 @@ function handleEnd(evt) {
   case "stairs":
     stairsGNode.gain.setValueAtTime(stairsGNode.gain.value, context.currentTime); 
     stairsGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+  document.getElementById("stairs").style.fill = "none";
     var myTimeout = setTimeout(function() {
       stairsOsc.stop(0);
       stairsOsc.disconnect(0);

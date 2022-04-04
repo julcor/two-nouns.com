@@ -8,7 +8,9 @@ html, body {
 }
 
 #oval {
-  fill: #FF9C40;
+  stroke: #FF9C40;
+  stroke-width: 5px;
+  /*fill: #FF9C40;*/
   position: absolute;
   left:  5px;
   top:  5px;
@@ -16,14 +18,18 @@ html, body {
 }
 
 #circle {
-  fill: white;
+  stroke: white;
+  stroke-width: 5px;
+  /*fill: white;*/
   position: absolute;
   right:  5px;
   top:  8px;
 }
 
 #stairs {
-  fill: #0081DF;
+  stroke: #0081DF;
+  stroke-width: 5px;
+  /*fill: #0081DF;*/
   position: absolute;
   left: 15px;
   bottom:  5px;
