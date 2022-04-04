@@ -111,7 +111,7 @@ function handleOrientation(evt) {
       vy = 0;
   }
   
-  var dot = document.getElementsByIdName("indicator");
+  var dot = document.getElementsById("indicator");
   dot.setAttribute('style', "left:" + (px) + "%;" +
                                 "top:" + (py) + "%;");
 }
