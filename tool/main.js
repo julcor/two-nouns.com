@@ -21,6 +21,13 @@ var ovalBQFil = context.createBiquadFilter();
 var circleBQFil = context.createBiquadFilter();
 var stairsBQFil = context.createBiquadFilter();
 
+var ovalGNode = context.createGain();
+var circleGNode = context.createGain();
+var stairsGNode = context.createGain();
+
+
+
+
 
 function startup() {
   const el = document.getElementById('oval');
@@ -53,6 +60,14 @@ document.addEventListener("DOMContentLoaded", startup);
 
 function handleStart(evt) {
   evt.preventDefault();
+  // const touch = evt.changedTouches[0];
+  // var fingerDot = document.createElement('div');
+  // fingerDot.className = "fingerDot";
+  // fingerDot.style.left = touch.pageX + "px";
+  // fingerDot.style.top = touch.pageY + "px";
+  // document.body.appendChild(fingerDot);
+
+  //use a key-dictionary thing to get from string to object 
   switch(evt.currentTarget.id) {
   case "oval":
     ovalOsc = context.createOscillator();
@@ -62,8 +77,12 @@ function handleStart(evt) {
     ovalBQFil = context.createBiquadFilter();
     ovalBQFil.type = "lowshelf";
 
+    ovalGNode = context.createGain();
+    ovalGNode.gain.value = .3;
+
     ovalOsc.connect(ovalBQFil);
-    ovalBQFil.connect(masterVolume);
+    ovalBQFil.connect(ovalGNode);
+    ovalGNode.connect(masterVolume);
     ovalOsc.start(0);
     break;
   case "circle":
@@ -74,10 +93,12 @@ function handleStart(evt) {
     circleBQFil = context.createBiquadFilter();
     circleBQFil.type = "highpass";
 
-    circleOsc.connect(circleBQFil);
-    circleBQFil.connect(masterVolume);
+    circleGNode = context.createGain();
+    circleGNode.gain.value = .5;
 
-    circleOsc.connect(masterVolume);
+    circleOsc.connect(circleBQFil);
+    circleBQFil.connect(circleGNode);
+    circleGNode.connect(masterVolume);
     circleOsc.start(0);
     break;
   case "stairs":
@@ -88,37 +109,53 @@ function handleStart(evt) {
     stairsBQFil = context.createBiquadFilter();
     stairsBQFil.type = "lowpass";
 
-    stairsOsc.connect(stairsBQFil);
-    stairsBQFil.connect(masterVolume);
+    stairsGNode = context.createGain();
+    stairsGNode.gain.value = .1;
 
-    stairsOsc.connect(masterVolume);
+    stairsOsc.connect(stairsBQFil);
+    stairsBQFil.connect(stairsGNode);
+    stairsGNode.connect(masterVolume);
     stairsOsc.start(0);
     break;
   }
-  console.log('touchstart.');
+  console.log('touch start');
 }
 
 function handleEnd(evt) {
+  // ADD VOLUME RAMP HERE 
+
   evt.preventDefault();
   console.log("end" + evt.currentTarget.id);
   switch(evt.currentTarget.id) {
   case "oval":
-    ovalOsc.stop(0);
-    ovalOsc.disconnect(0);
-    ovalBQFil.disconnect(0);
+    ovalGNode.gain.setValueAtTime(ovalGNode.gain.value, context.currentTime); 
+    ovalGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+    var myTimeout = setTimeout(function() {
+      ovalOsc.stop(0);
+      ovalOsc.disconnect(0);
+      ovalBQFil.disconnect(0);
+    }, 10);
     break;
   case "circle":
-    circleOsc.stop(0);
-    circleOsc.disconnect(0);
-    circleBQFil.disconnect(0);
+    circleGNode.gain.setValueAtTime(circleGNode.gain.value, context.currentTime); 
+    circleGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+    var myTimeout = setTimeout(function() {
+      circleOsc.stop(0);
+      circleOsc.disconnect(0);
+      circleBQFil.disconnect(0);
+    }, 10);
     break;
   case "stairs":
-    stairsOsc.stop(0);
-    stairsOsc.disconnect(0);
-    stairsBQFil.disconnect(0);
+    stairsGNode.gain.setValueAtTime(stairsGNode.gain.value, context.currentTime); 
+    stairsGNode.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.03);
+    var myTimeout = setTimeout(function() {
+      stairsOsc.stop(0);
+      stairsOsc.disconnect(0);
+      stairsBQFil.disconnect(0);
+    }, 10);
     break;
   }
-  console.log('touchend.');
+  console.log('touch end');
 }
 
 function handleCancel(evt) {
@@ -138,7 +175,7 @@ function handleCancel(evt) {
     stairsOsc.disconnect(masterVolume);
     break;
   }
-  console.log('touchend.');
+  console.log('touch canceled');
 }
 
   // const el = document.getElementById('canvas');
@@ -158,13 +195,17 @@ function handleCancel(evt) {
 
 function handleMove(evt) {
   const touch = evt.changedTouches[0];
-  var xShift = map_range(touch.pageX, 0, 400, 7, -7);
-  var yShift = map_range(touch.pageY, 0, 800, 7, -7);
-  console.log("x shift: " + xShift + "y shift: " + yShift);
+  //this is meant to be inverted 
+  // var xShift = map_range(touch.pageY, 0, 400, 7.5, -7.5);
+  // var yShift = map_range(touch.pageX, 0, 700, -7.5, 7.5);
+  // console.log("x shift: " + xShift + "y shift: " + yShift);
+ 
   
   switch(evt.currentTarget.id) {
   case "oval":
     if (inShape("oval", touch)) {
+      var xShift = map_range(touch.pageY, 0, 400, 7.5, -7.5);
+      var yShift = map_range(touch.pageX, 0, 200, -7.5, 7.5);
       ovalBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
       ovalBQFil.gain.setValueAtTime(5, context.currentTime);
       ovalBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
@@ -173,6 +214,8 @@ function handleMove(evt) {
     }
     break;
   case "circle":
+    var xShift = map_range(touch.pageY, 0, 250, 7.5, -7.5);
+    var yShift = map_range(touch.pageX, 175, 375, -7.5, 7.5);
     circleBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
     circleBQFil.gain.setValueAtTime(5, context.currentTime);
     circleBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
@@ -180,6 +223,8 @@ function handleMove(evt) {
     circle.style.transform = "perspective(600px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
     break;
   case "stairs":
+    var xShift = map_range(touch.pageY, 200, 700, 7.5, -7.5);
+    var yShift = map_range(touch.pageX, 0, 375, -7.5, 7.5);
     stairsBQFil.frequency.setValueAtTime(touch.pageX, context.currentTime);
     stairsBQFil.gain.setValueAtTime(5, context.currentTime);
     stairsBQFil.Q.setValueAtTime(touch.pageY, context.currentTime);
@@ -192,6 +237,7 @@ function handleMove(evt) {
 }
 
 function inShape (shape, touch) {
+  console.log("SHAPE:" + document.elementFromPoint(touch.pageX, touch.pageY).id);
   return true;
 }
 
