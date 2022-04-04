@@ -67,9 +67,8 @@ document.addEventListener("DOMContentLoaded", startup);
 
 
 let demo_button = document.getElementById("perms");
-
 demo_button.onclick = function(e) {
-  // e.preventDefault();
+  e.preventDefault();
   console.log ("button clicked");
   // Request permission for iOS 13+ devices
   if (
@@ -91,16 +90,6 @@ function handleMotion(evt) {
 function handleOrientation(event) { 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 function handleStart(evt) {
   evt.preventDefault();
