@@ -10,7 +10,6 @@ html, body {
   position: absolute;
   left:  5px;
   top:  5px;
-  transform: perspective(100px) rotateY(2.8deg) rotateX(0.696196deg);
 }
 
 #circle {
