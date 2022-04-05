@@ -65,38 +65,29 @@ function startup() {
 document.addEventListener("DOMContentLoaded", startup);
 // document.addEventListener("DOMContentLoaded", getAccel);
 
-
-let demo_button = document.getElementById("perms");
-demo_button.onclick = function(e) {
-  e.preventDefault();
-  console.log ("button clicked");
-  // Request permission for iOS 13+ devices
-  if (
-    DeviceMotionEvent &&
-    typeof DeviceMotionEvent.requestPermission === "function"
-  ) {
-    DeviceMotionEvent.requestPermission();
-  }
-  
-  window.addEventListener("devicemotion", handleMotion);
-  window.addEventListener("deviceorientation", handleOrientation);
-
-};
-
 function handleMotion(evt) {
 
 }
 
 function handleOrientation(evt) { 
    // Expose each orientation angle in a more readable way
-  var rotation_degrees = evt.alpha;
-  var frontToBack_degrees = evt.beta;
-  var leftToRight_degrees = evt.gamma;
+  var rotation_degrees = evt.alpha; //0 -> 360
+  var frontToBack_degrees = evt.beta; //-90 -> 90
+  var leftToRight_degrees = evt.gamma; //-90 -> 90
   
   // Update velocity according to how tilted the phone is
   // Since phones are narrower than they are long, double the increase to the x velocity
-  vx = vx + leftToRight_degrees * updateRate*2; 
-  vy = vy + frontToBack_degrees * updateRate;
+  vx = vx + leftToRight_degrees * updateRate/16; 
+  vy = vy + frontToBack_degrees * updateRate/16;
+
+
+  var filFREQ = map_range(frontToBack_degrees, -90, 90, 100, 1000);
+  var filGAIN = map_range(rotation_degrees, 0, 360, .5, 5);
+  var filQ = map_range(leftToRight_degrees, -90, 90, 10, 200);
+
+  blockBQFil.frequency.setValueAtTime(filFREQ, context.currentTime);
+  blockBQFil.gain.setValueAtTime(filGAIN, context.currentTime);
+  blockBQFil.Q.setValueAtTime(filQ, context.currentTime);
   
   // Update position and clip it to bounds
   px = px + vx*.5;
@@ -111,21 +102,40 @@ function handleOrientation(evt) {
       vy = 0;
   }
   
-  var dot = document.getElementsById("indicator");
-  dot.setAttribute('style', "left:" + (px) + "%;" +
-                                "top:" + (py) + "%;");
+
+  document.getElementById("indicator").setAttribute('style', "left:" + (px) + "%;" +
+                                              "top:" + (py) + "%;");
+  
+  // document.getElementById("indicator").style.left = px + "%;";
+  // document.getElementById("indicator").style.top = py + "%;";
+
+  var xShift = map_range(frontToBack_degrees, -90, 90, 7.5, -7.5);
+  var yShift = map_range(leftToRight_degrees, -90, 90, -7.5, 7.5);
+  document.getElementById("block").style.transform = "perspective(100px) rotateY(" + yShift + "deg) rotateX(" + xShift + "deg)";
+
 }
 
 function handleStart(evt) {
   evt.preventDefault();
   if(evt.currentTarget.id == "block") {
+    if (
+    DeviceMotionEvent &&
+    typeof DeviceMotionEvent.requestPermission === "function"
+  ) {
+    DeviceMotionEvent.requestPermission();
+  }
+  
+  window.addEventListener("devicemotion", handleMotion);
+  window.addEventListener("deviceorientation", handleOrientation);
+
 
     if (!oscOn) {
       console.log("osc off!!!")
       document.getElementById("block").style.fill = "#37BC4C";
+      document.getElementById("indicator").style.display = "block";
       blockOsc = context.createOscillator();
-      blockOsc.type = 'triangle';
-      blockOsc.frequency.setValueAtTime(notes["G4"], context.currentTime);
+      blockOsc.type = 'sine';
+      blockOsc.frequency.setValueAtTime(notes["G3"], context.currentTime);
 
       blockBQFil = context.createBiquadFilter();
       blockBQFil.type = "lowpass";
@@ -140,6 +150,7 @@ function handleStart(evt) {
       oscOn=true;
     } else if (oscOn) {
       console.log("osc on!!!")
+      document.getElementById("indicator").style.display = "none";
       console.log("end" + evt.currentTarget.id);
       if(evt.currentTarget.id ==  "block") {
         blockGNode.gain.setValueAtTime(blockGNode.gain.value, context.currentTime); 
