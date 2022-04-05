@@ -105,7 +105,7 @@ function handleOrientation(evt) {
 
   document.getElementById("indicator").setAttribute('style', "left:" + (px) + "%;" +
                                               "top:" + (py) + "%;");
-  
+
   // document.getElementById("indicator").style.left = px + "%;";
   // document.getElementById("indicator").style.top = py + "%;";
 
@@ -115,20 +115,26 @@ function handleOrientation(evt) {
 
 }
 
-function handleStart(evt) {
-  evt.preventDefault();
-  if(evt.currentTarget.id == "block") {
-    if (
+
+let perms = document.getElementById("block");
+perms.onclick = function(e) {
+  e.preventDefault();
+  
+  // Request permission for iOS 13+ devices
+  if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
   ) {
     DeviceMotionEvent.requestPermission();
   }
-  
+
   window.addEventListener("devicemotion", handleMotion);
   window.addEventListener("deviceorientation", handleOrientation);
+};
 
 
+function handleStart(evt) {
+  evt.preventDefault();
     if (!oscOn) {
       console.log("osc off!!!")
       document.getElementById("block").style.fill = "#37BC4C";
@@ -167,7 +173,6 @@ function handleStart(evt) {
     }
     console.log('touch start');
   }
-}
 
 function handleMove(evt) {
   evt.preventDefault();
