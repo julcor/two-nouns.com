@@ -1,0 +1,38 @@
+body {
+	font-size: 16px;
+	background-color: green;
+}
+
+img {
+	height: 60vh;
+	width: auto;
+	max-width: 60vw;
+}
+
+h1 {
+	text-align: left;
+	font-size: 1rem;
+	display: inline-block;
+}
+
+#entries {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+  justify-content: center;
+  width: 98vw;
+  height:  98vh;
+}
+
+.entry {
+  margin: 2px;
+/*  overflow: scroll;
+  border: 1px solid blue;*/
+}
+
+.link, .description {
+	max-width: 60vw;
+	font-size: 5vh;
+	font-family: sans-serif;
+}

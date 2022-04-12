@@ -1,0 +1,42 @@
+body {
+	font-size: 16px;
+	background-color: #FFE350;
+	margin-top: 50px;
+}
+
+h1 {
+	text-align: left;
+	font-size: 1rem;
+	margin-left: calc(2vw + 40px);
+}
+
+li::marker {
+  color: yellow;
+  float:  top;
+}
+
+#entries {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: left;
+	margin-left: 2vw;
+}
+
+.entry {
+	font-size: 5vh;
+	font-family: sans-serif;
+  width: 66vw;
+  height: auto;
+  margin: 2px;
+  text-align: left;
+/*  border: 1px solid blue;*/
+}
+
+.title {
+	font-family: cursive;
+	font-size: .8rem;
+	position: relative;
+	top:  -200px;
+	right:  -250px;
+}
