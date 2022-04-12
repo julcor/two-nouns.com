@@ -57,7 +57,7 @@ function startup() {
   el.addEventListener('touchmove', handleMove);
 
   masterVolume.connect(context.destination);
-  masterVolume.gain.value = .6;
+  masterVolume.gain.value = 1;
 
   console.log('Initialized.');
 }
@@ -141,13 +141,13 @@ function handleStart(evt) {
       document.getElementById("indicator").style.display = "block";
       blockOsc = context.createOscillator();
       blockOsc.type = 'sine';
-      blockOsc.frequency.setValueAtTime(notes["G3"], context.currentTime);
+      blockOsc.frequency.setValueAtTime(notes["B3"], context.currentTime);
 
       blockBQFil = context.createBiquadFilter();
       blockBQFil.type = "lowpass";
 
       blockGNode = context.createGain();
-      blockGNode.gain.value = .3;
+      blockGNode.gain.value = .8;
 
       blockOsc.connect(blockBQFil);
       blockBQFil.connect(blockGNode);

@@ -70,7 +70,7 @@ function startup() {
 
 
   masterVolume.connect(context.destination);
-  masterVolume.gain.value = .6;
+  masterVolume.gain.value = 1;
 
   console.log('Initialized.');
 }
@@ -99,7 +99,7 @@ function handleStart(evt) {
     ovalBQFil.type = "lowshelf";
 
     ovalGNode = context.createGain();
-    ovalGNode.gain.value = .5;
+    ovalGNode.gain.value = 1;
 
     oval_lfoGain.gain.setValueAtTime(4, 0);
     oval_lfo = context.createOscillator();
@@ -127,7 +127,7 @@ function handleStart(evt) {
     circleBQFil.type = "highpass";
 
     circleGNode = context.createGain();
-    circleGNode.gain.value = .5;
+    circleGNode.gain.value = 1;
 
     circleOsc.connect(circleBQFil);
     circleBQFil.connect(circleGNode);
@@ -144,7 +144,7 @@ function handleStart(evt) {
     stairsBQFil.type = "lowpass";
 
     stairsGNode = context.createGain();
-    stairsGNode.gain.value = .3;
+    stairsGNode.gain.value = .8;
 
     stairsOsc.connect(stairsBQFil);
     stairsBQFil.connect(stairsGNode);
