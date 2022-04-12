@@ -6,7 +6,6 @@ body {
 img {
 	height: 60vh;
 	width: auto;
-	max-width: 60vw;
 }
 
 h1 {
@@ -35,4 +34,8 @@ h1 {
 	max-width: 60vw;
 	font-size: 5vh;
 	font-family: sans-serif;
+}
+
+a {
+	color: black;
 }
