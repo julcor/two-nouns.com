@@ -1,0 +1,14 @@
+* {
+  font-family:  monospace;
+  font-size: 22px;
+}
+
+.info {
+  position: fixed;
+  bottom: 2px;
+  left: 2px;
+}
+
+.info * {
+  display: inline;
+}

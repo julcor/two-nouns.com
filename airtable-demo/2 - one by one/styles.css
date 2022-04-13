@@ -1,0 +1,33 @@
+* {
+  font-family: ArialNarrow;
+}
+
+body {
+  margin: 0;
+}
+
+#slide {
+  cursor: pointer;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#slide-text {
+  font-size: 8vw;
+  text-align: center;
+  padding: 10px;
+}
+
+#slide:hover > #slide-text {
+  color: red;
+}
+
+.footnote {
+  position: fixed;
+  bottom: 2px;
+  left: 1px;
+}

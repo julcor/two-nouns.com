@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Airtable demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="footnote">This website pulls data from this 
+    <a href="https://airtable.com/shr2XCQVq3Fj0oFgd">airtable table</a>, and displays entries one by one.</div>
+
+    <!-- the HTML includes a template. With JS, we'll put content from airtable into these divs. -->
+    <div id="slide">
+      <div id="slide-text"></div>
+    </div>
+
+    <!-- load the JS files -->
+    <script src="js/airtable.browser.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
