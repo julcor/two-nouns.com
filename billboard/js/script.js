@@ -1,3 +1,9 @@
+window.onload = function() {
+    load_entries();
+}
+
+
+
 function load_entries() {
     // Put your channel's slug here.
     // Remember only closed or public channels work; private channels don't work.
@@ -42,8 +48,8 @@ function load_entries() {
                             const titleArray = entry.title.split(":");
                             var option1 = document.getElementById("opt1");
                             var option2 = document.getElementById("opt2");
-                            option1.innerHTML = titleArray[0];
-                            option2.innerHTML = titleArray[1];    
+                            option1.insertAdjacentHTML("afterbegin", titleArray[0]);
+                            option2.insertAdjacentHTML("afterbegin", titleArray[1]);
                             makeEntry(entry);
                         // }
                     });
@@ -60,18 +66,17 @@ function load_entries() {
         const myArray = text.split("_");
         var opt1_count = myArray[1];
         var opt2_count = myArray[3];
+        document.getElementById("count1").innerHTML = opt1_count;
+        document.getElementById("count2").innerHTML = opt2_count;
         console.log(myArray);
         if (opt1_count >= opt2_count) {
             document.getElementById("opt1").classList.add("winner");
         } 
         if (opt2_count >= opt1_count) {
             document.getElementById("opt2").classList.add("winner");
-            document.getElementById("count1").innerHTML = opt1_count;
-            document.getElementById("count2").innerHTML = opt2_count;
         } 
 
         
     } 
 }
 
-load_entries();
