@@ -14,7 +14,7 @@ body {
 
 div.winner  {
 	font-size: 3rem;
-	line-height: 1.5em;
+	/*line-height: 1.5em;*/
 	margin-left: 0px;
 	letter-spacing: -8px;
 }
