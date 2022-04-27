@@ -1,4 +1,5 @@
-console.log("Hello wikipedia");
+var opt1_count_old = 999;
+var opt2_count_old = 999;
 
 // load the airtable library
 var Airtable = require('airtable');
@@ -26,19 +27,22 @@ function pullAir() {
 
 // showRows is what puts the content onto the HTML page
 function showVotes(curVote) {
-    // var curVote = rows[0];
-    // var option1 = document.getElementById("opt1");
-    // var option2 = document.getElementById("opt2");
-    // option1.insertAdjacentHTML("afterbegin", curVote.fields.Opt1);
-    // option2.insertAdjacentHTML("afterbegin", curVote.fields.Opt2);
 
+ 
+    var opt1_count = curVote.fields.Opt1_Count;
+    var opt2_count = curVote.fields.Opt2_Count;
     var option1 = document.getElementById("ct1");
     var option2 = document.getElementById("ct2");
     option1.innerHTML = curVote.fields.Opt1;
     option2.innerHTML = curVote.fields.Opt2;
 
-    var opt1_count = curVote.fields.Opt1_Count;
-    var opt2_count = curVote.fields.Opt2_Count;
+    //playing sounds when vote count updates
+    if(opt2_count_old < opt2_count || opt1_count_old < opt2_count) {
+        //playsound
+    }
+    opt1_count_old = opt1_count;
+    opt2_count_old = opt2_count;
+   
     document.getElementById("count1").innerHTML = opt1_count;
     document.getElementById("count2").innerHTML = opt2_count;
     if (opt1_count > opt2_count) {
