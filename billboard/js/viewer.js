@@ -27,7 +27,7 @@ function pullAir() {
 
 // showRows is what puts the content onto the HTML page
 function showVotes(curVote) {
-
+    console.log("updating votes");
  
     var opt1_count = curVote.fields.Opt1_Count;
     var opt2_count = curVote.fields.Opt2_Count;
