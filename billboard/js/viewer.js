@@ -28,7 +28,7 @@ function pullAir() {
 // showRows is what puts the content onto the HTML page
 function showVotes(curVote) {
     console.log("updating votes");
- 
+
     var opt1_count = curVote.fields.Opt1_Count;
     var opt2_count = curVote.fields.Opt2_Count;
     var option1 = document.getElementById("ct1");
@@ -37,9 +37,22 @@ function showVotes(curVote) {
     option2.innerHTML = curVote.fields.Opt2;
 
     //playing sounds when vote count updates
-    if(opt2_count_old < opt2_count || opt1_count_old < opt2_count) {
-        //playsound
+    if(opt1_count_old < opt1_count) {
+        let count = opt1_count - opt1_count_old;
+        for(let i=0; i < count; i++) {
+            var sounds = [];
+            sounds[i] = new Audio('assets/trying.mp3');
+            sounds[i].play();
+        }
+    } else if (opt2_count_old < opt2_count) {
+        let count = opt2_count - opt2_count_old;
+        for(let i=0; i < count; i++) {
+            var sounds = [];
+            sounds[i] = new Audio('assets/not-trying.mp3');
+            sounds[i].play();
+        }
     }
+
     opt1_count_old = opt1_count;
     opt2_count_old = opt2_count;
    
@@ -48,9 +61,15 @@ function showVotes(curVote) {
     if (opt1_count > opt2_count) {
         document.getElementById("opt1").classList.add("winner");
         document.getElementById("opt2").classList.remove("winner")
+
+        document.getElementById("opt1").style.order = "1";
+        document.getElementById("opt2").style.order = "2";
     } else if (opt2_count > opt1_count) {
         document.getElementById("opt2").classList.add("winner");
         document.getElementById("opt1").classList.remove("winner")
+
+        document.getElementById("opt2").style.order = "1";
+        document.getElementById("opt1").style.order = "2";
     } else {
         document.getElementById("opt1").classList.add("winner");
         document.getElementById("opt2").classList.add("winner");

@@ -7,9 +7,10 @@ body {
 	background-color: #000000;
 	font-family: sans-serif;
 	letter-spacing: -2px;
-
-	
-/*	margin-top: 50px;*/
+	display: flex;
+	display: flex;
+	flex-direction:  column;
+	justify-content: space-around;
 }
 
 div.winner  {
@@ -31,6 +32,28 @@ sup {
 	position: relative;
 }
 
+button {
+	background: rgba(0, 0, 0, 0);
+	border: none;
+}
+
+#but1_text {
+	position: relative;
+	top: -60px;
+	left: 140px;
+	z-index: 1;
+}
+
+#but2_text {
+	position: relative;
+	top: 60px;
+	left: 5px;
+	z-index: 1;
+}
+
+img {
+	z-index: -1;
+}
 
 /*h1 {
 	text-align: left;

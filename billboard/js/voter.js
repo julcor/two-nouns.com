@@ -18,8 +18,8 @@ window.onload = function() {
         if (err) { console.error(err); return; }
         console.log(record.fields.Opt1);
         console.log(record.fields.Opt2);
-        document.getElementById("opt1").insertAdjacentHTML("afterbegin", record.fields.Opt1);
-        document.getElementById("opt2").insertAdjacentHTML("afterbegin", record.fields.Opt2);
+        document.getElementById("but1_text").innerHTML = record.fields.Opt1;
+        document.getElementById("but2_text").innerHTML = record.fields.Opt2;
     });
 
 }

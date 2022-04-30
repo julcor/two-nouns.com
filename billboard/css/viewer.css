@@ -3,68 +3,44 @@ html {
 }
 
 body {
-	margin-left: .5rem;
+	margin-left: 1.3rem;
+	margin-top: .8rem;
 	background-color: #FFE350;
 	font-family: sans-serif;
 	letter-spacing: -2px;
+	display: flex;
+	flex-direction:  column;
+}
 
-	
-/*	margin-top: 50px;*/
+#opt2 {
+	order: 1;
+}
+
+#opt1 {
+	order:  2;
 }
 
 div.winner  {
 	font-size: 3rem;
-	/*line-height: 1.5em;*/
 	margin-left: 0px;
 	letter-spacing: -8px;
+	padding-bottom: .2rem;
+}
+
+div.winner sup {
+	font-size: .33em;
 }
 
 div {
 	margin-left: .2em;
+	line-height: .75em;
 }
 
 sup {
 	/*font-family: cursive;*/
-	font-size: .33em;
-	padding-left: .2em;
+	font-size: .5em;
 	top:  -.4em;
 	position: relative;
 }
 
 
-/*h1 {
-	text-align: left;
-	font-size: 1rem;
-	margin-left: calc(2vw + 40px);
-}
-
-li::marker {
-  color: yellow;
-  float:  top;
-}
-
-#entries {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: left;
-	margin-left: 2vw;
-}
-
-.entry {
-	font-size: 5vh;
-	font-family: sans-serif;
-  width: 66vw;
-  height: auto;
-  margin: 2px;
-  text-align: left;
-/*  border: 1px solid blue;*/
-}
-
-/*.title {
-	font-family: cursive;
-	font-size: .8rem;
-	position: relative;
-	top:  -200px;
-	right:  -250px;
-}*/
