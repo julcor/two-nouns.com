@@ -19,6 +19,8 @@ button {
 	width:  75vw;
 	font-size: 1.5rem;
 	border-radius: 5px;
+	border-color: black;
+	color:  black;
 }
 
 #opt1 {
