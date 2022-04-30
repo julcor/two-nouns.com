@@ -42,14 +42,20 @@ function showVotes(curVote) {
         for(let i=0; i < count; i++) {
             var sounds = [];
             sounds[i] = new Audio('assets/trying.mp3');
-            sounds[i].play();
+            sounds[i].addEventListener("canplaythrough", event => {
+              /* the audio is now playable; play it if permissions allow */
+              sounds[i].play();
+            });
         }
     } else if (opt2_count_old < opt2_count) {
         let count = opt2_count - opt2_count_old;
         for(let i=0; i < count; i++) {
             var sounds = [];
             sounds[i] = new Audio('assets/not-trying.mp3');
-            sounds[i].play();
+            sounds[i].addEventListener("canplaythrough", event => {
+                /* the audio is now playable; play it if permissions allow */
+                sounds[i].play();
+            });
         }
     }
 
