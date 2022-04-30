@@ -21,6 +21,10 @@ button {
 	border-radius: 5px;
 }
 
+#opt1 {
+	border-radius: 50%;
+}
+
 #but1_text {
 	display: inline-block;
 	width: 100%;
