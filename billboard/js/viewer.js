@@ -11,8 +11,9 @@ Airtable.configure({
 });
 var base = Airtable.base('appIHMcRLeyJU2GhY');
 
-// set up a blank array for all your rows
-const rows = [];
+var trying = new Audio('assets/trying.mp3');
+var not_trying = new Audio('assets/not-trying.mp3');
+
 
 pullAir();
 
@@ -39,24 +40,26 @@ function showVotes(curVote) {
     //playing sounds when vote count updates
     if(opt1_count_old < opt1_count) {
         let count = opt1_count - opt1_count_old;
-        for(let i=0; i < count; i++) {
-            var sounds = [];
-            sounds[i] = new Audio('assets/trying.mp3');
-            sounds[i].addEventListener("canplaythrough", event => {
-              /* the audio is now playable; play it if permissions allow */
-              sounds[i].play();
-            });
-        }
+        trying.play();
+        // for(let i=0; i < count; i++) {
+        //     var sounds = [];
+        //     sounds[i] = new Audio('assets/trying.mp3');
+        //     sounds[i].addEventListener("canplaythrough", event => {
+        //       /* the audio is now playable; play it if permissions allow */
+        //       sounds[i].play();
+        //     });
+        // }
     } else if (opt2_count_old < opt2_count) {
         let count = opt2_count - opt2_count_old;
-        for(let i=0; i < count; i++) {
-            var sounds = [];
-            sounds[i] = new Audio('assets/not-trying.mp3');
-            sounds[i].addEventListener("canplaythrough", event => {
-                /* the audio is now playable; play it if permissions allow */
-                sounds[i].play();
-            });
-        }
+        not_trying.play();
+        // for(let i=0; i < count; i++) {
+        //     var sounds = [];
+        //     sounds[i] = new Audio('assets/not-trying.mp3');
+        //     sounds[i].addEventListener("canplaythrough", event => {
+        //         /* the audio is now playable; play it if permissions allow */
+        //         sounds[i].play();
+        //     });
+        // }
     }
 
     opt1_count_old = opt1_count;
