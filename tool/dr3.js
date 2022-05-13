@@ -117,8 +117,8 @@ function handleOrientation(evt) {
 }
 
 
-function permissions(evt) {
-  evt.preventDefault();
+function permissions() {
+  // evt.preventDefault();
 
   // Request permission for iOS 13+ devices
   if (
