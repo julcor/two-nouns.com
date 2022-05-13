@@ -33,6 +33,10 @@ button:active {
 	width:  76vw;
 }
 
+button:disabled {
+	background-color: gray;
+}
+
 .clicked {
 	animation-name: clicked;
   animation-duration: 2s;

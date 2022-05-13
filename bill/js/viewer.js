@@ -29,6 +29,8 @@ function pullAir() {
 // showRows is what puts the content onto the HTML page
 function showVotes(curVote) {
     console.log("updating votes");
+    document.getElementById("count1").classList.remove("updated");
+    document.getElementById("count2").classList.remove("updated");
 
     var opt1_count = curVote.fields.Opt1_Count;
     var opt2_count = curVote.fields.Opt2_Count;
@@ -39,27 +41,36 @@ function showVotes(curVote) {
 
     //playing sounds when vote count updates
     if(opt1_count_old < opt1_count) {
+        //css animation for updating vote
+        document.getElementById("count1").classList.add("updated");
+
         let count = opt1_count - opt1_count_old;
         trying.play();
-        // for(let i=0; i < count; i++) {
-        //     var sounds = [];
-        //     sounds[i] = new Audio('assets/trying.mp3');
-        //     sounds[i].addEventListener("canplaythrough", event => {
-        //       /* the audio is now playable; play it if permissions allow */
-        //       sounds[i].play();
-        //     });
-        // }
+        for(let i=0; i < count; i++) {
+            var sounds = [];
+            sounds[i] = new Audio('assets/trying.mp3');
+            sounds[i].play();
+
+             // added these lines to try and fix issues with online version, but didn't help -- ask carlos
+            // sounds[i].addEventListener("canplaythrough", event => {
+            //    the audio is now playable; play it if permissions allow 
+            // });
+        }
     } else if (opt2_count_old < opt2_count) {
+        //css animation for updating vote
+        document.getElementById("count2").classList.add("updated");
+
         let count = opt2_count - opt2_count_old;
         not_trying.play();
-        // for(let i=0; i < count; i++) {
-        //     var sounds = [];
-        //     sounds[i] = new Audio('assets/not-trying.mp3');
-        //     sounds[i].addEventListener("canplaythrough", event => {
-        //         /* the audio is now playable; play it if permissions allow */
-        //         sounds[i].play();
-        //     });
-        // }
+        for(let i=0; i < count; i++) {
+            var sounds = [];
+            sounds[i] = new Audio('assets/not-trying.mp3');
+            sounds[i].play();
+
+            // sounds[i].addEventListener("canplaythrough", event => {
+            //      the audio is now playable; play it if permissions allow 
+            // });
+        }
     }
 
     opt1_count_old = opt1_count;
@@ -67,6 +78,7 @@ function showVotes(curVote) {
    
     document.getElementById("count1").innerHTML = opt1_count;
     document.getElementById("count2").innerHTML = opt2_count;
+
     if (opt1_count > opt2_count) {
         document.getElementById("opt1").classList.add("winner");
         document.getElementById("opt2").classList.remove("winner")

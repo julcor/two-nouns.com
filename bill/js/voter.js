@@ -27,6 +27,15 @@ window.onload = function() {
 
 function addVote() {
     var id = this.id;
+    console.log("id: " + id);
+
+    // document.getElementById("opt1").disabled = true;
+    // document.getElementById("opt2").disabled = true;
+    // setTimeout(function(){document.getElementById("opt1").disabled = false;},3000);
+    // setTimeout(function(){document.getElementById("opt2").disabled = false;},3000);
+
+    document.getElementById(id).disabled = true;
+    setTimeout(function(){document.getElementById(id).disabled = false;},2500);
  
     base('Billboard').find('recfUP9ku8ijjZR7O', function(err, record) {
         if (err) { console.error(err); return; }

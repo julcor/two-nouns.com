@@ -1,3 +1,15 @@
+@font-face {
+  font-family: termGrot;
+  src: url(../assets/terminal-grotesque.ttf);
+}
+
+@font-face {
+  font-family: termGrotOp;
+  src: url(../assets/terminal-grotesque_open.otf);
+}
+
+
+
 html {
 	font-size: 80px;
 }
@@ -37,10 +49,56 @@ div {
 }
 
 sup {
-	/*font-family: cursive;*/
+	display: inline-block;
+	-webkit-text-stroke-width: .2px;
+	-webkit-text-stroke-color: #ffffff;
+	color: #333333;
+  	/*-webkit-text-stroke-color: #999999;*/
+	/*color: #ffffff;*/
+	font-family: termGrot;
+	letter-spacing: -.5px;
 	font-size: .5em;
 	top:  -.4em;
+	left:  -.55em;
 	position: relative;
 }
 
+.updated {
+  animation-name: updated;
+  animation-duration: 2.3s;
+  animation-timing-function: ease-out;
+}
 
+
+@keyframes updated {
+  0% {
+  	top:  -.4em;
+    color: #ffffff;
+  }
+  50% {
+  	transform: scale(1.05, 1.1);
+   	top:  -.6em;
+    color: #000000;
+  }
+  100% {
+    top:  -.4em;
+    color: #ffffff;
+  }
+}
+
+
+@keyframes updated_BLACK_TO_WHITE {
+  0% {
+  	top:  -.4em;
+    color: #000000;
+  }
+  50% {
+  	transform: scale(1.05, 1.1);
+   	top:  -.6em;
+   	color: #ffffff;
+  }
+  100% {
+    top:  -.4em;
+    color: #000000;
+  }
+}
