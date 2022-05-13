@@ -57,7 +57,7 @@ function startup() {
   el.addEventListener('touchmove', handleMove);
 
   masterVolume.connect(context.destination);
-  masterVolume.gain.value = 1;
+  masterVolume.gain.value = 1.2;
 
   console.log('Initialized.');
 }
@@ -116,25 +116,36 @@ function handleOrientation(evt) {
 }
 
 
-let perms = document.getElementById("block");
-perms.onclick = function(e) {
-  e.preventDefault();
-  
-  // Request permission for iOS 13+ devices
-  if (
-    DeviceMotionEvent &&
-    typeof DeviceMotionEvent.requestPermission === "function"
-  ) {
-    DeviceMotionEvent.requestPermission();
-  }
+// function permissions(evt) {
+//   evt.preventDefault();
 
-  window.addEventListener("devicemotion", handleMotion);
-  window.addEventListener("deviceorientation", handleOrientation);
-};
+//   // Request permission for iOS 13+ devices
+//   if (
+//       DeviceMotionEvent &&
+//       typeof DeviceMotionEvent.requestPermission === "function"
+//     ) {
+//       DeviceMotionEvent.requestPermission();
+//     }
+
+//     window.addEventListener("devicemotion", handleMotion);
+//     window.addEventListener("deviceorientation", handleOrientation);
+// };
 
 
 function handleStart(evt) {
   evt.preventDefault();
+
+    // Request permission for iOS 13+ devices
+    if (
+      DeviceMotionEvent &&
+      typeof DeviceMotionEvent.requestPermission === "function"
+    ) {
+      DeviceMotionEvent.requestPermission();
+    }
+
+    window.addEventListener("devicemotion", handleMotion);
+    window.addEventListener("deviceorientation", handleOrientation);
+
     if (!oscOn) {
       console.log("osc off!!!")
       document.getElementById("block").style.fill = "#37BC4C";
@@ -147,7 +158,7 @@ function handleStart(evt) {
       blockBQFil.type = "lowpass";
 
       blockGNode = context.createGain();
-      blockGNode.gain.value = .8;
+      blockGNode.gain.value = 1;
 
       blockOsc.connect(blockBQFil);
       blockBQFil.connect(blockGNode);

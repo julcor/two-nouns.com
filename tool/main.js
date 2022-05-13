@@ -70,7 +70,7 @@ function startup() {
 
 
   masterVolume.connect(context.destination);
-  masterVolume.gain.value = 1;
+  masterVolume.gain.value = 1.2;
 
   console.log('Initialized.');
 }
