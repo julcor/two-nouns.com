@@ -55,7 +55,7 @@ function startup() {
   el.addEventListener('touchend', handleEnd);
   el.addEventListener('touchcancel', handleCancel);
   el.addEventListener('touchmove', handleMove);
-  el.addEventListener('onclick', permissions);
+  // el.addEventListener('onclick', permissions);
 
   masterVolume.connect(context.destination);
   masterVolume.gain.value = 1.2;
