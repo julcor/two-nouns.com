@@ -55,6 +55,7 @@ function startup() {
   el.addEventListener('touchend', handleEnd);
   el.addEventListener('touchcancel', handleCancel);
   el.addEventListener('touchmove', handleMove);
+  el.addEventListener('onclick', permissions);
 
   masterVolume.connect(context.destination);
   masterVolume.gain.value = 1.2;
@@ -116,27 +117,11 @@ function handleOrientation(evt) {
 }
 
 
-// function permissions(evt) {
-//   evt.preventDefault();
-
-//   // Request permission for iOS 13+ devices
-//   if (
-//       DeviceMotionEvent &&
-//       typeof DeviceMotionEvent.requestPermission === "function"
-//     ) {
-//       DeviceMotionEvent.requestPermission();
-//     }
-
-//     window.addEventListener("devicemotion", handleMotion);
-//     window.addEventListener("deviceorientation", handleOrientation);
-// };
-
-
-function handleStart(evt) {
+function permissions(evt) {
   evt.preventDefault();
 
-    // Request permission for iOS 13+ devices
-    if (
+  // Request permission for iOS 13+ devices
+  if (
       DeviceMotionEvent &&
       typeof DeviceMotionEvent.requestPermission === "function"
     ) {
@@ -145,7 +130,11 @@ function handleStart(evt) {
 
     window.addEventListener("devicemotion", handleMotion);
     window.addEventListener("deviceorientation", handleOrientation);
+};
 
+
+function handleStart(evt) {
+  evt.preventDefault();
     if (!oscOn) {
       console.log("osc off!!!")
       document.getElementById("block").style.fill = "#37BC4C";
