@@ -83,7 +83,7 @@ function handleOrientation(evt) {
 
 
   var filFREQ = map_range(frontToBack_degrees, -90, 90, 100, 1000);
-  var filGAIN = map_range(rotation_degrees, 0, 360, .5, 5);
+  var filGAIN = map_range(rotation_degrees, 360, 0, .5, 5);
   var filQ = map_range(leftToRight_degrees, -90, 90, 10, 200);
 
   blockBQFil.frequency.setValueAtTime(filFREQ, context.currentTime);
@@ -147,7 +147,7 @@ function handleStart(evt) {
       blockBQFil.type = "lowpass";
 
       blockGNode = context.createGain();
-      blockGNode.gain.value = 1;
+      blockGNode.gain.value = 1.0;
 
       blockOsc.connect(blockBQFil);
       blockBQFil.connect(blockGNode);
