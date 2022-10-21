@@ -2,7 +2,7 @@ let mic, fft, centroid;
 let pointArray = [];
 
 function setup() {
-  createCanvas(5000, 1500);
+  createCanvas(5000, 1200);
   noFill();
 
   mic = new p5.AudioIn();
@@ -30,7 +30,7 @@ function draw() {
   if(pointArray.length > 1) {
     beginShape();
     for (let i = 0; i < pointArray.length-1; i++) {
-      let m1 = map(pointArray[i], 0, 85000, height, 0)
+      let m1 = map(pointArray[i], 0, 8500, height, 0)
       let m2 = map(pointArray[i+1], 0, 8500, height, 0)
       vertex(i, m1);
       // if(pointArray[i] && pointArray[i+1] > 180) {
