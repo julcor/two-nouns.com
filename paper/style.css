@@ -1,0 +1,35 @@
+body {
+margin: 0;
+padding: 0;
+background: black;
+}
+.folded {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;  
+}
+.folded-itm {
+	list-style: none;
+	width: 50%;
+	background-color: white;
+	background-size: cover;
+	height: 100%;
+	transition: 0.05s;
+}
+/*.folded:hover .folded-itm:nth-child(odd) {
+	transform: skewY(15deg);
+}*/
+    
+/*.folded:hover .folded-itm:nth-child(even) {
+	transform: skewY(-15deg);
+	box-shadow: inset 20px 0 50px rgba(0,0,0, .5);
+}*/
+
+.folded .folded-itm:nth-child(1) {
+	background-position: 0;
+}
+.folded .folded-itm:nth-child(2) {
+	background-position: -160px;
+}
