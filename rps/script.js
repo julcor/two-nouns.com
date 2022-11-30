@@ -11,7 +11,7 @@ var acc_x = 0.0;
 var acc_y = 0.0;
 var acc_z = 0.0;
 var i = 0;
-var rpsSeq = ["rock-0-big.png", "rock-1-big.png", "rock-2-big.png", "rock-3-big.png", "r.png", "p.png", "s.png"];
+var rpsSeq = ["assets/rock-0-big.png", "assets/rock-1-big.png", "assets/rock-2-big.png", "assets/rock-3-big.png", "assets/r.png", "assets/p.png", "assets/s.png"];
 
 
 function getAccel(){
