@@ -27,7 +27,7 @@ function getAccel(){
                 if(acc_x < -10) {
                 	updateImage();
                 	//progress to next image
-                	document.ElementsByClassName("container").style.backgroundColor = white;
+                	document.querySelector('.container').style.backgroundColor = white;
                 }
             });
         }
