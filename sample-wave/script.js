@@ -1,46 +1,68 @@
-//get accelerometer
+var audio = new Audio('assets/alphabet.wav');
 
-//when accelerometer triggered, change image to next in sequence
+var totalX = 0;
+var totalY = 0;
+var moveX = 0;
+var moveY = 0;
 
-//at end of sequence, pick random number from 1-3 and display that PNG
+document.addEventListener("mousemove", function(ev){
+    totalX += Math.abs(ev.movementX);
+    totalY += Math.abs(ev.movementY);
+    moveX += ev.movementX;
+    moveY += ev.movementY;
+    playSound(totalY);
+}, false);
 
-//press with two fingers to reset?
+setInterval(function(){
+    console.log(`Speed X: ${totalX}px/s, Y: ${totalY}px/s`);
+    console.log(`Movement X: ${moveX}px/s, Y: ${moveY}px/s`);
+    moveX = moveY = totalX = totalY = 0;
+    if(totalY < 1) {
+		audio.pause()
+	}
+}, 100);
+
+
+function playSound(rate) {
+	if(totalY < 1) {
+		audio.pause()
+	} else  {
+		var rate = map_range(totalY, 0, 300, .25, 10);
+		console.log(rate);
+		audio.playbackRate = rate;
+		audio.play();		
+	}
+
+}
+
+function map_range(value, low1, high1, low2, high2) {
+  return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
 
 
 var acc_x = 0.0;
 var acc_y = 0.0;
 var acc_z = 0.0;
-var i = 0;
-var rpsSeq = ["assets/rock-0-big.png", "assets/rock-1-big.png", "assets/rock-2-big.png", "assets/rock-3-big.png", "assets/r.png", "assets/p.png", "assets/s.png"];
 
 
-function getAccel(){
-	console.log("yo!");
-    DeviceMotionEvent.requestPermission().then(response => {
-        if (response == 'granted') {
-       // Add a listener to get smartphone orientation 
-            window.addEventListener('devicemotion',(event) => {
-                // Expose each orientation angle in a more readable way
-            	acc_x = event.acceleration.x;
-            	acc_y = event.acceleration.y;
-				acc_z = event.acceleration.z;
-                if(acc_x < -1) {
-                	//acceleration affects sample rate?
-                }
-            });
-        }
-    });
-}
+// function getAccel(){
+// 	console.log("yo!");
+//     DeviceMotionEvent.requestPermission().then(response => {
+//         if (response == 'granted') {
+//        // Add a listener to get smartphone orientation 
+//             window.addEventListener('devicemotion',(event) => {
+//             	acc_x = event.acceleration.x;
+//             	acc_y = event.acceleration.y;
+// 				acc_z = event.acceleration.z;
+//                 if(acc_x < -1) {
+//                 	playSound(acc_x);
+//                 } else {
+//                 	audio.pause();
+//                 }
+//             });
+//         }
+//     });
+// }
 
 
-function updateImage() {
-	if(i > 3) {
-		// Returns a random integer from 0 to 2:
-		var i = Math.floor(Math.random() * 3) + 4;
-		document.getElementById("rpsImg").src=rpsSeq[i];
-		i=0;
-	} else {
-		document.getElementById("rpsImg").src=rpsSeq[i];
-		i++;
-	}
-}
+
