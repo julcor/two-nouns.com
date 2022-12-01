@@ -42,7 +42,7 @@ function getAccel(){
             	acc_x = event.acceleration.x;
             	acc_y = event.acceleration.y;
 				acc_z = event.acceleration.z;
-				console.log(slowDown, "slowDown");
+				// console.log(slowDown, "slowDown");
                 if(acc_x < -1.3) {
                 	if(audio.paused) {
                 		audio.play();		
@@ -53,7 +53,7 @@ function getAccel(){
                 	}
                 } else {
                 	if(!audio.paused) {
-                		// audio.pause();
+                		audio.pause();
                 		console.log("sound paused");
                 	}
                 }
