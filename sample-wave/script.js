@@ -42,7 +42,8 @@ function getAccel(){
             	acc_x = event.acceleration.x;
             	acc_y = event.acceleration.y;
 				acc_z = event.acceleration.z;
-                if(acc_x < -1.3 && slowDown == 30) {
+				console.log(slowDown, "slowDown");
+                if(acc_x < -1.3 && slowDown >= 30) {
                 	slowDown = 0;
                 	playSound(acc_x);
                 } else {
