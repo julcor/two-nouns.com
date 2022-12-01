@@ -37,17 +37,17 @@ function getAccel(){
         if (response == 'granted') {
        // Add a listener to get smartphone orientation 
             window.addEventListener('devicemotion',(event) => {
-            	slowDown++;
             	// console.log("permission granted");
             	acc_x = event.acceleration.x;
             	acc_y = event.acceleration.y;
 				acc_z = event.acceleration.z;
 				// console.log(slowDown, "slowDown");
                 if(acc_x < -1.3) {
+                	slowDown++;
                 	if(audio.paused) {
                 		audio.play();		
                 	}
-                	if(slowDown >= 30) {
+                	if(slowDown >= 100) {
                 		slowDown = 0;
                 		changeRate(acc_x);
                 	}
