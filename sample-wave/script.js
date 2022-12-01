@@ -52,6 +52,11 @@ function getAccel(){
     });
 }
 
+window.addEventListener('click', (event) => {
+	audio.play();
+});
+
+
 function playSound(rate) {
 		var rateX = map_range(rate, -1, -48, .25, 10);
 		console.log("playing sound with rate:", rateX);
