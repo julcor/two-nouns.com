@@ -10,7 +10,7 @@
 var acc_x = 0.0;
 var acc_y = 0.0;
 var acc_z = 0.0;
-var i = 0;
+var index = 0;
 var rpsSeq = ["assets/rock-0-big.png", "assets/rock-1-big.png", "assets/rock-2-big.png", "assets/rock-3-big.png", "assets/r.png", "assets/p.png", "assets/s.png"];
 
 
@@ -27,7 +27,6 @@ function getAccel(){
                 if(acc_x < -10) {
                 	updateImage();
                 	//progress to next image
-                	document.querySelector('.container').style.backgroundColor = "white";
                 }
             });
         }
@@ -35,14 +34,16 @@ function getAccel(){
 }
 
 
+
 function updateImage() {
-	if(i > 3) {
+	console.log("index", index)
+	if(index > 3) {
 		// Returns a random integer from 0 to 2:
-		var i = Math.floor(Math.random() * 3) + 4;
-		document.getElementById("rpsImg").src=rpsSeq[i];
-		i=0;
+		index = Math.floor(Math.random() * 3) + 4;
+		document.getElementById("rpsImg").src= rpsSeq[index];
+		index=1;
 	} else {
-		document.getElementById("rpsImg").src=rpsSeq[i];
-		i++;
+		document.getElementById("rpsImg").src= rpsSeq[index];
+		index++;
 	}
 }
