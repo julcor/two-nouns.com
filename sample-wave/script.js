@@ -37,7 +37,7 @@ function getAccel(){
         if (response == 'granted') {
        // Add a listener to get smartphone orientation 
             window.addEventListener('devicemotion',(event) => {
-            	console.log("permission granted");
+            	// console.log("permission granted");
             	acc_x = event.acceleration.x;
             	acc_y = event.acceleration.y;
 				acc_z = event.acceleration.z;
@@ -45,7 +45,7 @@ function getAccel(){
                 	playSound(acc_x);
                 } else {
                 	audio.pause();
-                	console.log("sound paused");
+                	// console.log("sound paused");
                 }
             });
         }
