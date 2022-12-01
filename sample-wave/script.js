@@ -53,7 +53,7 @@ function getAccel(){
                 	}
                 } else {
                 	if(!audio.paused) {
-                		audio.pause();
+                		// audio.pause();
                 		console.log("sound paused");
                 	}
                 }
@@ -69,7 +69,7 @@ window.addEventListener('click', (event) => {
 
 
 function changeRate(rate) {
-		var rateX = map_range(Math.abs(rate), 1, 35, .25, 4);
+		var rateX = map_range(Math.abs(rate), 1, 35, .10, 3);
 		rateX = rateX.toPrecision(2)
 		audio.playbackRate = rateX;
 		console.log("playing sound with rate:", rateX);
