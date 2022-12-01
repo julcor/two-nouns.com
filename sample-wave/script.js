@@ -53,7 +53,7 @@ function getAccel(){
                 	}
                 } else {
                 	if(!audio.paused) {
-                		audio.pause();
+                		// audio.pause();
                 		console.log("sound paused");
                 	}
                 }
