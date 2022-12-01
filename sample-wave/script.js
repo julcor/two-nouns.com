@@ -59,7 +59,7 @@ window.addEventListener('click', (event) => {
 
 function playSound(rate) {
 		var rateX = map_range(Math.abs(rate), 1, 35, .25, 10);
-		rateX = round(rateX, 2);
+		// rateX = round(rateX, 2);
 		audio.playbackRate = rateX;
 		console.log("playing sound with rate:", rateX);
 		audio.play();		
