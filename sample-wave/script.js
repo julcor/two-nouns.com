@@ -45,6 +45,7 @@ function getAccel(){
                 	playSound(acc_x);
                 } else {
                 	audio.pause();
+                	console.log("sound paused");
                 }
             });
         }
@@ -52,16 +53,10 @@ function getAccel(){
 }
 
 function playSound(rate) {
-	if(totalY < 1) {
-		audio.pause()
-		console.log("sound paused");
-	} else  {
-		var rate = map_range(totalY, -1, -48, .25, 10);
-		console.log(rate);
-		audio.playbackRate = rate;
+		var rateX = map_range(rate, -1, -48, .25, 10);
+		console.log("playing sound with rate:", rateX);
+		audio.playbackRate = rateX;
 		audio.play();		
-		console.log("playing sound with rate:", rate);
-	}
 }
 
 function map_range(value, low1, high1, low2, high2) {
