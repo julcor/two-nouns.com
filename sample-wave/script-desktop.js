@@ -1,4 +1,4 @@
-var audio = new Audio('assets/talking.mp3');
+var audio = new Audio('assets/alphabet.wav');
 
 var totalX = 0;
 var totalY = 0;
@@ -22,15 +22,6 @@ var moveY = 0;
 // 	}
 // }, 100);
 
-
-
-
-
-var acc_x = 0.0;
-var acc_y = 0.0;
-var acc_z = 0.0;
-var slowDown = 0;
-
 function getAccel(){
 	console.log("yo!");
     DeviceMotionEvent.requestPermission().then(response => {
@@ -43,19 +34,12 @@ function getAccel(){
             	acc_y = event.acceleration.y;
 				acc_z = event.acceleration.z;
 				console.log(slowDown, "slowDown");
-                if(acc_x < -1.3) {
-                	if(audio.paused) {
-                		audio.play();		
-                	}
-                	if(slowDown >= 30) {
-                		slowDown = 0;
-                		changeRate(acc_x);
-                	}
+                if(acc_x < -1.3 && slowDown >= 30) {
+                	slowDown = 0;
+                	playSound(acc_x);
                 } else {
-                	if(!audio.paused) {
-                		audio.pause();
-                		console.log("sound paused");
-                	}
+                	// audio.pause();
+                	console.log("sound paused");
                 }
             });
         }
@@ -63,16 +47,16 @@ function getAccel(){
 }
 
 window.addEventListener('click', (event) => {
-	audio.loop = true;
 	audio.play();
 });
 
 
-function changeRate(rate) {
-		var rateX = map_range(Math.abs(rate), 1, 35, .25, 4);
+function playSound(rate) {
+		var rateX = map_range(Math.abs(rate), 1, 35, .25, 10);
 		rateX = rateX.toPrecision(2)
 		audio.playbackRate = rateX;
 		console.log("playing sound with rate:", rateX);
+		// audio.play();		
 }
 
 function map_range(value, low1, high1, low2, high2) {
