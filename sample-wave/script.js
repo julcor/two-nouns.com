@@ -41,11 +41,11 @@ function getAccel(){
             	acc_x = event.acceleration.x;
             	acc_y = event.acceleration.y;
 				acc_z = event.acceleration.z;
-                if(acc_x < -1) {
+                if(acc_x < -3) {
                 	playSound(acc_x);
                 } else {
-                	audio.pause();
-                	// console.log("sound paused");
+                	// audio.pause();
+                	console.log("sound paused");
                 }
             });
         }
@@ -61,7 +61,7 @@ function playSound(rate) {
 		var rateX = map_range(Math.abs(rate), 1, 48, .25, 10);
 		console.log("playing sound with rate:", rateX);
 		audio.playbackRate = rateX;
-		audio.play();		
+		// audio.play();		
 }
 
 function map_range(value, low1, high1, low2, high2) {
