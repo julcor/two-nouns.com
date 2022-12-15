@@ -36,7 +36,7 @@ function setDate() {
   // console.log(now.getHours());
 
   //timeZone_jul is a hard coded value of my current timezone in hours from UTC
-  var timeZone_jul = 4;
+  var timeZone_jul = 5;
   var timezoneX = now.getTimezoneOffset()/60;
   var timeZoneY = timeZone_jul - timezoneX;
 

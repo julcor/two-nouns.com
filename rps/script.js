@@ -33,7 +33,18 @@ function getAccel(){
     });
 }
 
-
+// Takes a function and wait time, in milliseconds
+function throttle(fn, wait) {
+	let last = Date.now();
+	return function() {
+  	const now = Date.now();
+    if (now - last < wait) {
+    	return;
+    }
+    last = now;
+    fn.apply(this, arguments);
+  };
+}
 
 function updateImage() {
 	console.log("index", index)
@@ -47,3 +58,6 @@ function updateImage() {
 		index++;
 	}
 }
+
+updateImage = throttle(updateImage, 100);
+

@@ -15,6 +15,6 @@ body {
 
 img {
 	transform: rotate(90deg);
-	height: 96vw;
+	max-height: 96vw;
 	max-width: 88vh;
 }
