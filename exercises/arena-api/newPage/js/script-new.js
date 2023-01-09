@@ -6,49 +6,17 @@ function load_entries() {
     let content_num = 0;
     let channel = "tenderness-qmv6fa9jctc";
     let makeURL = (per, page) =>
-        `https://api.are.na/v2/channels/${channel}?per=${per}&page=${page}`;
+        `http://api.are.na/v2/channels/${channel}/contents?per=${per}&page=${page}`;
 
-    fetch(makeURL(1, 1))
+    fetch(makeURL(50, 1))
         .then(res => res.json())
         .then(json => {
-
-            // this line puts your channel's title in the #title element of the HTML.
-            $("#title").html("<a href=\"https://www.are.na/" + json.owner.slug + "/" + channel + "/\">" + json.title + "</a>");
-
             // This line logs your channel's metadata to the console.
             console.log("Channel info");
             console.log(json);
             console.log("entries");
             ran_num = Math.floor(Math.random() *json.length);
             console.log(ran_num)
-        });
-
-    fetch(makeURL(1, 1))
-        .then(res => res.json())
-        .then(json => (count = json.length))
-        .then(count => {
-            let per = 50;
-            let pages = Math.ceil(count / per);
-
-            let fetches = [];
-            for (let page = 1; page <= pages; page++) {
-                    fetches.push(
-                        fetch(makeURL(per, page))
-                        .then(res => res.json())
-                        .then(json => json.contents)
-                    );
-            }
-
-            Promise.all(fetches).then(contents => {
-                contents.forEach(content => {
-                    content.forEach(entry => {
-                        content_num++;
-                        if(content_num == ran_num) {
-                            makeEntry(entry);
-                        }
-                    });
-                });
-            });
         });
 }
 
