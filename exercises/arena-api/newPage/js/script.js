@@ -84,15 +84,15 @@ function load_entries() {
             } else {
                 entryItem.querySelector(".description").innerHTML = entry.content_html;
                 entryItem.querySelector(".title").innerHTML = entry.title;
-            }
-            
+            }  
         } 
 
         // If the current block is a channel...
         else if (entryClass == "Channel") {
             entryItem.querySelector(".title").innerHTML = entry.title;
-            entryItem.querySelector(".description").innerHTML =
-            entry.metadata.description;
+            var channelLink = "https://www.are.na/" + entry.owner_slug + "/" + entry.slug;
+            entryItem.querySelector(".link").href = channelLink;
+            entryItem.querySelector(".link").innerHTML = channelLink;
         } 
 
         // If the current block is a Media item (like a YouTube video)...
@@ -103,6 +103,13 @@ function load_entries() {
 
         // If the current block is a link...
         else if (entryClass == "Link") {
+            entryItem.querySelector(".link").href = entry.source.url;
+            entryItem.querySelector(".link").innerHTML = entry.title;
+        }   
+
+        // If the current block is a attachment...
+        else if (entryClass == "Attachment") {
+            entryItem.querySelector("img").src = entry.image.display.url;
             entryItem.querySelector(".link").href = entry.source.url;
             entryItem.querySelector(".link").innerHTML = entry.title;
         }   

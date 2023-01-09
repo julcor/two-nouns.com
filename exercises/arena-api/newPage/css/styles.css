@@ -5,14 +5,31 @@ body {
 }
 
 img {
-	height: 60vh;
-	width: auto;
+	height: auto;
+	max-height: 60vh;
+	max-width: 95vw;
 }
 
 h1 {
+	font-family: cursive;
 	text-align: left;
-	font-size: 1rem;
+	font-size: 1rem;	
+	padding-left: 24px;
+	position: absolute;
+	bottom: 48px;
+	left:-14px;
+	transform: rotate(-90deg);	
+}
+
+h1 a {
 	display: inline-block;
+	line-height: .9;
+	text-decoration: none;
+	border-bottom: 2px dotted gold;
+}
+
+h1 a:hover {
+	border-bottom: none;
 }
 
 #entries {
@@ -25,6 +42,11 @@ h1 {
   height:  98vh;
 }
 
+.title {
+	width: 100%;
+	max-width: 350px;
+}
+
 .entry {
   margin: 2px;
 /*  overflow: scroll;
@@ -35,6 +57,16 @@ h1 {
 	max-width: 60vw;
 	font-size: 5vh;
 	font-family: sans-serif;
+}
+
+.link {
+	text-decoration: red wavy underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 4.5px;
+}
+
+.link:hover {
+	text-decoration: none;
 }
 
 a {
