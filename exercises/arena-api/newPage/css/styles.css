@@ -64,7 +64,7 @@ h1 a:hover {
 
 .link {
 	display: block;
-	text-decoration: red wavy underline;
+	text-decoration: coral wavy underline;
   text-decoration-thickness: 0.07em;
   text-underline-offset: 4.5px;
 }
