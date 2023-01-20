@@ -27,7 +27,7 @@ function load_entries() {
         .then(res => res.json())
         .then(json => (count = json.length))
         .then(count => {
-            let per = 50;
+            let per = 20;
             let pages = Math.ceil(count / per);
 
             let fetches = [];
