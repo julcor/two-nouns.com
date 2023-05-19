@@ -1,5 +1,5 @@
 :root {
-  --type-size: 6rem;
+  --type-size: 5.5rem;
 }
 
 
@@ -7,7 +7,9 @@
 body {
   font-family: "AuthenticSans90cond", sans-serif;
   font-size: 16px;
+  line-height: 1.25;
 }
+
 
 .left {
   float: left;
