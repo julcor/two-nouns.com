@@ -70,6 +70,9 @@ h2 {
 .title-flex {
   display: flex;
   justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  align-items: top;
 }
 
 .opener {
@@ -89,12 +92,17 @@ section {
 
 
 h1 {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-basis: 100%;
+/*  width: 100%;*/
   text-transform: uppercase;
   writing-mode: vertical-lr;
   text-orientation: upright;
   letter-spacing: -10px;
   margin-top: .5rem;
-  text-align: center;
+/*  text-align: center;*/
   margin-bottom: 2rem;
   font-size: 4.5rem;
   font-family: "maple-web"
@@ -120,6 +128,9 @@ h1 {
 @media screen and (min-width: 1000px) {
   h1.opener:first-child {
     margin-top: 5.8rem;
+  }
+  .title-flex {
+    width: 300px;
   }
 }
 
