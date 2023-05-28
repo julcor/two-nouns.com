@@ -22,7 +22,7 @@ p + p {
 
 a {
   color: red;
-  margin-left: 2rem;
+  margin-left: 180px;
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none; 
@@ -124,13 +124,16 @@ h1 {
 }*/
 
 
+.content {
+  margin-bottom: 0px;
+}
 
 @media screen and (min-width: 720px) {
   h1.opener:first-child {
-    margin-top: 5.8rem;
+    margin-top: 4.6rem;
   }
   .title-flex {
-    width: 300px;
+    width: 180px;
     flex-wrap: wrap;
   }
 }
@@ -160,6 +163,10 @@ h1 {
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+  }
+
+  a {
+    margin-left: 8px;
   }
 }
 
