@@ -125,17 +125,18 @@ h1 {
 
 
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 720px) {
   h1.opener:first-child {
     margin-top: 5.8rem;
   }
   .title-flex {
     width: 300px;
+    flex-wrap: wrap;
   }
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 720px) {
   html {
 /*    background-color: lightgreen;*/
     font-size: 12px;
@@ -145,6 +146,7 @@ h1 {
   }
   .title-flex {
     width: 80vw;
+    flex-wrap: wrap;
   }
   .entry:first-child {
     margin-top: 5vh;
