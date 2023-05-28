@@ -1,8 +1,9 @@
 :root {
-  --type-size: 4rem;
+  --type-size: 3.8rem;
 }
 
 body {
+/*  font-family: "Venus";*/
   font-family: "AuthenticSans90cond", sans-serif;
   font-size: 16px;
   line-height: 1.2;
@@ -13,6 +14,10 @@ body {
   font-size: 2rem;
   width: 66vw;
   margin-left: 16%;
+}
+
+p + p {
+  text-indent: 2em;
 }
 
 a {
@@ -31,18 +36,28 @@ a:visited {
 }
 
 p {
-  font-family: "AuthenticSans90", sans-serif;
+/*  font-family: "Venus";*/
+/*  font-family: "AuthenticSans90", sans-serif;*/
+/*  font-family: "Theinhardt";*/
+  font-family: "maple-web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: var(--type-size);
-  margin-bottom: 20rem;
+  margin-bottom: 0px;
   margin-left: 2rem;
   margin-right: 2.8rem;
+  margin-top: 0px;
 }
 
+.inline-head {
+  color: red;
+  font-size: .5em;
+}
 
 h2 {
   font-family: "AuthenticSans90", sans-serif;
-  text-align: center;
-  margin-bottom: 4rem;
+/*  text-align: center;*/
+/*  margin-bottom: 4rem;*/
   font-size: 2.5rem;
 /*  font-weight: 500;*/
 }
@@ -57,30 +72,70 @@ h2 {
   color: red;
 }
 
+.entry {
+  display: flex;
+  flex-wrap: nowrap;
+/*  align-items: center;*/
+}
+
+section {
+  margin-bottom: 10vh;
+}
+
+
 
 h1 {
   text-transform: uppercase;
   writing-mode: vertical-lr;
   text-orientation: upright;
   letter-spacing: -3px;
-  margin-top: 3rem;
+  margin-top: .5rem;
   text-align: center;
   margin-bottom: 2rem;
   font-size: 4.5rem;
+  font-family: "Monopol";
+/*  letter-spacing: -20px;*/
 }
 
-#first-style h1 {
-  font-family: "Venus";
-
-/*  font-family: "AuthenticSans90", sans-serif;*/
-}
-
+/*#first-style h1 {
+  font-family: "Maple";
+}*/
+/*
 #second-style h1 {
   filter: blur(2px);
+}*/
+
+/*#third-style h1 {
+  letter-spacing: -10px;
+  font-family: "Monopol";
+}*/
+
+
+
+@media screen and (min-width: 1000px) {
+  h1.opener:first-child {
+    margin-top: 5.8rem;
+  }
 }
 
-#third-style h1 {
-  font-family: "Monopol";
+
+@media screen and (max-width: 1000px) {
+  html {
+/*    background-color: lightgreen;*/
+    font-size: 10px;
+  }
+  h1 {
+    font-size: 6rem;
+  }
+  .entry:first-child {
+    margin-top: 5vh;
+  }
+  .entry {
+    margin-top: 10vh;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+  }
 }
 
 @font-face {
@@ -102,6 +157,23 @@ h1 {
   font-family: "AuthenticSans90cond";
   src: url(fonts/AUTHENTICSans-Condensed-90.otf);
 }
+
+@font-face {
+  font-family: "Hofmann";
+  src: url(fonts/Hofmann-TRIAL.otf);
+}
+
+@font-face {
+  font-family: "Theinhardt";
+  src: url(fonts/Theinhardt-Regular-Trial.otf);
+}
+
+
+@font-face {
+  font-family: "Sporting";
+  src: url(fonts/SportingGrotesque-Regular.otf);
+}
+
 
 @font-face {
   font-family: "Oth";
