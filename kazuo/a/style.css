@@ -109,7 +109,6 @@ h1 {
  /* font-family: "maple-web", sans-serif;
   letter-spacing: -10px;*/
   font-family: "Sporting-Bold", sans-serif;
-  letter-spacing: -50px;
 }
 
 /*#first-style h1 {
@@ -131,6 +130,9 @@ h1 {
 }
 
 @media screen and (min-width: 720px) {
+  h1 {
+    letter-spacing: -50px;
+  }
   h1.opener:first-child {
     margin-top: 3.8rem;
   }
