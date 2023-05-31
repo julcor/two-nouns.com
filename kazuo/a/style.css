@@ -108,8 +108,7 @@ h1 {
 
  /* font-family: "maple-web", sans-serif;
   letter-spacing: -10px;*/
-
-  font-family: "Sporting", sans-serif;
+  font-family: "Sporting-Bold", sans-serif;
   letter-spacing: -50px;
 }
 
@@ -133,7 +132,7 @@ h1 {
 
 @media screen and (min-width: 720px) {
   h1.opener:first-child {
-    margin-top: 4.8rem;
+    margin-top: 3.8rem;
   }
   .title-flex {
     min-width: 200px;
@@ -141,7 +140,11 @@ h1 {
     max-width: 400px;
     flex-wrap: wrap;
   }
+  p {
+    width: 150vw;
+  }
 }
+ 
 
 .quote {
   font-style: italic;
@@ -192,4 +195,9 @@ h1 {
 @font-face {
   font-family: "Sporting";
   src: url(fonts/SportingGrotesque-Regular.otf);
+}
+
+@font-face {
+  font-family: "Sporting-Bold";
+  src: url(fonts/SportingGrotesque-Bold.otf);
 }
