@@ -4,7 +4,7 @@ function load_entries() {
     // The channel slug comes after the username in the URL.
     var ran_num = 0;
     let content_num = 0;
-    let channel = "tenderness-qmv6fa9jctc";
+    let channel = "timekeeping-timetraveling";
     let makeURL = (per, page) =>
         `https://api.are.na/v2/channels/${channel}?per=${per}&page=${page}`;
 
