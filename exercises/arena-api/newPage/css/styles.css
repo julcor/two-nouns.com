@@ -14,10 +14,10 @@ h1 {
 	font-family: cursive;
 	text-align: left;
 	font-size: 1rem;	
-	padding-left: 24px;
 	position: absolute;
-	bottom: 30px;
-	left:-64px;
+	bottom: 3px;
+	left: 20px;
+	transform-origin: top left;
 	transform: rotate(-90deg);	
 }
 
