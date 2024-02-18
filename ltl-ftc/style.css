@@ -1,0 +1,45 @@
+:root {
+	--textColor: red;
+	font-size: 18px;
+}
+
+p {
+	line-height: 1.2;
+}
+
+.sigTitle {
+	font-size: 1.66rem;
+	font-style: italic;
+}
+
+.sigCover {
+	display: inline-block;
+	width: 10rem;
+	height: auto;
+	filter: drop-shadow(8px 5px 8px black);
+}
+
+#currentSig {
+	width: 15rem;
+	height: auto;
+}
+
+p {
+	max-width: 35rem;
+	width: 98%;
+}
+
+body {
+	background-color: #FBFBFB;
+	color: var(--textColor);
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: var(--textColor);
+}
+
+li {
+	margin-bottom: 1rem;
+}
