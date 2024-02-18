@@ -3,6 +3,12 @@
 	font-size: 18px;
 }
 
+.colophon {
+	margin-top: 5rem;
+	font-size: .66rem;
+	text-align: center;
+}
+
 p {
 	line-height: 1.2;
 }
@@ -17,6 +23,11 @@ p {
 	width: 10rem;
 	height: auto;
 	filter: drop-shadow(8px 5px 8px black);
+}
+
+.sigCover:hover {
+	filter: drop-shadow(5px 3px 5px black);;
+	transition: .1s;
 }
 
 #currentSig {
