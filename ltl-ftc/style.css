@@ -54,3 +54,22 @@ a {
 li {
 	margin-bottom: 1rem;
 }
+
+ul {
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+@media only screen and (max-width: 600px) {
+	.space {
+		display: none;
+	}
+  .sigCover {
+  	margin-top: .5rem;
+  	display: block;
+  }
+  .sigTitle {
+  	font-size: 1.5rem;
+  	display: block;
+  }
+}
