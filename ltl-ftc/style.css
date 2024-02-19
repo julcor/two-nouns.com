@@ -25,7 +25,8 @@ li {
 }
 
 .sigTitle {
-	font-size: 1.66rem;
+/*	font-size: 1.66rem; this feels too big?*/
+	font-size: 1.33rem;
 	font-style: italic;
 }
 
