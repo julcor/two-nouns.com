@@ -4,15 +4,16 @@
 }
 
 body {
+	font-size: 14px;
 	font-family: "Manifont Grotesk";
-	background: white;
+	background: #FBFBFB;
 	margin: 0px;
 	height: 100vh;
 	width: 100vw;
 }
 
 .proj-count {
-	margin-left: .25em;
+	margin-left: .3em;
 }
 
 #main-grid {
