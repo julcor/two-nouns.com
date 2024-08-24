@@ -5,9 +5,14 @@
 
 body {
 	font-family: "Manifont Grotesk";
+	background: white;
 	margin: 0px;
 	height: 100vh;
 	width: 100vw;
+}
+
+.proj-count {
+	margin-left: .25em;
 }
 
 #main-grid {
@@ -23,14 +28,22 @@ body {
 }
 
 .image {
-	text-align: right;
+
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 30%; 
+	height: auto;
+	z-index: -1;
+
+	/*text-align: right;
 	position: relative;
 	margin-right: -40px;
 	margin-top: -40px;
   grid-column-start: 5;
   grid-column-end: 7;
   grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row-end: 4;*/
 }
 
 .image img {
@@ -42,6 +55,12 @@ body {
 
 .nav {
 	color: red;
+}
+
+.project {
+	color:white;
+	z-index: 3;
+ 	mix-blend-mode: difference;
 }
 
 a {
