@@ -3,9 +3,21 @@
   src: url("fonts/ManifontGroteskBook.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "OCR X";
+  src: url("fonts/OCR-X-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+	font-family: "OCR X";
+  src: url("fonts/CR-X-Medium.otf") format("opentype");
+  font-weight: bold;
+}
+
 body {
 	font-size: 14px;
-	font-family: "Manifont Grotesk";
+	font-family: "OCR X";
 	background: #FBFBFB;
 	margin: 0px;
 	height: 100vh;
