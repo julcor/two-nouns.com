@@ -32,8 +32,12 @@
       --text-color: #111;
     }
 
+
     @media (max-width: 640px) {
-      :root { --page-pad: 20px; }
+      :root {
+         --page-pad: 20px;
+        --base-size: clamp(16px, calc(100vw * var(--vw-ratio)), 42px);
+      }
     }
 
     html, body {
