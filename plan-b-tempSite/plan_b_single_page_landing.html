@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan B</title>
+  <style>
+    @font-face {
+      font-family: 'OCR X';
+      src: url('font/OCR-X-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      /*
+        New baseline from spec:
+        - Desktop comp width: 1512px
+        - Body text size: 32px
+        -> 32 / 1512 = 0.0211640212 * 100vw
+      */
+      --vw-ratio: 0.0211640212;
+      --base-size: clamp(14px, calc(100vw * var(--vw-ratio)), 42px);
+      --leading: 1.25; /* 40px on 32px type */
+      --page-pad: 40px; /* outer margin on desktop */
+      --text-color: #111;
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        /* keep the typographic proportions while narrowing margins on phones */
+        --page-pad: 20px;
+        /* keep same vw scaling with sane bounds through clamp above */
+      }
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;            /* no scrolling */
+      overscroll-behavior: none;   /* prevent iOS bounce */
+      background: #fff;
+    }
+
+    body {
+      background-image: url('images/plan-b-background.jpg');
+      background-size: cover;      /* fill, keep aspect ratio, allow crop */
+      background-position: center; /* center crop */
+      background-repeat: no-repeat;
+      min-height: 100dvh;          /* mobile-safe viewport */
+      display: grid;
+      place-items: start;
+      font-family: 'OCR X', "OCR A Std", "OCR A", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--text-color);
+    }
+
+    .wrap {
+      box-sizing: border-box;
+      padding: var(--page-pad);
+      width: 100%;
+      /* text fills from margin to margin; no max-width */
+    }
+
+    h1, p {
+      font-size: var(--base-size);
+      line-height: var(--leading);
+      letter-spacing: 0.02em;
+      margin: 0; /* tight to match reference */
+    }
+
+    h1 { margin-bottom: calc(var(--base-size) * 0.5); }
+
+    p { max-width: none; text-wrap: pretty; }
+
+    a { text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.15em; color: inherit; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration-thickness: 0.1em; }
+
+    /* Subtle white halo for readability over busy image */
+      </style>
+</head>
+<body>
+  <main class="wrap" aria-label="Plan B intro copy">
+    <p>
+      Plan B<br>
+      <br>
+      <a href="mailto:joyce@planb-au.com">Joyce Hsiang</a> and <a href="mailto:bimal@planb-au.com">Bimal Mendis</a> founded
+      <a href="mailto:mail@planb-au.com">Plan B Architecture &amp; Urbanism</a> to anticipate and rehearse new relationships between
+      humans and the earth. The studio applies architectural methods and cartographic analysis to make worlds that reveal and
+      reflect on the ways humans have transformed the planet and the possibilities of design at the planetary scale. Research
+      and design projects range from installations and buildings to landscapes, urban plans and global models of urbanization.
+    </p>
+  </main>
+</body>
+</html>
