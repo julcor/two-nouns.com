@@ -4,55 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plan B</title>
+  <link rel="preload" href="font/OCR-X-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/plan-b-background.jpg" as="image">
+  <script>
+    // Reveal content once fonts are ready to prevent FOUT
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function(){
+        document.documentElement.classList.add('fonts-loaded');
+      });
+    }
+  </script>
   <style>
     @font-face {
       font-family: 'OCR X';
-      src: url('font/OCR-X-Regular.otf') format('opentype');
+      src: url('font/OCR-X-Regular.woff2') format('woff2'),
+           url('font/OCR-X-Regular.otf') format('opentype');
       font-weight: 400;
       font-style: normal;
-      font-display: swap;
+      font-display: block;
     }
 
     :root {
-      /*
-        New baseline from spec:
-        - Desktop comp width: 1512px
-        - Body text size: 32px
-        -> 32 / 1512 = 0.0211640212 * 100vw
-      */
-      --vw-ratio: 0.0211640212;
+      --vw-ratio: 0.0211640212; /* 32px / 1512px */
       --base-size: clamp(14px, calc(100vw * var(--vw-ratio)), 42px);
-      --leading: 1.25; /* 40px on 32px type */
-      --page-pad: 40px; /* outer margin on desktop */
+      --leading: 1.25; /* 40px on 32px */
+      --page-pad: 40px;
       --text-color: #111;
     }
 
     @media (max-width: 640px) {
-      :root {
-        /* keep the typographic proportions while narrowing margins on phones */
-        --page-pad: 20px;
-        /* keep same vw scaling with sane bounds through clamp above */
-      }
+      :root { --page-pad: 20px; }
     }
 
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden;            /* no scrolling */
-      overscroll-behavior: none;   /* prevent iOS bounce */
+      overflow: hidden;
+      overscroll-behavior: none;
       background: #fff;
     }
 
     body {
       background-image: url('images/plan-b-background.jpg');
-      background-size: cover;      /* fill, keep aspect ratio, allow crop */
-      background-position: center; /* center crop */
+      background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
-      min-height: 100dvh;          /* mobile-safe viewport */
+      min-height: 100dvh;
       display: grid;
       place-items: start;
-      font-family: 'OCR X', "OCR A Std", "OCR A", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-family: 'OCR X', "OCR A Std", "OCR A", "OCR A Extended",
+                   ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                   "Liberation Mono", "Courier New", monospace;
       color: var(--text-color);
     }
 
@@ -60,26 +63,33 @@
       box-sizing: border-box;
       padding: var(--page-pad);
       width: 100%;
-      /* text fills from margin to margin; no max-width */
+      opacity: 0;
+    }
+
+    .fonts-loaded .wrap {
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
     }
 
     h1, p {
       font-size: var(--base-size);
       line-height: var(--leading);
       letter-spacing: 0.02em;
-      margin: 0; /* tight to match reference */
+      margin: 0;
+      text-wrap: pretty;
     }
 
     h1 { margin-bottom: calc(var(--base-size) * 0.5); }
 
-    p { max-width: none; text-wrap: pretty; }
-
-    a { text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.15em; color: inherit; }
+    a {
+      text-decoration: underline;
+      text-decoration-thickness: 0.06em;
+      text-underline-offset: 0.15em;
+      color: inherit;
+    }
     a:hover { text-decoration: none; }
     a:focus { text-decoration-thickness: 0.1em; }
-
-    /* Subtle white halo for readability over busy image */
-      </style>
+  </style>
 </head>
 <body>
   <main class="wrap" aria-label="Plan B intro copy">
