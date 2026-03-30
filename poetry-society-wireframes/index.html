@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poetry Society of America — Wireframe Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header>
+  <a class="site-name" data-page="home">Poetry Society of America</a>
+  <nav>
+    <a data-page="programs">Programs</a>
+    <a data-page="events">Events</a>
+    <a data-page="voices">Voices</a>
+    <a data-page="poems">Poems</a>
+    <a data-page="awards">Awards</a>
+    <a data-page="about">About</a>
+    <a data-page="support">Support</a>
+    <a data-page="shop">Shop</a>
+    <a data-page="search">Search</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================================================
+     PAGE: HOMEPAGE
+     ============================================================ -->
+<div id="page-home" class="page">
+
+  <!-- Recent Projects -->
+  <section class="section">
+    <span class="section-title">Recent projects</span>
+    <div class="grid-2">
+      <div class="card">
+        <div class="img-ph" style="height:180px; margin-bottom:12px;"></div>
+        <h3><a data-page="poem-detail">The First Toast by Aria Aber</a></h3>
+        <p>Breakfast by Salt's Cure</p>
+        <p>368 Court Street.</p>
+        <p>Starting March 2, 2026</p>
+        <p>Part of the <a class="tag" data-page="program-detail">Poem District</a> program</p>
+      </div>
+      <div class="card">
+        <div class="img-ph" style="height:180px; margin-bottom:12px;"></div>
+        <h3><a data-page="poem-detail">The Title of a Poem by Poet Lastname</a></h3>
+        <p>Location title</p>
+        <p>368 Address, Brooklyn</p>
+        <p>February 15–March 15, 2026</p>
+        <p>Part of the <a class="tag" data-page="program-detail">Storefront Poems</a> program</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- Upcoming Events -->
+  <section class="section">
+    <span class="section-title">Upcoming Events <a class="view-all" data-page="events">(View All)</a></span>
+    <div class="event-item">
+      <p class="e-title"><a data-page="event-detail">Event Title</a></p>
+      <p class="e-date">March 2, 8pm</p>
+      <p class="e-desc">Event description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="event-item">
+      <p class="e-title"><a data-page="event-detail">Event Title</a></p>
+      <p class="e-date">March 21, 1–4pm</p>
+      <p class="e-desc">Event description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="event-item">
+      <p class="e-title"><a data-page="event-detail">Event Title</a></p>
+      <p class="e-date">March 26, 8pm</p>
+      <p class="e-desc">Event description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- Featured Poem -->
+  <section class="section">
+    <span class="section-title">Featured Poem</span>
+    <p class="featured-poem-title"><a data-page="poem-detail">Open House</a></p>
+    <p class="featured-poem-author"><a class="tag" data-page="author">Naomi Shihab Nye</a></p>
+    <div class="poem-text">I work as hard as I can
+to have nothing to do.
+
+Birds climb their rich ladder
+of choruses.
+
+They have tasted the top of the tree,
+but they are not staying.
+
+The whole sky says,
+Your move.</div>
+    <p class="poem-rights">Naomi Shihab Nye, "Open House" from <em>Fuel</em>. Copyright © 1998 by Naomi Shihab Nye. Reprinted by permission of The Permission Company LLC, on behalf of BOA Editions. This poem appeared in the Poetry Society of America's Poems on Wheels program.</p>
+  </section>
+
+  <hr class="hr">
+
+  <!-- Essays -->
+  <section class="section">
+    <span class="section-title">Essays <a class="view-all" data-page="voices">(View All)</a></span>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Essay by Author Name</a></h3>
+      <p>From the series <a class="tag" data-page="voices">Poet's Nightstand</a></p>
+      <p>Excerpt from the essay dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="muted">Published January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Essay by Author Name</a></h3>
+      <p>From the series <a class="tag" data-page="voices">Grief &amp; Poetry</a></p>
+      <p>Excerpt from the essay dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="muted">Published January 1, 2026</p>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ============================================================
+     PAGE: POEMS
+     ============================================================ -->
+<div id="page-poems" class="page">
+  <span class="page-h1">Poems</span>
+
+  <!-- Two featured poems -->
+  <section class="section">
+    <div class="grid-2">
+      <div>
+        <p class="bold"><a data-page="poem-detail">A Large Mirror Unloaded From a Truck in the Sun</a></p>
+        <p><a class="tag" data-page="author">Stefania Heim</a></p>
+        <br>
+        <p>Participation relegated to sleeping near<br>the open window. My great failure</p>
+        <br>
+        <p>has always been not imagining the future<br>but in managing myself. Your thumbprint, please,</p>
+        <br>
+        <p>[…]</p>
+        <br>
+        <p>With essay by <a class="tag" data-page="author">Ross Gay</a></p>
+      </div>
+      <div>
+        <p class="bold"><a data-page="poem-detail">This is the title of the poem</a></p>
+        <p><a class="tag" data-page="author">Poet Lastname</a></p>
+        <br>
+        <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+        <br>
+        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <br>
+        <p>[…]</p>
+        <br>
+        <p>Installed as part of <a class="tag" data-page="program-detail">Poem District</a></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- Poetry Series -->
+  <section class="section">
+    <span class="section-title">Poetry Series <a class="view-all" data-page="poems-series">(View All)</a></span>
+    <div class="list-item">
+      <h3><a data-page="poems-series">Poetry &amp; Environmental Justice</a></h3>
+      <p>Description of the series dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="poems-series">Poetry &amp; Protest</a></h3>
+      <p>Description of the series dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- All Poems -->
+  <section class="section">
+    <span class="section-title">All Poems</span>
+    <div class="search-controls">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Newest First, Oldest First, Poet Name, Poem Title</p>
+      <p class="sort-line"><strong>Filter by:</strong> Series, Program (Dropdown)</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="poem-detail" data-title="This is the title of the poem" data-author="Poet Lastname">This is the title of the poem</a></h3>
+      <p>Poet Lastname</p>
+      <p>With essay by <a class="tag" data-page="author">Ross Gay</a> as part of <a class="tag" data-page="poems-series">Poems &amp; Grief</a></p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="poem-detail" data-title="A Large Mirror Unloaded From a Truck in the Sun" data-author="Stefania Heim">A Large Mirror Unloaded From a Truck in the Sun</a></h3>
+      <p><a class="tag" data-page="author">Stefania Heim</a></p>
+      <p>Installed as part of <a class="tag" data-page="program-detail">Poem District</a></p>
+    </div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="The First Toast" data-author="Aria Aber">The First Toast</a></h3><p class="bold">Aria Aber</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Open House" data-author="Naomi Shihab Nye">Open House</a></h3><p class="bold">Naomi Shihab Nye</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+    <div class="list-item">
+      <h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3>
+      <p class="bold">Poet Lastname</p>
+      <p>Part of <a class="tag" data-page="poems-series">New American Poets</a> series</p>
+    </div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+    <div class="list-item"><h3><a data-page="poem-detail" data-title="Title of Poem" data-author="Poet Lastname">Title of Poem</a></h3><p class="bold">Poet Lastname</p></div>
+  </section>
+</div><!-- /page-poems -->
+
+
+<!-- ============================================================
+     PAGE: POEM DETAIL
+     ============================================================ -->
+<div id="page-poem-detail" class="page">
+  <p class="breadcrumb"><a data-page="poems">Poems</a></p>
+  <p class="bold" id="poem-detail-title" style="font-size:16px; margin-bottom:3px;">A Large Mirror Unloaded From a Truck in the Sun</p>
+  <p style="margin-bottom:20px;"><a class="tag" id="poem-detail-author" data-page="author">Stefania Heim</a></p>
+
+  <div class="poem-text">Participation relegated to sleeping near
+the open window. My great failure
+
+has always been not imagining the future
+but in managing myself. Your thumbprint, please,
+
+before we launch the new rhetoric. I know
+when I grovel I am plain. I've actually had a dream
+
+about this building, and it feels soon enough to me now.
+For all the reasons we are short of breath, approximate.
+
+Passion clusters as though circumstance. A terrible
+child. I grow apart. According to the original
+
+rules, burn everything. Who could have anticipated
+what we are becoming—in constraint, in circumspection.
+
+I'll think of some experiment to move us,
+focusing on the lenses learned.</div>
+
+  <p class="poem-rights italic">All rights reserved. Reprinted with the permission of the author.</p>
+  <p class="poem-rights italic" style="margin-top:4px;">Originally published in the New Yorker, May 2021. Posted online January 12, 2025</p>
+
+  <hr class="hr">
+  <p class="bold" style="margin-bottom:16px;">More content related to this poem</p>
+
+  <div class="related-box">
+    <h4>Programs</h4>
+    <p>This poem is installed at <a class="tag" href="#">123 Address St</a> as part of the <a class="tag" data-page="program-detail">Poem District</a> program</p>
+    <div class="img-ph" style="height:160px; margin-top:12px;"></div>
+  </div>
+
+  <div class="related-box">
+    <h4>Voices</h4>
+    <p>This poem has associated essays written by <a class="tag" data-page="author">Jennifer Kronovet</a> and <a class="tag" data-page="author">Stefania Heim</a> as part of the <a class="tag" data-page="poems-series">New American Poets</a> essay series</p>
+  </div>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">Other poems in the <a class="tag" data-page="poems-series">New American Poets</a> series</span>
+    <div class="grid-2">
+      <div>
+        <p class="bold"><a data-page="poem-detail">This is the title of the poem</a></p>
+        <p>Poet Lastname</p>
+        <br>
+        <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+        <br>
+        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <br>
+        <p>[…]</p>
+      </div>
+      <div>
+        <p class="bold"><a data-page="poem-detail">This is the title of the poem</a></p>
+        <p>Poet Lastname</p>
+        <br>
+        <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+        <br>
+        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <br>
+        <p>[…]</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">Other poems by <a class="tag" data-page="author">Stefania Heim</a></span>
+    <div>
+      <p class="bold"><a data-page="poem-detail">This is the title of the poem</a></p>
+      <p>Stefania Heim</p>
+      <br>
+      <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+      <br>
+      <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br>
+      <p>[…]</p>
+    </div>
+  </section>
+</div><!-- /page-poem-detail -->
+
+
+<!-- ============================================================
+     PAGE: POEMS / SERIES
+     ============================================================ -->
+<div id="page-poems-series" class="page">
+  <p class="breadcrumb"><a data-page="poems">Poems</a></p>
+  <span class="page-h1">Poetry Series</span>
+
+  <div class="list-item">
+    <h3>Poetry &amp; Environmental Justice</h3>
+    <p>Description of the series dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <div class="list-item">
+    <h3>Poetry &amp; Protest</h3>
+    <p>Description of the series dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <div class="list-item">
+    <h3>New American Poets</h3>
+    <p>Description of the series dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <br>
+    <div class="grid-2">
+      <div class="list-item"><h3><a data-page="poem-detail">A Large Mirror Unloaded From a Truck in the Sun</a></h3><p>Stefania Heim</p></div>
+      <div class="list-item"><h3><a data-page="poem-detail">This is the title of the poem</a></h3><p>Poet Lastname</p></div>
+    </div>
+  </div>
+  <div class="list-item">
+    <h3>Grief &amp; Poetry</h3>
+    <p>Description of the series dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div><!-- /page-poems-series -->
+
+
+<!-- ============================================================
+     PAGE: VOICES (READ)
+     ============================================================ -->
+<div id="page-voices" class="page">
+  <span class="page-h1">Voices</span>
+  <div class="sub-tabs">
+    <a class="active" data-page="voices">Read</a>
+    <a data-page="voices-listen">Listen</a>
+  </div>
+
+  <section class="section">
+    <span class="section-title">New Essays</span>
+    <div class="list-item">
+      <h3><a data-page="essay-detail" data-title="Stopping by with Ryo Yamaguchi" data-series="Stopping By" data-date="January 2, 2026">Stopping by with Ryo Yamaguchi</a></h3>
+      <p>From the essay series <a class="tag" data-page="voices">Stopping By</a></p>
+      <p>"Around ten or fifteen years ago, I found myself in a wonderful period of reading and reviewing books, mostly poetry, and there was a set of works that informed what I might simply call an 'existential' orientation to art. Juliet Patterson's <em>Threnody</em> is the first to mind, and what I might center here."</p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail" data-title="On At the Price Chopper" data-author="Monica Ferrell" data-series="In Their Own Words" data-date="January 2, 2026">On <em>At the Price Chopper</em></a><br><a class="tag" data-page="author">Monica Ferrell</a></h3>
+      <p>From the essay series <a class="tag" data-page="voices">In Their Own Words</a></p>
+      <p>"Not in its first phase, but during the later days of the pandemic, the grocery store became a kind of public square, at least for me. It was almost the only place I left my house for, the only place where I encountered people who weren't in my immediate family."</p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail" data-title="Interview with Mei-mei Berssenbrugge" data-series="Interviews" data-date="January 2, 2026">Interview with Mei-mei Berssenbrugge</a></h3>
+      <p>From the essay series <a class="tag" data-page="voices">Interviews</a></p>
+      <p>"I went to New York several times a year eager to absorb as much 'new art' as I could, including language poetry. This was the late 1970s to the 1980s. I absorbed ideas of deconstruction, left politics, appropriation, abstraction in poetry, and I read widely."</p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">Essay Series <a class="view-all" data-page="voices">(View All)</a></span>
+    <div class="list-item">
+      <h3>The Poet's Nightstand</h3>
+      <p>Poets talk about five books that have made a big impression on them recently.</p>
+    </div>
+    <div class="list-item">
+      <h3>Stopping By</h3>
+      <p>In this interview series, we ask writers, musicians, curators, and innovators to reflect on influence, memory, language, shared spaces, and the power of poetry to bring us together.</p>
+    </div>
+    <div class="list-item">
+      <h3>Song Cycle</h3>
+      <p>Poets, writers, and musicians trace the long relationship between poetry and music.</p>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">All Essays</span>
+    <div class="search-controls">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Newest First, Oldest First, Writer Name, Essay Title</p>
+      <p class="sort-line"><strong>Filter by:</strong> Series (Dropdown)</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Title of the essay</a><br>Author Lastname</h3>
+      <p>From the essay series <a class="tag" data-page="voices">Interviews</a></p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Title of the essay</a><br>Author Lastname</h3>
+      <p>From the essay series <a class="tag" data-page="voices">Interviews</a></p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Title of the essay</a><br>Author Lastname</h3>
+      <p>From the essay series <a class="tag" data-page="voices">Interviews</a></p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Title of the essay</a><br>Author Lastname</h3>
+      <p>From the essay series <a class="tag" data-page="voices">Interviews</a></p>
+      <p class="muted">Published on January 2, 2026</p>
+    </div>
+  </section>
+</div><!-- /page-voices -->
+
+
+<!-- ============================================================
+     PAGE: VOICES (LISTEN)
+     ============================================================ -->
+<div id="page-voices-listen" class="page">
+  <span class="page-h1">Voices</span>
+  <div class="sub-tabs">
+    <a data-page="voices">Read</a>
+    <a class="active" data-page="voices-listen">Listen</a>
+  </div>
+
+  <section class="section">
+    <span class="section-title">Recent Episodes</span>
+    <div class="list-item">
+      <h3><a data-page="voices-listen-detail">Episode Title</a><br>Author Name</h3>
+      <div class="audio-ph">Episode · 42 min</div>
+      <p>Episode description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p class="muted">Published January 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="voices-listen-detail">Episode Title</a><br>Author Name</h3>
+      <div class="audio-ph">Episode · 38 min</div>
+      <p>Episode description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p class="muted">Published January 1, 2026</p>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">All Episodes</span>
+    <div class="search-controls">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Newest First, Oldest First</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="voices-listen-detail">Episode Title</a><br>Author Name</h3>
+      <p class="muted">January 2, 2026 · 42 min</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="voices-listen-detail">Episode Title</a><br>Author Name</h3>
+      <p class="muted">January 1, 2026 · 38 min</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="voices-listen-detail">Episode Title</a><br>Author Name</h3>
+      <p class="muted">December 28, 2025 · 51 min</p>
+    </div>
+  </section>
+</div><!-- /page-voices-listen -->
+
+
+<!-- ============================================================
+     PAGE: ESSAY DETAIL
+     ============================================================ -->
+<div id="page-essay-detail" class="page">
+  <p class="breadcrumb"><a data-page="voices">Voices</a> / <a data-page="voices">Read</a></p>
+  <p>From the essay series <a class="tag" id="essay-detail-series" data-page="voices">Stopping By</a></p>
+  <p class="bold" id="essay-detail-title" style="font-size:16px; margin: 8px 0 4px;">Stopping by with Ryo Yamaguchi</p>
+  <p class="muted" id="essay-detail-date" style="margin-bottom:24px;">Published January 2, 2026</p>
+
+  <hr class="hr">
+
+  <div style="max-width:680px; font-size:14px; line-height:1.8;">
+    <p style="margin-bottom:16px;">"Around ten or fifteen years ago, I found myself in a wonderful period of reading and reviewing books, mostly poetry, and there was a set of works that informed what I might simply call an 'existential' orientation to art. Juliet Patterson's <em>Threnody</em> is the first to mind, and what I might center here."</p>
+    <p style="margin-bottom:16px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p style="margin-bottom:16px;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+    <p style="margin-bottom:16px;">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+  </div>
+</div><!-- /page-essay-detail -->
+
+
+<!-- ============================================================
+     PAGE: VOICES LISTEN DETAIL
+     ============================================================ -->
+<div id="page-voices-listen-detail" class="page">
+  <p class="breadcrumb"><a data-page="voices">Voices</a> / <a data-page="voices-listen">Listen</a></p>
+  <p class="bold" style="font-size:16px; margin-bottom:4px;">Episode Title</p>
+  <p style="margin-bottom:4px;"><a class="tag" data-page="author">Author Name</a></p>
+  <p class="muted" style="margin-bottom:20px;">Published January 2, 2026</p>
+
+  <div class="audio-ph" style="max-width:640px; margin-bottom:24px;">Episode · 42 min &nbsp;&nbsp; 0:00 ────────────────── 42:17</div>
+
+  <div style="max-width:680px; font-size:14px; line-height:1.8;">
+    <p style="margin-bottom:16px;">Episode description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div><!-- /page-voices-listen-detail -->
+
+
+<!-- ============================================================
+     PAGE: AWARDS
+     ============================================================ -->
+<div id="page-awards" class="page">
+  <span class="page-h1">Awards</span>
+
+  <!-- Award descriptions -->
+  <section class="section">
+    <div class="grid-2" style="margin-bottom:20px;">
+      <div>
+        <p class="bold">Annual Awards</p>
+        <p>Deadline: Dec. 15, 11:59pm EST</p>
+        <p>Prizes: $500–$2500</p>
+      </div>
+      <div>
+        <p>The PSA's Annual Awards are among the most prestigious honors available to poets. They offer emerging and established poets recognition at all stages of their careers, including our student poetry award and book awards for publishers.</p>
+      </div>
+    </div>
+    <hr class="hr-light">
+    <div class="grid-2" style="margin-bottom:20px; margin-top:20px;">
+      <div>
+        <p class="bold">Four Quartets Prize</p>
+        <p>Deadline: Dec. 15, 11:59pm EST</p>
+        <p>Prize: $20,000</p>
+      </div>
+      <div>
+        <p>The Four Quartets Prize is for a unified and complete sequence of poems published in America in a print or online journal, chapbook, or book.</p>
+      </div>
+    </div>
+    <hr class="hr-light">
+    <div class="grid-2" style="margin-bottom:20px; margin-top:20px;">
+      <div>
+        <p class="bold">Chapbook Fellowships</p>
+        <p>Deadline: Dec. 15, 11:59pm EST</p>
+        <p>Prize: $1000</p>
+      </div>
+      <div>
+        <p>Launched in 2003, the PSA's Chapbook Program publishes each winner's work as a gorgeous chapbook, allowing new voices to reach new audiences.</p>
+      </div>
+    </div>
+    <hr class="hr-light">
+    <div class="grid-2" style="margin-top:20px;">
+      <div>
+        <p class="bold">Frost &amp; Shelley Awards</p>
+      </div>
+      <div>
+        <p>The Frost Medal and Shelley Memorial Award recognize lifetime and mid-career achievement in poetry. By nomination only.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- Award Winners -->
+  <section class="section">
+    <span class="section-title">Award Winners</span>
+    <div class="search-controls" style="margin-bottom:16px;">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Most recent, Least recent, Awardee Name</p>
+      <p class="sort-line"><strong>Filter by award:</strong> Frost, Shelley, The Writer Magazine/Emily Dickinson, Cecil Hemley Memorial, Lyric Poetry, Lucille Medwick Memorial, Alice Fay Di Castagnola, George Bogin Memorial, Robert H. Winner Memorial, Anna Rabinowitz, Student Poetry, Norma Faber First Book, William Carlos Williams Book</p>
+    </div>
+
+    <table class="awards-table">
+      <tbody>
+        <tr><td colspan="2" class="year-cell">2026</td></tr>
+        <tr><td class="award-name">Frost Award</td><td class="award-winner">Nikki Giovanni</td></tr>
+        <tr><td class="award-name">Shelley Award</td><td class="award-winner">John Levy</td></tr>
+        <tr><td class="award-name">The Writer Magazine/Emily Dickinson Award</td><td class="award-winner">Sasha Roque Pimentel<span class="finalist">Finalist: Wayne Miller</span></td></tr>
+        <tr><td class="award-name">Cecil Hemley Memorial Award</td><td class="award-winner">Ansel Elkins<span class="finalist">Finalist: Geffrey Davis</span></td></tr>
+        <tr><td class="award-name">Lyric Poetry Award</td><td class="award-winner">Guion Pratt</td></tr>
+        <tr><td class="award-name">Lucille Medwick Memorial Award</td><td class="award-winner">Ina Cariño</td></tr>
+        <tr><td class="award-name">Alice Fay Di Castagnola Award</td><td class="award-winner">Alisha Dietzman</td></tr>
+        <tr><td class="award-name">George Bogin Memorial Award</td><td class="award-winner">Migwi Mwangi<span class="finalist">Finalists: Rob Macalisa Colgate, Joss Yuan</span></td></tr>
+        <tr><td class="award-name">Robert H. Winner Memorial Award</td><td class="award-winner">M. Cynthia Cheung<span class="finalist">Finalists: Kai Carlson-Wee, Meg Day</span></td></tr>
+        <tr><td class="award-name">Anna Rabinowitz Prize</td><td class="award-winner">sade powell<span class="finalist italic">from wordtomydead</span></td></tr>
+        <tr><td class="award-name">Student Poetry Award</td><td class="award-winner">Ayanna Uppal<span class="finalist italic">How to Define Distance</span></td></tr>
+        <tr><td class="award-name">Norma Faber First Book Award</td><td class="award-winner">Jimin Seo<span class="finalist italic">OSSIR</span></td></tr>
+        <tr><td class="award-name">William Carlos Williams Book Award</td><td class="award-winner">Philip Metres<span class="finalist italic">Fugitive/Refuge</span></td></tr>
+
+        <tr><td colspan="2" class="year-cell">2025</td></tr>
+        <tr><td class="award-name">Frost Award</td><td class="award-winner">Nikki Giovanni</td></tr>
+        <tr><td class="award-name">Shelley Award</td><td class="award-winner">John Levy</td></tr>
+        <tr><td class="award-name">The Writer Magazine/Emily Dickinson Award</td><td class="award-winner">Sasha Roque Pimentel<span class="finalist">Finalist: Wayne Miller</span></td></tr>
+        <tr><td class="award-name">Cecil Hemley Memorial Award</td><td class="award-winner">Ansel Elkins<span class="finalist">Finalist: Geffrey Davis</span></td></tr>
+        <tr><td class="award-name">Lyric Poetry Award</td><td class="award-winner">Guion Pratt</td></tr>
+        <tr><td class="award-name">Lucille Medwick Memorial Award</td><td class="award-winner">Ina Cariño</td></tr>
+        <tr><td class="award-name">Alice Fay Di Castagnola Award</td><td class="award-winner">Alisha Dietzman</td></tr>
+        <tr><td class="award-name">George Bogin Memorial Award</td><td class="award-winner">Migwi Mwangi<span class="finalist">Finalists: Rob Macalisa Colgate, Joss Yuan</span></td></tr>
+        <tr><td class="award-name">Robert H. Winner Memorial Award</td><td class="award-winner">M. Cynthia Cheung<span class="finalist">Finalists: Kai Carlson-Wee, Meg Day</span></td></tr>
+        <tr><td class="award-name">Anna Rabinowitz Prize</td><td class="award-winner">sade powell<span class="finalist italic">from wordtomydead</span></td></tr>
+        <tr><td class="award-name">Student Poetry Award</td><td class="award-winner">Ayanna Uppal<span class="finalist italic">How to Define Distance</span></td></tr>
+        <tr><td class="award-name">Norma Faber First Book Award</td><td class="award-winner">Jimin Seo<span class="finalist italic">OSSIR</span></td></tr>
+        <tr><td class="award-name">William Carlos Williams Book Award</td><td class="award-winner">Philip Metres<span class="finalist italic">Fugitive/Refuge</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+</div><!-- /page-awards -->
+
+
+<!-- ============================================================
+     PAGE: EVENTS (UPCOMING)
+     ============================================================ -->
+<div id="page-events" class="page">
+  <span class="page-h1">Events</span>
+  <div class="tabs">
+    <a class="active" data-page="events">Upcoming Events</a>
+    <a data-page="events-past">Past Events</a>
+  </div>
+
+  <!-- Event category grid -->
+  <section class="section">
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div>
+        <p class="bold">PSA Reading Series <a class="view-all" data-page="events">(View all)</a></p>
+        <p style="margin-bottom:12px;">Lorem ipsum dolor sit amet consectetur. Massa lacus id in eget bibendum in duistaru sapien nisl. Nulla est mi ornare dui viverra in.</p>
+        <div class="event-item"><p class="e-date">Wednesday, May 13, 7pm</p><p class="e-title"><a data-page="event-detail">Adrian Matejka &amp; Aimee Nezhukumatathil</a></p></div>
+        <div class="event-item"><p class="e-date">Thursday, April 23, 7pm</p><p class="e-title"><a data-page="event-detail">Farid Matuk &amp; Elizabeth Willis</a></p></div>
+        <div class="event-item"><p class="e-date">Thursday, March 19, 7pm</p><p class="e-title"><a data-page="event-detail">Monica Ferrell &amp; Matthew Rohrer</a></p></div>
+      </div>
+      <div>
+        <p class="bold">PSA Talks <a class="view-all" data-page="events">(View all)</a></p>
+        <p style="margin-bottom:12px;">Lorem ipsum dolor sit amet consectetur. Massa lacus id in eget bibendum in duistaru sapien nisl. Nulla est mi ornare dui viverra in.</p>
+        <div class="event-item"><p class="e-date">Thursday, May 28, 7pm</p><p class="e-title"><a data-page="event-detail">Ariana Reines on Paradise Lost</a></p></div>
+      </div>
+    </div>
+    <hr class="hr-light">
+    <div class="grid-2" style="margin-top:24px;">
+      <div>
+        <p class="bold">Workshops &amp; Courses <a class="view-all" data-page="events">(View all)</a></p>
+        <p style="margin-bottom:12px;">Lorem ipsum dolor sit amet consectetur. Massa lacus id in eget bibendum in duistaru sapien nisl. Nulla est mi ornare dui viverra in.</p>
+        <div class="event-item"><p class="e-date">Saturdays, April 25–May 23, 10:30–11:30am</p><p class="e-title"><a data-page="event-detail">Kids' Poetry Minicourse</a></p></div>
+        <div class="event-item"><p class="e-date">Tuesdays, May 12–June 9, 7–9PM</p><p class="e-title"><a data-page="event-detail">Any One Might: The Feminist Epic: A Crash Course with Emily Skillings</a></p></div>
+        <div class="event-item"><p class="e-date">June 22 to 27, 11:30am–5pm</p><p class="e-title"><a data-page="event-detail">Summer Fellowship with Lynn Melnick</a></p></div>
+      </div>
+      <div>
+        <p class="bold">Make Room: A New Voices Salon <a class="view-all" data-page="events">(View all)</a></p>
+        <p style="margin-bottom:12px;">Lorem ipsum dolor sit amet consectetur. Massa lacus id in eget bibendum in duistaru sapien nisl. Nulla est mi ornare dui viverra in.</p>
+        <div class="event-item"><p class="e-date">Friday, May 8, 7pm</p><p class="e-title"><a data-page="event-detail">Asha Futterman, Sara Gilmore &amp; Jimin Seo</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- All Events List -->
+  <section class="section">
+    <span class="section-title">All upcoming events</span>
+    <div class="search-controls">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Newest First, Oldest First</p>
+      <p class="sort-line"><strong>Filter by</strong> PSA Reading Series, PSA Talks, Workshops &amp; Courses, New Voices Salon</p>
+    </div>
+    <div class="event-item"><p class="e-date">Thursday, March 19, 7pm</p><p class="e-type">PSA Reading Series</p><p class="e-title"><a data-page="event-detail" data-title="Monica Ferrell &amp; Matthew Rohrer" data-type="PSA Reading Series" data-date="Thursday, March 19, 7pm" data-location="119 Smith Street, Brooklyn">Monica Ferrell &amp; Matthew Rohrer</a></p></div>
+    <div class="event-item"><p class="e-date">Tuesdays, April 21 and April 28, 6:30pm</p><p class="e-type">Workshops &amp; Courses</p><p class="e-title"><a data-page="event-detail" data-title="The Poetry of Jack Spicer: A Seminar with Peter Gizzi" data-type="Workshops &amp; Courses" data-date="Tuesdays, April 21 and April 28, 6:30pm" data-location="119 Smith Street, Brooklyn">The Poetry of Jack Spicer: A Seminar with Peter Gizzi</a></p></div>
+    <div class="event-item"><p class="e-date">Thursday, April 23, 7pm</p><p class="e-type">PSA Reading Series</p><p class="e-title"><a data-page="event-detail" data-title="Farid Matuk &amp; Elizabeth Willis" data-type="PSA Reading Series" data-date="Thursday, April 23, 7pm" data-location="119 Smith Street, Brooklyn">Farid Matuk &amp; Elizabeth Willis</a></p></div>
+    <div class="event-item"><p class="e-date">Saturdays, April 25–May 23, 10:30–11:30am</p><p class="e-type">Workshops &amp; Courses</p><p class="e-title"><a data-page="event-detail" data-title="Kids' Poetry Minicourse" data-type="Workshops &amp; Courses" data-date="Saturdays, April 25–May 23, 10:30–11:30am" data-location="119 Smith Street, Brooklyn">Kids' Poetry Minicourse</a></p></div>
+    <div class="event-item"><p class="e-date">Friday, May 8, 7pm</p><p class="e-type">Make Room: A New Voices Salon</p><p class="e-title"><a data-page="event-detail" data-title="Asha Futterman, Sara Gilmore &amp; Jimin Seo" data-type="Make Room: A New Voices Salon" data-date="Friday, May 8, 7pm" data-location="119 Smith Street, Brooklyn">Asha Futterman, Sara Gilmore &amp; Jimin Seo</a></p></div>
+    <div class="event-item"><p class="e-date">Tuesdays, May 12–June 9, 7–9PM</p><p class="e-type">Workshops &amp; Courses</p><p class="e-title"><a data-page="event-detail" data-title="Any One Might: The Feminist Epic" data-type="Workshops &amp; Courses" data-date="Tuesdays, May 12–June 9, 7–9PM" data-location="119 Smith Street, Brooklyn">Any One Might: The Feminist Epic: A Crash Course with Emily Skillings</a></p></div>
+    <div class="event-item"><p class="e-date">Wednesday, May 13, 7pm</p><p class="e-type">PSA Reading Series</p><p class="e-title"><a data-page="event-detail" data-title="Adrian Matejka &amp; Aimee Nezhukumatathil" data-type="PSA Reading Series" data-date="Wednesday, May 13, 7pm" data-location="119 Smith Street, Brooklyn">Adrian Matejka &amp; Aimee Nezhukumatathil</a></p></div>
+    <div class="event-item"><p class="e-date">Thursday, May 28, 7pm</p><p class="e-type">PSA Talks</p><p class="e-title"><a data-page="event-detail" data-title="Ariana Reines on Paradise Lost" data-type="PSA Talks" data-date="Thursday, May 28, 7pm" data-location="119 Smith Street, Brooklyn">Ariana Reines on Paradise Lost</a></p></div>
+    <div class="event-item"><p class="e-date">June 22 to 27, 11:30am–5pm</p><p class="e-type">Workshops &amp; Courses</p><p class="e-title"><a data-page="event-detail" data-title="Summer Fellowship with Lynn Melnick" data-type="Workshops &amp; Courses" data-date="June 22 to 27, 11:30am–5pm" data-location="119 Smith Street, Brooklyn">Summer Fellowship with Lynn Melnick</a></p></div>
+  </section>
+</div><!-- /page-events -->
+
+
+<!-- ============================================================
+     PAGE: EVENTS (PAST)
+     ============================================================ -->
+<div id="page-events-past" class="page">
+  <span class="page-h1">Events</span>
+  <div class="tabs">
+    <a data-page="events">Upcoming Events</a>
+    <a class="active" data-page="events-past">Past Events</a>
+  </div>
+
+  <section class="section">
+    <div class="search-controls">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Most recent, Least recent</p>
+      <p class="sort-line"><strong>Filter by</strong> PSA Reading Series, PSA Talks, Workshops &amp; Courses, New Voices Salon</p>
+    </div>
+    <div class="event-item"><p class="e-date">March 5, 2026</p><p class="e-type">PSA Reading Series</p><p class="e-title"><a data-page="event-detail">Past Event Title</a></p></div>
+    <div class="event-item"><p class="e-date">February 14, 2026</p><p class="e-type">PSA Talks</p><p class="e-title"><a data-page="event-detail">Past Event Title</a></p></div>
+    <div class="event-item"><p class="e-date">January 28, 2026</p><p class="e-type">Workshops &amp; Courses</p><p class="e-title"><a data-page="event-detail">Past Event Title</a></p></div>
+    <div class="event-item"><p class="e-date">January 10, 2026</p><p class="e-type">Make Room: A New Voices Salon</p><p class="e-title"><a data-page="event-detail">Past Event Title</a></p></div>
+    <div class="event-item"><p class="e-date">December 12, 2025</p><p class="e-type">PSA Reading Series</p><p class="e-title"><a data-page="event-detail">Past Event Title</a></p></div>
+    <div class="event-item"><p class="e-date">November 20, 2025</p><p class="e-type">Workshops &amp; Courses</p><p class="e-title"><a data-page="event-detail">Past Event Title</a></p></div>
+  </section>
+</div><!-- /page-events-past -->
+
+
+<!-- ============================================================
+     PAGE: EVENT DETAIL
+     ============================================================ -->
+<div id="page-event-detail" class="page">
+  <p class="breadcrumb"><a data-page="events">Events</a></p>
+  <p class="muted" id="event-detail-type">PSA Reading Series</p>
+  <p class="bold" id="event-detail-title" style="font-size:16px; margin: 6px 0 4px;">Monica Ferrell &amp; Matthew Rohrer</p>
+  <p id="event-detail-date">Thursday, March 19, 7pm</p>
+  <p id="event-detail-location">The Poetry Society of America · 119 Smith Street, Brooklyn</p>
+
+  <hr class="hr">
+
+  <div style="max-width:680px; font-size:14px; line-height:1.8;">
+    <p style="margin-bottom:16px;">Event description dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p style="margin-bottom:16px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p style="margin-bottom:24px;">This event is free and open to the public. No registration required.</p>
+    <a class="btn" href="#">RSVP / Register</a>
+  </div>
+</div><!-- /page-event-detail -->
+
+
+<!-- ============================================================
+     PAGE: ABOUT
+     ============================================================ -->
+<div id="page-about" class="page">
+  <span class="page-h1">About</span>
+  <div class="about-tabs">
+    <a class="active" data-about="overview">Overview</a>
+    <a data-about="staff-board">Staff &amp; Board</a>
+    <a data-about="funders">Funders</a>
+    <a data-about="history">History</a>
+    <a data-about="news">News</a>
+  </div>
+
+  <!-- Overview -->
+  <div class="about-panel active" id="about-overview">
+    <div class="intro-text">
+      <p>The Poetry Society of America, the nation's oldest poetry organization, was founded in 1910. Its mission is to place poetry at the crossroads of American life. The PSA transforms public spaces into sites for imaginative encounters with poems, engages diverse and often underserved communities, amplifies the voices of poets around issues of common concern, and bolsters their aesthetic contributions to our lives.</p>
+    </div>
+  </div>
+
+  <!-- Staff & Board -->
+  <div class="about-panel" id="about-staff-board">
+    <p class="bold" style="margin-bottom:16px;">Staff</p>
+    <div class="staff-member">
+      <h3>Matt Brogan</h3>
+      <p class="title">Executive Director</p>
+      <p>Matt Brogan is the Executive Director of the Poetry Society of America. He has previously served as Executive Director of Arts &amp; Lectures and Program Director of the Academy of American Poets. He also ran his own consulting work focused on the role of art in animating public space and building civil society. His poetry and fiction have appeared in the Antioch Review, Brooklyn Rail, Columbia, Court Green, Denver Quarterly, Pleiades, Tin Panopus, Santa Monica Review, YZYZX, and other literary magazines. He is the editor of <em>This Place</em> (Indigo Card), 2016.</p>
+    </div>
+    <div class="staff-member">
+      <h3>Parker Manzanar</h3>
+      <p class="title">Public Programs Director</p>
+      <p>Parker Manzanar is the Public Programs Director of the Poetry Society of America. For over a decade, he has fostered literary community in and around New York, programming literary events, collaborating with publishers, and producing and publishing chapbooks and broadsides. He has worked as a compositor and creative writing instructor at CUNY, an editor at Princeton Architectural Press, and a bookseller. He is the author of the chapbooks <em>Avery Ribbon</em> and <em>At The Links</em>. He earned a Stanford Dopin College and an MFA from the University of Texas at El Paso followed by Ellen Miles Fellowship and Rose Goldstein Scholar.</p>
+    </div>
+    <div class="staff-member">
+      <h3>Sallie Fullerton</h3>
+      <p class="title">Development Manager</p>
+      <p>Sallie Fullerton is the Development Manager at the Poetry Society of America. They have a background in nonprofit literary publishing and event coordination and their work has been featured in publications from Nomadic Press, Prairie Schooner, Frontier Poetry, and Literary Hub, among others. They received a scholarship to attend Vermont College of Fine Arts' Writers' Workshop and are the recipient of a Fulbright Arts Research grant.</p>
+    </div>
+    <div class="staff-member">
+      <h3>Cyah Thompson</h3>
+      <p class="title">Poetry Coalition Fellow</p>
+      <p>Cyah Thompson is a Poetry Coalition Fellow at the Poetry Society of America. She has worked as a teaching assistant in various elementary schools and preschools, and is currently pursuing her MFA in Poetry from Queens College. Her work has been published in Make Moves, Transition, and elsewhere.</p>
+    </div>
+    <div class="staff-member">
+      <h3>Brett Fletcher Lauer</h3>
+      <p class="title">Deputy Director</p>
+      <p>Brett Fletcher Lauer is the Deputy Director of the Poetry Society of America and the poetry editor of A Public Space. He is the author of the memoir <em>Fake Missed Connections: Divorce, Online Dating, and Other Failures</em> and the children's book <em>A Hotel in Belgium</em>, which was named a Top 40 Book of 2014 by Criticize! Magazine. In addition to co-editing several anthologies, he is the poetry co-editor for the Brooklyn Book Festival and lives in Brooklyn.</p>
+    </div>
+    <hr class="hr">
+    <p class="bold" style="margin-bottom:16px;">Board</p>
+    <p style="margin-bottom:16px;"><strong>Chair</strong><br>Catherine Woodard</p>
+    <div class="board-grid" style="margin-bottom:24px;">
+      <div>
+        <p>Kim Bershamin</p>
+        <p>Victoria Chiang</p>
+        <p>Nicholas Gally</p>
+        <p>Kate Gale</p>
+        <p>Maria Garcia</p>
+        <p>Martha Ring</p>
+        <p>Nathalie Legbe</p>
+        <p>Peter Rose</p>
+        <p>Janna Franklin</p>
+        <p>Howard Fishman</p>
+        <p>Marcus Woo</p>
+        <p>Stephen Szytulski</p>
+      </div>
+      <div>
+        <p class="bold">Members of the Board of Governors</p>
+        <p>Abigail Wender</p>
+        <p>Ellen Rachlin</p>
+        <br>
+        <p class="italic">Past Vice President</p>
+        <p>Maya Jakubec</p>
+        <br>
+        <p class="italic">Vice Presidents</p>
+        <p>Gary Ellis</p>
+        <p>Georgiana Woodard</p>
+        <br>
+        <p class="italic">Treasurer</p>
+        <p>Kenno Hubis</p>
+        <br>
+        <p class="italic">President Emeritus</p>
+        <p>Billy Collins</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Funders -->
+  <div class="about-panel" id="about-funders">
+    <p style="margin-bottom:20px;">The Poetry Society of America is grateful for the generous support of the following:</p>
+    <div class="funders-grid">
+      <div class="funders-col">
+        <h4>Foundations &amp; Corporations</h4>
+        <p>Helen M. Alfredson Foundation Literary Arts<br>
+        Emergency Fund<br>
+        Amazon Literary Foundation<br>
+        The Denbis Foundation<br>
+        The David Rockefeller Fund<br>
+        Pinkerton Foundation<br>
+        Ford Foundation<br>
+        The Fund for the City of New York<br>
+        The Gladys Kreble Delson Foundation<br>
+        Google<br>
+        The Hyde and Watson Foundation<br>
+        Leon Lowenstein Foundation, Inc.<br>
+        Library of America<br>
+        The Lynn Foundation for Traditional Poetry<br>
+        The M.J. and Carol G. Leutrath Foundation<br>
+        The Poetry Foundation<br>
+        T. S. Eliot Foundation<br>
+        The Ruttledge Fund</p>
+      </div>
+      <div class="funders-col">
+        <h4>Public Support</h4>
+        <p>New York Foundation for the Arts<br>
+        National Endowment for the Arts<br>
+        New York City Department of Cultural Affairs<br>
+        New York State Council on the Arts<br>
+        New York State Literary Technical Assistance Program</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="about-panel" id="about-history">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
+      <!-- Timeline -->
+      <div class="history-timeline">
+        <div class="history-entry">
+          <p class="bold">October 10, 1910</p>
+          <p>First formal meeting of the Poetry Society of America held in New York at the National Arts Club. Forty of the country's leading poets and writers enroll as charter members.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1911</p>
+          <p>Ezra Pound attends a meeting on the eve of his journey to England.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1913</p>
+          <p>W.B. Yeats appears before the Society meeting and chants "The Dream of Wandering Aengus" to an enthralled audience.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">March, 1915</p>
+          <p>Amy Lowell expounds her ideas on Imagism before the Society.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1918</p>
+          <p>Board President Edward J. Wheeler finds a New York City patron of art who donates $500 to establish the Pulitzer Prize in Poetry.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1922</p>
+          <p>Edwin Arlington Robinson wins the PSA $500 Annual Book Award for his Collected Poems.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1925</p>
+          <p>Countee Cullen is the recipient of the Witter Bynner Undergraduate Award. Langston Hughes wins the following year.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1929</p>
+          <p>The PSA Shelley Memorial Award is established. The first winner is Conrad Aiken.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1940</p>
+          <p>Robert Frost is announced as the Honorary President of the Society. Marianne Moore wins the Shelley Memorial Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1943</p>
+          <p>The Gold Medal is awarded to Edna St. Vincent Millay.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1944</p>
+          <p>E. E. Cummings is the recipient of the Shelley Memorial Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1951</p>
+          <p>Wallace Stevens receives the Gold Medal.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1952</p>
+          <p>Elizabeth Bishop wins the Shelley Memorial Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1957</p>
+          <p>Richard Wilbur is the recipient of the PSA Millay Award. Randall Jarrell appears before the Society at the annual dinner.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1961</p>
+          <p>Theodore Roethke wins the Shelley Memorial Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1964</p>
+          <p>Alice Fay di Castagnola makes a gift valued at $1 million to establish a trust to support the work of the PSA.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1975</p>
+          <p>Gwendolyn Brooks wins the Shelley Memorial Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1985</p>
+          <p>William Matthews is elected President of the Board of Governors. Robert Pinsky is the recipient of the William Carlos Williams Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1992</p>
+          <p>Inspired by a similar program in London, the PSA partners with the MTA to establish Poetry in Motion in the New York City transit system.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">1999</p>
+          <p>Hettie Jones wins the Norma Farber First Book Award.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2001</p>
+          <p>Alice Quinn is appointed Executive Director. Sonia Sanchez is awarded the Frost Medal.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">November, 2001</p>
+          <p>"In a Time of Crisis," a reading of poems at Cooper Union following the September 11th attacks, draws an audience of 900 and is featured in The New York Times.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2002</p>
+          <p>The PSA Chapbook Fellowship Program is established.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2003</p>
+          <p>Lawrence Ferlinghetti is the Frost Medalist.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2005</p>
+          <p>The PSA's 95th anniversary dinner at the Pierre Hotel features the living U.S. Poets Laureate.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2008</p>
+          <p>Michael S. Harper receives the Frost Medal.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2010</p>
+          <p>Lucille Clifton is chosen as the PSA's Centennial Frost Medalist.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2017</p>
+          <p>The PSA and the T.S. Eliot Foundation establish the Four Quartets Prize for a unified and complete sequence of poems with a prize of $20,000.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2018</p>
+          <p>Partnered with Citymeals on "Poems on Wheels" which delivers poems to the elderly.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2019</p>
+          <p>Matt Brogan is appointed Executive Director of the Poetry Society of America.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2020</p>
+          <p>Poems on Wheels expands to six cities.</p>
+        </div>
+        <div class="history-entry">
+          <p class="bold">2021</p>
+          <p>The PSA launches Seeing Into Tomorrow, a major public art project featuring the poems of Richard Wright.</p>
+        </div>
+      </div>
+      <!-- Photos column -->
+      <div style="display:flex; flex-direction:column; gap:48px; padding-top:32px;">
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+        <div>
+          <div class="img-ph" style="width:100%; aspect-ratio:3/2;"></div>
+          <p class="small muted" style="margin-top:8px;">Photo caption about the ipsum dolor sit amet consectetur. Consectetur suscipit odio tellus consequat faucibus interdum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- News -->
+  <div class="about-panel" id="about-news">
+    <div class="search-controls" style="margin-bottom:24px;">
+      <div><label>Search: <input type="text" placeholder=""></label></div>
+      <p class="sort-line"><strong>Sort by:</strong> Newest First, Oldest First</p>
+      <p class="sort-line"><strong>Filter by:</strong> Awards, From Around the Office, Reading Report, PSA History, Blog, In The News, Public Art</p>
+    </div>
+    <div class="news-item list-item">
+      <p class="muted small">November 10, 2025</p>
+      <p class="muted small">Opportunities</p>
+      <h3><a data-page="about-news-detail" data-title="'25–'26 Poetry Society Teacher Fellowship" data-date="November 10, 2025" data-category="Opportunities">'25–'26 Poetry Society Teacher Fellowship</a></h3>
+    </div>
+    <div class="news-item list-item">
+      <p class="muted small">September 18, 2025</p>
+      <p class="muted small">Announcement</p>
+      <h3><a data-page="about-news-detail" data-title="John Levy is the 2025 Shelley Memorial Award winner" data-date="September 18, 2025" data-category="Announcement">John Levy is the 2025 Shelley Memorial Award winner</a></h3>
+    </div>
+    <div class="news-item list-item">
+      <p class="muted small">August 17, 2025</p>
+      <p class="muted small">Announcement</p>
+      <h3><a data-page="about-news-detail" data-title="Poetry Window Open Call: 2025 Winners" data-date="August 17, 2025" data-category="Announcement">Poetry Window Open Call: 2025 Winners</a></h3>
+    </div>
+    <div class="news-item list-item">
+      <p class="muted small">July 10, 2025</p>
+      <p class="muted small">Announcement</p>
+      <h3><a data-page="about-news-detail" data-title="Dobby Gibson Wins 2025 Four Quartets Prize" data-date="July 10, 2025" data-category="Announcement">Dobby Gibson Wins 2025 Four Quartets Prize</a></h3>
+    </div>
+    <div class="news-item list-item">
+      <p class="muted small">June 18, 2025</p>
+      <p class="muted small">Announcement</p>
+      <h3><a data-page="about-news-detail" data-title="Announcing the winners of the 2025 Poetry Society of America Chapbook Fellowships" data-date="June 18, 2025" data-category="Announcement">Announcing the winners of the 2025 Poetry Society of America Chapbook Fellowships</a></h3>
+    </div>
+  </div>
+
+</div><!-- /page-about -->
+
+
+<!-- ============================================================
+     PAGE: ABOUT / NEWS DETAIL
+     ============================================================ -->
+<div id="page-about-news-detail" class="page">
+  <p class="breadcrumb"><a data-page="about" data-about="news">Back to all News</a></p>
+  <p class="muted small" id="news-detail-date" style="margin-top:12px;"></p>
+  <p class="muted small" id="news-detail-category"></p>
+  <p class="bold" id="news-detail-title" style="font-size:16px; margin: 8px 0 20px;"></p>
+  <div class="img-ph" style="width:100%; max-width:680px; aspect-ratio:3/2; margin-bottom:24px;"></div>
+  <div style="max-width:680px; font-size:14px; line-height:1.8;">
+    <p style="margin-bottom:16px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p style="margin-bottom:16px;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+  </div>
+  <hr class="hr">
+  <p class="bold" style="margin-bottom:16px;">More news</p>
+  <div class="news-item list-item">
+    <p class="muted small">November 10, 2025</p>
+    <p class="muted small">Opportunities</p>
+    <h3><a data-page="about-news-detail" data-title="'25–'26 Poetry Society Teacher Fellowship" data-date="November 10, 2025" data-category="Opportunities">'25–'26 Poetry Society Teacher Fellowship</a></h3>
+  </div>
+  <div class="news-item list-item">
+    <p class="muted small">September 18, 2025</p>
+    <p class="muted small">Announcement</p>
+    <h3><a data-page="about-news-detail" data-title="John Levy is the 2025 Shelley Memorial Award winner" data-date="September 18, 2025" data-category="Announcement">John Levy is the 2025 Shelley Memorial Award winner</a></h3>
+  </div>
+  <div class="news-item list-item">
+    <p class="muted small">August 17, 2025</p>
+    <p class="muted small">Announcement</p>
+    <h3><a data-page="about-news-detail" data-title="Poetry Window Open Call: 2025 Winners" data-date="August 17, 2025" data-category="Announcement">Poetry Window Open Call: 2025 Winners</a></h3>
+  </div>
+</div><!-- /page-about-news-detail -->
+
+
+<!-- ============================================================
+     PAGE: PROGRAMS
+     ============================================================ -->
+<div id="page-programs" class="page">
+  <span class="page-h1">Programs</span>
+  <p class="intro-text">Overview of programs at Poetry Society of America dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <!-- Active Programs -->
+  <div class="grid-2" style="margin-bottom:32px;">
+    <!-- Poem District -->
+    <div class="program-card">
+      <h3><a data-page="program-detail">Poem District</a></h3>
+      <p class="subtitle">Brooklyn</p>
+      <p class="desc">Description of this program that takes up a few lines but isn't too long</p>
+      <div class="img-ph" style="height:220px; margin-bottom:14px;"></div>
+      <div class="poem-list">
+        <p>Poem Title by Poet Name<br>452 Broad Street, Brooklyn, NY<br>March 2, 2026</p>
+        <p>Poem Title by Poet Name<br>Street Address<br>February 10, 2026</p>
+        <p>Poem Title by Poet Name<br>Street Address<br>January 1, 2026</p>
+      </div>
+    </div>
+    <!-- Storefront -->
+    <div class="program-card">
+      <h3><a data-page="program-detail">Storefront</a></h3>
+      <p class="subtitle">Brooklyn</p>
+      <p class="desc">A rotating series of poetry-based public art projects installed in the Poetry Society of America's storefront window.</p>
+      <div class="img-ph" style="height:220px; margin-bottom:14px;"></div>
+      <div class="poem-list">
+        <p>Poem Title by Poet Name<br>119 Smith Street, Brooklyn, NY<br>March 2, 2026</p>
+        <p>Poem Title by Poet Name<br>Street Address<br>February 10, 2026</p>
+        <p>Poem Title by Poet Name<br>Street Address<br>January 1, 2026</p>
+      </div>
+    </div>
+  </div>
+  <!-- Poetry in Motion -->
+  <div class="program-card" style="margin-bottom:32px;">
+    <h3><a data-page="program-detail">Poetry in Motion</a></h3>
+    <p class="subtitle">25+ Locations</p>
+    <p class="desc">Description of this program that takes up a few lines but isn't too long</p>
+    <div class="img-ph" style="height:220px; margin-bottom:14px;"></div>
+    <div class="poem-list">
+      <p>Poem Title by Poet Name<br>Atlanta, GA<br>March 2, 2026</p>
+      <p>Poem Title by Poet Name<br>Los Angeles, CA<br>February 10, 2026</p>
+      <p>Poem Title by Poet Name<br>Austin, TX<br>January 1, 2026</p>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <!-- Archived Programs -->
+  <span class="section-title">Archived Programs</span>
+  <div class="grid-2">
+    <div class="program-card">
+      <h3><a data-page="program-detail">Program that title that spans a few words</a></h3>
+      <p class="subtitle">New York, California, Texas</p>
+      <p>Lorem ipsum dolor sit amet consectetur. Morbi et viverra quis blandit quam amet ut. Cras justo est pellentesque integer eget tellus. Ipsum diam pulvinar faucibus penatibus vitae facilisis.</p>
+      <div class="img-ph" style="height:160px; margin-top:12px;"></div>
+    </div>
+    <div class="program-card">
+      <h3><a data-page="program-detail">Program that title that spans a few words</a></h3>
+      <p class="subtitle">New York, California, Texas</p>
+      <p>Lorem ipsum dolor sit amet consectetur. Morbi et viverra quis blandit quam amet ut. Cras justo est pellentesque integer eget tellus. Ipsum diam pulvinar faucibus penatibus vitae facilisis.</p>
+      <div class="img-ph" style="height:160px; margin-top:12px;"></div>
+    </div>
+  </div>
+</div><!-- /page-programs -->
+
+
+<!-- ============================================================
+     PAGE: PROGRAM DETAIL
+     ============================================================ -->
+<div id="page-program-detail" class="page">
+  <p class="breadcrumb"><a data-page="programs">Programs</a></p>
+  <p class="bold" style="font-size:16px; margin-bottom:3px;">Poem District</p>
+  <p class="muted">Brooklyn, NY · Active since 2015</p>
+
+  <p style="margin: 20px 0; max-width:680px; font-size:14px; line-height:1.7;">The Poem District is a public art project that places poems throughout Brooklyn neighborhoods. Working with local businesses, schools, and community organizations, the PSA installs poems in storefronts, schools, and public spaces throughout the borough.</p>
+
+  <div class="img-ph" style="height:300px; margin-bottom:32px; max-width:860px;"></div>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">Current Installations</span>
+    <div class="list-item">
+      <h3><a data-page="poem-detail">The First Toast</a><br><a class="tag" data-page="author">Aria Aber</a></h3>
+      <p>Breakfast by Salt's Cure, 368 Court Street</p>
+      <p class="muted">Starting March 2, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="poem-detail">A Large Mirror Unloaded From a Truck in the Sun</a><br><a class="tag" data-page="author">Stefania Heim</a></h3>
+      <p>452 Broad Street, Brooklyn, NY</p>
+      <p class="muted">Starting February 10, 2026</p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="poem-detail">Title of Poem</a><br>Poet Name</h3>
+      <p>Street Address</p>
+      <p class="muted">Starting January 1, 2026</p>
+    </div>
+  </section>
+</div><!-- /page-program-detail -->
+
+
+<!-- ============================================================
+     PAGE: AUTHOR / SITEWIDE
+     ============================================================ -->
+<div id="page-author" class="page">
+  <p class="bold" style="font-size:16px; margin-bottom:2px;">Stefania Heim</p>
+  <p class="muted" style="margin-bottom:24px;">Poet</p>
+
+  <div style="max-width:680px; margin-bottom:28px; font-size:14px; line-height:1.7;">
+    <p>Stefania Heim is the author of several books of poetry. Her work has appeared in the <em>New Yorker</em>, <em>Boston Review</em>, and elsewhere. She is the recipient of several awards for her poetry and is a member of the New American Poets editorial board.</p>
+  </div>
+
+  <hr class="hr">
+
+  <section class="section">
+    <span class="section-title">Poems</span>
+    <div class="list-item">
+      <h3><a data-page="poem-detail">A Large Mirror Unloaded From a Truck in the Sun</a></h3>
+      <p>Installed as part of <a class="tag" data-page="program-detail">Poem District</a></p>
+    </div>
+    <div class="list-item">
+      <h3><a data-page="poem-detail">Title of Poem</a></h3>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="section-title">Essays</span>
+    <div class="list-item">
+      <h3><a data-page="essay-detail">Essay Title</a></h3>
+      <p>From the series <a class="tag" data-page="voices">New American Poets</a></p>
+      <p class="muted">Published January 2, 2026</p>
+    </div>
+  </section>
+</div><!-- /page-author -->
+
+
+<!-- ============================================================
+     PAGE: SUPPORT
+     ============================================================ -->
+<div id="page-support" class="page">
+  <span class="page-h1">Support</span>
+
+  <div style="max-width:640px;">
+    <p class="intro-text">The Poetry Society of America is a 501(c)(3) nonprofit organization. Your donation is tax-deductible to the fullest extent allowed by law.</p>
+
+    <p class="bold" style="font-size:15px; margin-bottom:8px;">Donate</p>
+    <p style="margin-bottom:12px;">Your support makes it possible for us to bring poetry to public spaces, support emerging poets, and build literary community in New York and across the country.</p>
+    <a class="btn btn-primary" href="#">Donate Now</a>
+
+    <hr class="hr">
+
+    <p class="bold" style="font-size:15px; margin-bottom:8px;">Membership</p>
+    <p style="margin-bottom:20px;">Become a member of the Poetry Society of America and receive exclusive benefits including invitations to special events, discounts on workshops, and our annual publication.</p>
+
+    <div class="membership-cards">
+      <div class="membership-card">
+        <h3>Individual</h3>
+        <p class="price">$75/year</p>
+        <p>Access to member events, discounts on workshops, annual publication</p>
+        <a class="btn" href="#">Join</a>
+      </div>
+      <div class="membership-card">
+        <h3>Sustaining</h3>
+        <p class="price">$150/year</p>
+        <p>All Individual benefits plus invitations to special events and recognition in our annual report</p>
+        <a class="btn" href="#">Join</a>
+      </div>
+    </div>
+
+    <hr class="hr">
+
+    <p class="bold" style="font-size:15px; margin-bottom:8px;">Shop</p>
+    <p style="margin-bottom:12px;">Purchase books, chapbooks, and other publications from the Poetry Society of America.</p>
+    <a class="btn" data-page="shop">Visit Shop</a>
+  </div>
+</div><!-- /page-support -->
+
+
+<!-- ============================================================
+     PAGE: SEARCH
+     ============================================================ -->
+<div id="page-search" class="page">
+  <span class="page-h1">Search</span>
+  <div class="search-page-row">
+    <input type="text" id="search-input" placeholder="Search poems, essays, events, awards…">
+    <button id="search-btn">Search</button>
+  </div>
+  <p class="muted">Enter a search term above to find poems, essays, events, programs, and more.</p>
+</div><!-- /page-search -->
+
+
+<!-- ============================================================
+     PAGE: SEARCH RESULTS
+     ============================================================ -->
+<div id="page-search-results" class="page">
+  <span class="page-h1">Search</span>
+  <div class="search-page-row">
+    <input type="text" id="search-input-results" placeholder="Search poems, essays, events, awards…">
+    <button id="search-btn-results">Search</button>
+  </div>
+  <p class="muted" style="margin-bottom:20px;">12 results for "<span id="search-term">poetry</span>"</p>
+
+  <div class="search-controls" style="margin-bottom:20px;">
+    <p class="sort-line"><strong>Filter by:</strong> All, Poems, Essays, Events, Awards, Programs</p>
+  </div>
+
+  <div class="list-item">
+    <p class="result-type">Poem</p>
+    <h3><a data-page="poem-detail">A Large Mirror Unloaded From a Truck in the Sun</a></h3>
+    <p>Stefania Heim</p>
+  </div>
+  <div class="list-item">
+    <p class="result-type">Essay</p>
+    <h3><a data-page="essay-detail">Stopping by with Ryo Yamaguchi</a></h3>
+    <p>From the series Stopping By</p>
+  </div>
+  <div class="list-item">
+    <p class="result-type">Event</p>
+    <h3><a data-page="event-detail">Monica Ferrell &amp; Matthew Rohrer</a></h3>
+    <p>PSA Reading Series · Thursday, March 19, 7pm</p>
+  </div>
+  <div class="list-item">
+    <p class="result-type">Award</p>
+    <h3><a data-page="awards">Annual Awards</a></h3>
+    <p>Deadline: Dec. 15, 11:59pm EST</p>
+  </div>
+  <div class="list-item">
+    <p class="result-type">Program</p>
+    <h3><a data-page="program-detail">Poem District</a></h3>
+    <p>Brooklyn, NY · Active</p>
+  </div>
+  <div class="list-item">
+    <p class="result-type">Poem</p>
+    <h3><a data-page="poem-detail">Open House</a></h3>
+    <p>Naomi Shihab Nye</p>
+  </div>
+</div><!-- /page-search-results -->
+
+
+<!-- ============================================================
+     PAGE: SHOP
+     ============================================================ -->
+<div id="page-shop" class="page">
+  <span class="page-h1">Shop</span>
+  <p style="margin-bottom:28px;">Browse publications from the Poetry Society of America.</p>
+  <div class="grid-2" style="max-width:860px;">
+    <div class="card">
+      <div class="img-ph" style="height:200px; margin-bottom:12px;"></div>
+      <h3>PSA Annual Publication 2026</h3>
+      <p style="margin-bottom:8px;">$20.00</p>
+      <a class="btn" href="#">Add to Cart</a>
+    </div>
+    <div class="card">
+      <div class="img-ph" style="height:200px; margin-bottom:12px;"></div>
+      <h3>Chapbook: Title by Author Name</h3>
+      <p style="margin-bottom:8px;">$15.00</p>
+      <a class="btn" href="#">Add to Cart</a>
+    </div>
+  </div>
+</div><!-- /page-shop -->
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-name">Poetry Society of America</span>
+    <div class="footer-nav">
+      <a data-page="programs">Programs</a>
+      <a data-page="events">Events</a>
+      <a data-page="voices">Voices</a>
+      <a data-page="poems">Poems</a>
+      <a data-page="awards">Awards</a>
+      <a data-page="about">About</a>
+      <a data-page="support">Support</a>
+      <a data-page="shop">Shop</a>
+      <a data-page="search">Search</a>
+    </div>
+    <p class="footer-address">119 Smith Street, Brooklyn, NY 11201<br>
+    All Content Copyright 2026 Poetry Society of America and its respective owners.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
