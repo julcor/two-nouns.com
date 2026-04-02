@@ -20,20 +20,27 @@ a { color: #000; }
 a:hover { opacity: 0.7; }
 strong, b { font-weight: 600; }
 em, i { font-style: italic; }
+h1, h2, h3, h4, h5, h6 { font-size: 22px; line-height: 30px; font-weight: 400; }
 
 /* ============================================================
    HEADER / NAV
    ============================================================ */
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 30px 120px;
   border-bottom: 1px solid #000;
   position: sticky;
   top: 0;
   background: #fff;
   z-index: 200;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 120px;
+  width: 100%;
 }
 
 .site-name {
@@ -78,12 +85,12 @@ nav a.active { text-decoration: underline; }
    ============================================================ */
 footer {
   background: #ededed;
-  padding: 30px 120px;
 }
 
 .footer-inner {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 30px 120px;
 }
 
 .footer-name {
@@ -178,7 +185,15 @@ footer {
 }
 
 .page-h1 {
+  display: block;
   font-weight: 700; margin-bottom: 20px;
+}
+
+#page-programs .page-h1,
+#page-poems .page-h1,
+#page-awards .page-h1,
+#page-about .page-h1 {
+  margin-bottom: 50px;
 }
 
 /* ============================================================
@@ -305,12 +320,12 @@ footer {
    ============================================================ */
 .poem-byline { font-weight: 700; margin-bottom: 12px; }
 
-.poem-text { line-height: 1.9;
+.poem-text { line-height: 30px;
   white-space: pre-line;
   margin-bottom: 16px;
 }
 
-.poem-rights { font-size: 18px; line-height: 25px; color: #868686;
+.poem-rights { color: #868686;
   margin-bottom: 4px;
 }
 
@@ -350,6 +365,9 @@ footer {
   border-bottom: 1px solid #e8e8e8;
 }
 
+#page-awards a { cursor: pointer; }
+#page-awards a:hover { text-decoration: underline; opacity: 1; }
+
 .awards-table .year-cell {
   font-weight: 700; padding-top: 20px;
   border-bottom: 2px solid #000;
@@ -359,7 +377,7 @@ footer {
 
 .awards-table .award-name { width: 40%; }
 .awards-table .award-winner { width: 40%; }
-.awards-table .finalist { font-size: 18px; line-height: 25px; color: #555; display: block; margin-top: 2px; }
+.awards-table .finalist { color: #555; display: block; margin-top: 2px; }
 
 /* ============================================================
    PROGRAMS PAGE — Active sidebar label
@@ -424,7 +442,7 @@ footer {
 .staff-member { margin-bottom: 28px; }
 .staff-member h3 { font-weight: 700; margin-bottom: 1px; }
 .staff-member .title { color: #555; margin-bottom: 6px; }
-.staff-member p { line-height: 1.65; }
+.staff-member p { line-height: 30px; }
 
 /* ============================================================
    BOARD
@@ -435,7 +453,7 @@ footer {
   gap: 4px 40px;
 }
 
-.board-grid p { line-height: 1.7; }
+.board-grid p { line-height: 30px; }
 
 /* ============================================================
    FUNDERS
@@ -448,7 +466,7 @@ footer {
 
 .funders-col h4 { font-weight: 700; margin-bottom: 8px; margin-top: 16px; }
 .funders-col h4:first-child { margin-top: 0; }
-.funders-col p { line-height: 1.8; }
+.funders-col p { line-height: 30px; }
 
 /* ============================================================
    SUPPORT / MEMBERSHIP
@@ -467,7 +485,7 @@ footer {
 }
 
 .membership-card h3 { font-weight: 700; margin-bottom: 4px; }
-.membership-card .price { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.membership-card .price { font-weight: 700; margin-bottom: 8px; }
 .membership-card p { margin-bottom: 14px; }
 
 /* ============================================================
@@ -529,7 +547,7 @@ footer {
 
 .search-page-row button:hover { text-decoration: underline; }
 
-.result-type { font-size: 18px; line-height: 25px; color: #777;
+.result-type { color: #777;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   margin-bottom: 2px;
@@ -587,7 +605,6 @@ footer {
 
 .audio-ph::before {
   content: '▶';
-  font-size: 16px;
   color: #999;
 }
 
@@ -659,4 +676,4 @@ footer {
 .bold { font-weight: 700; }
 .italic { font-style: italic; }
 .muted { color: #868686; }
-.small { font-size: 18px; line-height: 25px; }
+.small { }
