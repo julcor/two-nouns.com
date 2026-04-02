@@ -1,0 +1,716 @@
+<html>
+  <head>
+    <style>
+      @font-face {
+        font-family: 'Jenson';
+        src: url('AJensonPro-Disp.otf');
+        font-weight: 600;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Jenson';
+        src: url('AJensonPro-ItDisp.otf');
+        font-weight: 600;
+        font-style: italic;
+      }
+      body {
+        font-family: 'Jenson', serif;
+      }
+      body, html {
+        font-size: 23px;
+      }
+      svg {
+        display: none;
+      }
+      #listings {
+        width: 80%;
+        margin: 2rem auto;
+        display: flex;
+        justify-content: space-around;
+      }
+      .column {
+        width: calc(40% - 1rem);
+      }
+      .listing {
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .flex-row {
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      img {
+        width: calc(50svw - 3.5rem);
+        display: block;
+      }
+      img, canvas {
+        /* background-blend-mode: multiply; */
+      }
+      figure {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: inline-block;
+      }
+      img.filter {
+        filter: contrast(1.2) brightness(1.1);
+      }
+      canvas {
+        filter: contrast(1.2) brightness(1.1);
+        width: calc(50svw - 3.5rem);
+        height: auto;
+      }
+      .stroke-one {
+        -webkit-text-stroke: 1px #000;
+        text-stroke: 1px #000;
+      }
+      .stroke-one-half {
+        -webkit-text-stroke: 1.5px #000;
+        text-stroke: 1.5px #000;
+      }
+      .stroke-two {
+        -webkit-text-stroke: 2px #000;
+        text-stroke: 2px #000;
+      }
+      .stroke-two-half {
+        -webkit-text-stroke: 2.5px #000;
+        text-stroke: 2.5px #000;
+      }
+      .stroke-three {
+        -webkit-text-stroke: 3px #000;
+        text-stroke: 3px #000;
+      }
+      .no-smoothing {
+        -webkit-font-smoothing: none !important;
+        -moz-osx-font-smoothing: none !important;
+        font-smooth: never !important;
+      }
+      .text-medium {
+        letter-spacing: 1.5px;
+      }
+      .text-large {
+        font-size: 1.5rem;
+        letter-spacing: 1.5px;
+        line-height: 110%;
+      }
+      .listing div span {
+        font-feature-settings: "smcp";
+      }
+      #selected-treatments h4 {
+        text-align: left;
+        padding: 0 2rem;
+      }
+      .treatment-select {
+        display: block;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .treatment-slot {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .treatment-slot canvas,
+      .treatment-slot img.treatment-bg {
+        width: calc(50svw - 3.5rem);
+        height: auto;
+        filter: none;
+      }
+      .treatment-slot .treatment-figure {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+      }
+      #carousel {
+        display: flex;
+        overflow-x: scroll;
+        gap: 8px;
+        padding: 1rem 2rem;
+        scrollbar-width: none;
+      }
+      #carousel::-webkit-scrollbar {
+        display: none;
+      }
+      #carousel img {
+        height: 175px;
+        width: auto;
+        flex-shrink: 0;
+        cursor: pointer;
+        display: block;
+        filter: none;
+        transition: opacity 0.15s;
+      }
+      #carousel img:hover {
+        opacity: 0.75;
+      }
+      #carousel img.active {
+        outline: 3px solid #000;
+        outline-offset: -3px;
+      }
+      .fried-one {
+        filter: url(#fried-one);
+      }
+      h2, h3, h4, h5 {
+        line-height: .9;
+        text-align: center;
+        font-weight: normal;
+      }
+      h2 {
+        font-size: 4rem;
+        margin: 0 0 1rem;
+      }
+      h3 {
+        break-before:column;
+      }
+      h3, h4 {
+        font-family: sans-serif;
+        text-transform: uppercase;
+      }
+      p, h3, h4, h5 {
+        font-size: 1rem;
+        font-weight: 800;
+      }
+      p {
+        line-height: 1.2;
+      }
+    </style>
+    <script src="glfx.js"></script>
+    <script>
+
+      window.onload = function() {
+          try {
+              var canvasOne   = fx.canvas();
+              var canvasTwo   = fx.canvas();
+              var canvasThree = fx.canvas();
+              var canvasFour  = fx.canvas();
+              var canvasFive  = fx.canvas();
+              var canvasSix   = fx.canvas();
+              var canvasSeven = fx.canvas();
+              var canvasEight = fx.canvas();
+              var canvasNine    = fx.canvas();
+              var canvasTen     = fx.canvas();
+              var previewCanvas1 = fx.canvas();
+              var previewCanvas2 = fx.canvas();
+          } catch (e) {
+              alert(e);
+              return;
+          }
+
+          var imageSeven = document.getElementById('image-seven');
+          var imageEight = document.getElementById('image-eight');
+
+          // One-time DOM setup — insert canvases, remove placeholder images
+          var imageOne = document.getElementById('image-one');
+          imageOne.parentNode.insertBefore(canvasOne, imageOne);
+          imageOne.parentNode.removeChild(imageOne);
+
+          var imageTwo = document.getElementById('image-two');
+          imageTwo.parentNode.insertBefore(canvasTwo, imageTwo);
+          imageTwo.parentNode.removeChild(imageTwo);
+
+          var imageThree = document.getElementById('image-three');
+          imageThree.parentNode.insertBefore(canvasThree, imageThree);
+          imageThree.parentNode.removeChild(imageThree);
+
+          var imageFour = document.getElementById('image-four');
+          imageFour.parentNode.insertBefore(canvasFour, imageFour);
+          imageFour.parentNode.removeChild(imageFour);
+
+          var imageFive = document.getElementById('image-five');
+          imageFive.parentNode.insertBefore(canvasFive, imageFive);
+          imageFive.parentNode.removeChild(imageFive);
+
+          var imageSix = document.getElementById('image-six');
+          imageSix.parentNode.insertBefore(canvasSix, imageSix);
+          imageSix.parentNode.removeChild(imageSix);
+
+          // I: keep background image, overlay canvas with blend mode
+          canvasSeven.style.position    = 'absolute';
+          canvasSeven.style.top         = '0';
+          canvasSeven.style.left        = '0';
+          canvasSeven.style.filter      = 'invert(1)';
+          canvasSeven.style.mixBlendMode = 'soft-light';
+          canvasSeven.style.opacity     = '0.6';
+          imageSeven.parentNode.appendChild(canvasSeven);
+
+          // J: keep background image, overlay canvas with blend mode
+          canvasEight.style.position    = 'absolute';
+          canvasEight.style.top         = '0';
+          canvasEight.style.left        = '0';
+          canvasEight.style.mixBlendMode = 'soft-light';
+          canvasEight.style.opacity     = '0.5';
+          imageEight.parentNode.appendChild(canvasEight);
+
+          var imageNine = document.getElementById('image-nine');
+          imageNine.parentNode.insertBefore(canvasNine, imageNine);
+          imageNine.parentNode.removeChild(imageNine);
+
+          var imageTen = document.getElementById('image-ten');
+          imageTen.parentNode.insertBefore(canvasTen, imageTen);
+          imageTen.parentNode.removeChild(imageTen);
+          canvasTen.style.filter = 'contrast(1.2) brightness(1.1)';
+
+          // Apply all effects from a loaded image element
+          function applyEffects(img) {
+              canvasOne.draw(canvasOne.texture(img)).noise(.08).unsharpMask(4, 1.5).update();
+              canvasTwo.draw(canvasTwo.texture(img)).noise(.13).unsharpMask(20, 2).brightnessContrast(0.08, -0.05).update();
+              canvasThree.draw(canvasThree.texture(img)).unsharpMask(15, 2).update();
+              canvasFour.draw(canvasFour.texture(img)).unsharpMask(55, 0.8).brightnessContrast(0.08, -0.3).update();
+              canvasFive.draw(canvasFive.texture(img)).ink(0.15).update();
+              canvasSix.draw(canvasSix.texture(img)).ink(0.2).update();
+              canvasSeven.draw(canvasSeven.texture(img)).ink(0.6).update();
+              canvasEight.draw(canvasEight.texture(img)).dotScreen(320, 239.5, 0.22, 2).update();
+              canvasNine.draw(canvasNine.texture(img)).unsharpMask(55, 0.8).brightnessContrast(0.08, -0.3).noise(.08).unsharpMask(4, 1.5).update();
+              canvasTen.draw(canvasTen.texture(img)).noise(.08).update();
+          }
+
+          // Render a single treatment slot
+          var slot1El = document.querySelector('#select-1').closest('.treatment-slot');
+          var slot2El = document.querySelector('#select-2').closest('.treatment-slot');
+          var select1 = document.getElementById('select-1');
+          var select2 = document.getElementById('select-2');
+          var currentImg = null;
+          var currentSrcPath = null;
+
+          function renderSlot(slotEl, treatment, sourceImg, srcPath) {
+              var figure = slotEl.querySelector('.treatment-figure');
+              var bgImg  = slotEl.querySelector('.treatment-bg');
+              var existing = figure.querySelector('canvas');
+              if (existing) figure.removeChild(existing);
+
+              bgImg.src = srcPath;
+              bgImg.style.display = '';
+
+              if (treatment === 'A') {
+                  bgImg.style.filter = 'none';
+                  return;
+              }
+              if (treatment === 'B') {
+                  bgImg.style.filter = 'contrast(1.2) brightness(1.1)';
+                  return;
+              }
+
+              var c = (slotEl === slot1El) ? previewCanvas1 : previewCanvas2;
+              c.style.position = '';
+              c.style.top      = '';
+              c.style.left     = '';
+              c.style.filter   = '';
+              c.style.mixBlendMode = '';
+              c.style.opacity  = '';
+
+              switch (treatment) {
+                  case 'C': c.draw(c.texture(sourceImg)).noise(.08).unsharpMask(4, 1.5).update(); break;
+                  case 'D': c.draw(c.texture(sourceImg)).noise(.13).unsharpMask(20, 2).brightnessContrast(0.08, -0.05).update(); break;
+                  case 'E': c.draw(c.texture(sourceImg)).unsharpMask(15, 2).update(); break;
+                  case 'F': c.draw(c.texture(sourceImg)).unsharpMask(55, 0.8).brightnessContrast(0.08, -0.3).update(); break;
+                  case 'G': c.draw(c.texture(sourceImg)).ink(0.15).update(); break;
+                  case 'H': c.draw(c.texture(sourceImg)).ink(0.2).update(); break;
+                  case 'I':
+                      c.draw(c.texture(sourceImg)).ink(0.6).update();
+                      c.style.position = 'absolute'; c.style.top = '0'; c.style.left = '0';
+                      c.style.filter = 'invert(1)'; c.style.mixBlendMode = 'soft-light'; c.style.opacity = '0.6';
+                      break;
+                  case 'J':
+                      c.draw(c.texture(sourceImg)).dotScreen(320, 239.5, 0.22, 2).update();
+                      c.style.position = 'absolute'; c.style.top = '0'; c.style.left = '0';
+                      c.style.mixBlendMode = 'soft-light'; c.style.opacity = '0.5';
+                      break;
+                  case 'K': c.draw(c.texture(sourceImg)).unsharpMask(55, 0.8).brightnessContrast(0.08, -0.3).noise(.08).unsharpMask(4, 1.5).update(); break;
+                  case 'L': c.draw(c.texture(sourceImg)).noise(.08).update(); break;
+              }
+
+              var isOverlay = (treatment === 'I' || treatment === 'J');
+              figure.appendChild(c);
+              if (!isOverlay) bgImg.style.display = 'none';
+          }
+
+          function renderPreviews(img, srcPath) {
+              renderSlot(slot1El, select1.value, img, srcPath);
+              renderSlot(slot2El, select2.value, img, srcPath);
+          }
+
+          function updateURL() {
+              var params = new URLSearchParams(window.location.search);
+              params.set('t1', select1.value);
+              params.set('t2', select2.value);
+              history.replaceState(null, '', '?' + params.toString());
+          }
+
+          // Read URL params for initial dropdown values
+          var urlParams = new URLSearchParams(window.location.search);
+          select1.value = urlParams.get('t1') || 'C';
+          select2.value = urlParams.get('t2') || 'F';
+
+          select1.addEventListener('change', function() {
+              updateURL();
+              if (currentImg) renderSlot(slot1El, this.value, currentImg, currentSrcPath);
+          });
+          select2.addEventListener('change', function() {
+              updateURL();
+              if (currentImg) renderSlot(slot2El, this.value, currentImg, currentSrcPath);
+          });
+
+          // Initial render using the first carousel thumbnail
+          var firstThumb = document.querySelector('#carousel img');
+          firstThumb.classList.add('active');
+          var initSrc = firstThumb.getAttribute('data-src');
+          var imageA = document.getElementById('image-a');
+          var imageB = document.getElementById('image-b');
+          var initImg = new Image();
+          initImg.crossOrigin = 'anonymous';
+          initImg.onload = function() {
+              applyEffects(initImg);
+              imageSeven.src = initSrc;
+              imageEight.src = initSrc;
+              imageA.src = initSrc;
+              imageB.src = initSrc;
+              currentImg = initImg;
+              currentSrcPath = initSrc;
+              renderPreviews(initImg, initSrc);
+          };
+          initImg.src = initSrc;
+
+          // Carousel click
+          document.querySelectorAll('#carousel img').forEach(function(thumb) {
+              thumb.addEventListener('click', function() {
+                  document.querySelectorAll('#carousel img').forEach(function(t) { t.classList.remove('active'); });
+                  this.classList.add('active');
+                  var src = this.getAttribute('data-src');
+                  var newImg = new Image();
+                  newImg.crossOrigin = 'anonymous';
+                  newImg.onload = function() {
+                      applyEffects(newImg);
+                      imageSeven.src = src;
+                      imageEight.src = src;
+                      imageA.src = src;
+                      imageB.src = src;
+                      currentImg = newImg;
+                      currentSrcPath = src;
+                      renderPreviews(newImg, src);
+                  };
+                  newImg.src = src;
+              });
+          });
+      };
+
+    </script>
+  </head>
+  <body>
+
+    <svg>
+      <filter id='fried-one' x='0%' y='0%' width='100%' height='100%'>
+        <feTurbulence id="turb" baseFrequency="0.05" numOctaves="20" type="fractalNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="B">
+      </filter>
+    </svg>
+
+    <section id="listings">
+
+      <br/><br/>
+
+      <div class="column">
+        <h3>Medium Text</h3>
+        <h4>NOFX</h4>
+        <div class="text-medium listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (A)</h4>
+        <div class="text-medium stroke-one-half listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-one-half listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (B)</h4>
+        <div class="text-medium stroke-two listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-two listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (C)</h4>
+        <div class="text-medium stroke-two-half listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-two-half listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (A)</h4>
+        <div class="text-medium stroke-one-half no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-one-half no-smoothing listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (B)</h4>
+        <div class="text-medium stroke-two no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-two no-smoothing listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (C)</h4>
+        <div class="text-medium stroke-two-half no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-two-half listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (A)</h4>
+        <div class="text-medium stroke-one-half fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-one-half fried-one listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (B)</h4>
+        <div class="text-medium stroke-two fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-two fried-one listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (C)</h4>
+        <div class="text-medium stroke-two-half fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+        <div class="text-medium stroke-two-half fried-one listing">
+          <div>Brian Chase, Lee Ranaldo and David Watson</div>
+          <div><i>Saturday, October 18, 8pm</i></div>
+        </div>
+
+      </div>
+      <br/><br/>
+
+      <div class="column">
+      <h3>Large Text</h3>
+        <h4>NOFX</h4>
+        <div class="text-large listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (A)</h4>
+        <div class="text-large stroke-one-half listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (B)</h4>
+        <div class="text-large stroke-two listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (C)</h4>
+        <div class="text-large stroke-two-half listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke-Only (D)</h4>
+        <div class="text-large stroke-three listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (A)</h4>
+        <div class="text-large stroke-one-half no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (B)</h4>
+        <div class="text-large stroke-two no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (C)</h4>
+        <div class="text-large stroke-two-half no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/No Smoothing (D)</h4>
+        <div class="text-large stroke-three no-smoothing listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (A)</h4>
+        <div class="text-large stroke-one-half fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (B)</h4>
+        <div class="text-large stroke-two fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (C)</h4>
+        <div class="text-large stroke-two-half fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+
+        <h4>Stroke/Fried (D)</h4>
+        <div class="text-large stroke-three fried-one listing">
+          <div>Kalia Vandever and Natural Information Society</div>
+          <div><i>Thursday, October 16, 8pm</i></div>
+        </div>
+      </div>
+
+    </section>
+
+    <div id="carousel">
+      <img src="04-11-24-Hamza-Akram-Qawwal-Brothers3-780x525.jpg" data-src="04-11-24-Hamza-Akram-Qawwal-Brothers3-780x525.jpg">
+      <img src="11-14-25-11-15-25-AACM-60th-Anniversary-Concerts3-by-photo-credit-Nick-_Ruechel-780x525.jpg" data-src="11-14-25-11-15-25-AACM-60th-Anniversary-Concerts3-by-photo-credit-Nick-_Ruechel-780x525.jpg">
+      <img src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" data-src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" class="active">
+      <img src="4-14-26-Maria-Grand-Quartet-and-Nite-Bjuti3-2000x1500.jpg" data-src="4-14-26-Maria-Grand-Quartet-and-Nite-Bjuti3-2000x1500.jpg">
+      <img src="4-14-26-Maria-Grand-Quartet-and-Nite-Bjuti4-2000x1500.jpg" data-src="4-14-26-Maria-Grand-Quartet-and-Nite-Bjuti4-2000x1500.jpg">
+      <img src="4-15-26-Lukas-Ligeti-Notebook3-2000x1500.jpg" data-src="4-15-26-Lukas-Ligeti-Notebook3-2000x1500.jpg">
+      <img src="4-15-26-Lukas-Ligeti-Notebook4-2000x1500.jpg" data-src="4-15-26-Lukas-Ligeti-Notebook4-2000x1500.jpg">
+      <img src="4-17-26-Masters-of-Armenian-Music3-by-AlenaSoboleva-2000x1500.jpg" data-src="4-17-26-Masters-of-Armenian-Music3-by-AlenaSoboleva-2000x1500.jpg">
+      <img src="4-7-26-Caroline-Davis-Matt-Mitchell3-2000x1500.jpg" data-src="4-7-26-Caroline-Davis-Matt-Mitchell3-2000x1500.jpg">
+      <img src="4-7-26-Caroline-Davis-Matt-Mitchell4-2000x1500.jpg" data-src="4-7-26-Caroline-Davis-Matt-Mitchell4-2000x1500.jpg">
+      <img src="4-8-26-Vicky-Chow-and-Mivos-Quartet3-2000x1500.jpg" data-src="4-8-26-Vicky-Chow-and-Mivos-Quartet3-2000x1500.jpg">
+      <img src="4-8-26-Vicky-Chow-and-Mivos-Quartet4-by-Kaitlin-Jane-2000x1500.jpg" data-src="4-8-26-Vicky-Chow-and-Mivos-Quartet4-by-Kaitlin-Jane-2000x1500.jpg">
+      <img src="4-8-26-Vicky-Chow-and-Mivos-Quartet5-by-Paul-Janssen-2000x1500.jpg" data-src="4-8-26-Vicky-Chow-and-Mivos-Quartet5-by-Paul-Janssen-2000x1500.jpg">
+      <img src="4-9-26-Dreamcrusher3-@ashtray_angels-2000x1500.jpg" data-src="4-9-26-Dreamcrusher3-@ashtray_angels-2000x1500.jpg">
+      <img src="4-9-26-Dreamcrusher4-by-@ashtray_angels-2000x1500.jpg" data-src="4-9-26-Dreamcrusher4-by-@ashtray_angels-2000x1500.jpg">
+      <img src="5.1-Long-Play4-by-Desmond-White-2000x1500.jpg" data-src="5.1-Long-Play4-by-Desmond-White-2000x1500.jpg">
+      <img src="5.1-Long-Play6-2000x1500.jpg" data-src="5.1-Long-Play6-2000x1500.jpg">
+      <img src="New-York-Gypsy-All-Stars2-2000x1500.jpg" data-src="New-York-Gypsy-All-Stars2-2000x1500.jpg">
+      <img src="PL3.jpg" data-src="PL3.jpg">
+      <img src="PL9.jpg" data-src="PL9.jpg">
+      <img src="Robert-Ashley_Perfect-Lives-2000x1500.jpg" data-src="Robert-Ashley_Perfect-Lives-2000x1500.jpg">
+      <img src="WorldMusicInstituteWEB-780x525.jpg" data-src="WorldMusicInstituteWEB-780x525.jpg">
+    </div>
+
+    <section id="selected-treatments">
+      <h4>Selected Treatments</h4>
+      <div class="flex-row">
+        <div class="treatment-slot">
+          <select id="select-1" class="treatment-select">
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+            <option value="D">D</option><option value="E">E</option><option value="F">F</option>
+            <option value="G">G</option><option value="H">H</option><option value="I">I</option>
+            <option value="J">J</option><option value="K">K</option><option value="L">L</option>
+          </select>
+          <figure class="treatment-figure">
+            <img class="treatment-bg">
+          </figure>
+        </div>
+        <div class="treatment-slot">
+          <select id="select-2" class="treatment-select">
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+            <option value="D">D</option><option value="E">E</option><option value="F">F</option>
+            <option value="G">G</option><option value="H">H</option><option value="I">I</option>
+            <option value="J">J</option><option value="K">K</option><option value="L">L</option>
+          </select>
+          <figure class="treatment-figure">
+            <img class="treatment-bg">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos">
+      <br/><br/>
+      <h4>A / B</h2>
+      <div class="flex-row">
+        <figure>
+          <img id="image-a" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg">
+        </figure>
+        <figure>
+          <img id="image-b" class="filter" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg">
+        </figure>
+      </div>
+      <h4>C / D</h2>
+      <div class="flex-row">
+        <figure>
+          <img class="filter" id="image-one" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+        <figure>
+          <img class="filter" id="image-two" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+      </div>
+      <h4>E / F</h2>
+      <div class="flex-row">
+        <figure>
+          <img class="filter" id="image-three" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+        <figure>
+          <img class="filter" id="image-four" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+      </div>
+      <h4>G / H</h2>
+      <div class="flex-row">
+        <figure>
+          <img class="filter" id="image-five" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+        <figure>
+          <img class="filter" id="image-six" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+      </div>
+      <h4>I / J</h2>
+      <div class="flex-row">
+        <figure>
+          <img class="filter" id="image-seven" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+        <figure>
+          <img class="filter" id="image-eight" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+      </div>
+      <h4>K / L</h4>
+      <div class="flex-row">
+        <figure>
+          <img class="filter" id="image-nine" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+        <figure>
+          <img class="filter" id="image-ten" src="12-21-25-Phill-Niblock-Winter-Solstice-780x525.jpg" crossorigin="anonymous">
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>
