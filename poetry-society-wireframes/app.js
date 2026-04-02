@@ -14,6 +14,10 @@ const PAGE_MAP = {
   'voices-listen-detail':  'page-voices-listen-detail',
   'essay-detail':          'page-essay-detail',
   'awards':                'page-awards',
+  'award-annual':          'page-award-annual',
+  'award-four-quartets':   'page-award-four-quartets',
+  'award-chapbook':        'page-award-chapbook',
+  'award-frost-shelley':   'page-award-frost-shelley',
   'events':                'page-events',
   'events-past':           'page-events-past',
   'event-detail':          'page-event-detail',
@@ -40,6 +44,10 @@ const NAV_PARENT = {
   'about-news-detail':    'about',
   'program-detail':       'programs',
   'search-results':       'search',
+  'award-annual':         'awards',
+  'award-four-quartets':  'awards',
+  'award-chapbook':       'awards',
+  'award-frost-shelley':  'awards',
   'author':               null,
   'shop':                 'shop',
 };
@@ -158,7 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (searchBtnResults) {
-    searchBtnResults.addEventListener('click', () => doSearch(searchInputResults.value));
+    searchBtnResults.addEventListener('click', () => {
+      if (searchInputResults) searchInputResults.value = '';
+      navigate('search');
+    });
   }
   if (searchInputResults) {
     searchInputResults.addEventListener('keydown', e => {
